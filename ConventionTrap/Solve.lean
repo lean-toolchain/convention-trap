@@ -42,7 +42,7 @@ def dischargeTactic : Name → TermElabM (Option (TSyntax `tactic))
   | `assumption => some <$> `(tactic| (intros; assumption))
   | `omega => some <$> `(tactic| (intros; omega))
   | `positivity => some <$> `(tactic| (intros; positivity))
-  | `linarith => some <$> `(tactic| (intros; linarith))
+  | `linarith => some <$> `(tactic| (intros; simp only [Set.mem_Ioi, Set.mem_Ici, Set.mem_Ioo, Set.mem_Icc, Set.mem_Ioc, Set.mem_Ico] at *; linarith))
   | `nlinarith => some <$> `(tactic| (intros; nlinarith [sq_nonneg (0 : ℕ)]))
   | `simp_arith => some <$> `(tactic| (intros; simp_all +arith; done))
   | `simp => some <$> `(tactic| (intros; simp_all; done))
@@ -56,6 +56,7 @@ def structuralTactics : TermElabM (Array (TSyntax `tactic)) := do
   return #[← `(tactic| (intros; infer_instance)),
     ← `(tactic| (intros; exact Set.toFinite _)),
     ← `(tactic| (intros; fun_prop)),
+    ← `(tactic| (intros; first | exact HasDerivAt.differentiableAt (by assumption) | exact DifferentiableOn.differentiableAt (by assumption) (by assumption))),
     ← `(tactic| (intros; refine ⟨?_, ?_⟩ <;>
         first | infer_instance | assumption | exact ⟨_, ‹_›⟩ | (simp_all; done))),
     ← `(tactic| (intros; first
