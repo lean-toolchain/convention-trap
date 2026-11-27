@@ -141,11 +141,6 @@ discharged: 0
 
 namespace NoiseRegression
 
-theorem deriv_from_hasDerivAt (f : ℝ → ℝ) (x y : ℝ) (h : HasDerivAt f y x) :
-    deriv f x = y := h.deriv
-/-- info: discharged: 1 -/
-#guard_msgs in #trap_check deriv_from_hasDerivAt
-
 set_option linter.conventionTrap.mode "ci" in
 theorem sqrt_from_Ioi (x : ℝ) (h : x ∈ Set.Ioi 0) : Real.sqrt x ^ 2 = x :=
   Real.sq_sqrt (le_of_lt h)
