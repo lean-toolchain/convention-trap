@@ -154,3 +154,9 @@ set_option linter.conventionTrap.mode "ci" in
 #guard_msgs in #trap_check sqrt_from_Ioi
 
 end NoiseRegression
+
+/--
+info: card benign: Nat.card α ⊢ Finite α
+discharged: 0
+-/
+#guard_msgs in #trap_check Nat.card_pos_iff

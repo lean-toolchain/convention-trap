@@ -351,9 +351,12 @@ partial def visit (e : Expr) (ctx : Ctx) : DetectM Unit := do
         -- conjunction is false regardless of the right one, so the right side may assume it.
         visit args[0]! { ctx with atom := none }
         visit args[1]! (← addHyp { ctx with atom := none } args[0]!)
-    | some ``Or, 2 | some ``Iff, 2 =>
+    | some ``Or, 2 =>
       visit args[0]! { ctx with atom := none }
       visit args[1]! { ctx with atom := none }
+    | some ``Iff, 2 =>
+      visit args[0]! { ctx with atom := some e }
+      visit args[1]! { ctx with atom := some e }
     | some ``Exists, 2 => visit args[1]! { ctx with atom := none }
     | some ``ite, 5 =>
       let c := args[1]!

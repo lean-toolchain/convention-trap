@@ -69,6 +69,7 @@ def structuralTactics : TermElabM (Array (TSyntax `tactic)) := do
 /-- Tactics used to show that a statement is *still true* in the junk region (benign). -/
 def benignTactics : TermElabM (Array (TSyntax `tactic)) := do
   return #[← `(tactic| (intros; omega)),
+    ← `(tactic| (intros; simp_all [Nat.card_pos_iff]; done)),
     ← `(tactic| (intros; simp_all [Nat.sub_eq_zero_of_le, div_zero, inv_zero, zero_div,
         Nat.div_zero, Int.ediv_zero, Nat.mod_zero, Int.emod_zero,
         Real.sqrt_eq_zero_of_nonpos, Real.log_zero, Int.toNat_of_nonpos,
