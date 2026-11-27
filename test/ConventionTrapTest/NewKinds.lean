@@ -149,8 +149,8 @@ theorem deriv_from_hasDerivAt (f : ℝ → ℝ) (x y : ℝ) (h : HasDerivAt f y 
 set_option linter.conventionTrap.mode "ci" in
 theorem sqrt_from_Ioi (x : ℝ) (h : x ∈ Set.Ioi 0) : Real.sqrt x ^ 2 = x :=
   Real.sq_sqrt (le_of_lt h)
-/-- info: discharged: 1 -/
 set_option linter.conventionTrap.mode "ci" in
+/-- info: discharged: 1 -/
 #guard_msgs in #trap_check sqrt_from_Ioi
 
 end NoiseRegression

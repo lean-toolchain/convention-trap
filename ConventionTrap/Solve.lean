@@ -56,7 +56,9 @@ def structuralTactics : TermElabM (Array (TSyntax `tactic)) := do
   return #[← `(tactic| (intros; infer_instance)),
     ← `(tactic| (intros; exact Set.toFinite _)),
     ← `(tactic| (intros; fun_prop)),
-    ← `(tactic| (intros; first | exact HasDerivAt.differentiableAt (by assumption) | exact DifferentiableOn.differentiableAt (by assumption) (by assumption))),
+    ← `(tactic| (intros; match goal with
+        | h : HasDerivAt _ _ _ ⊢ _ => exact h.differentiableAt
+        | h : DifferentiableOn _ _ _ ⊢ _ => exact h.differentiableAt (by assumption))),
     ← `(tactic| (intros; refine ⟨?_, ?_⟩ <;>
         first | infer_instance | assumption | exact ⟨_, ‹_›⟩ | (simp_all; done))),
     ← `(tactic| (intros; first
