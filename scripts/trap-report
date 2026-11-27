@@ -1,0 +1,6 @@
+#!/bin/sh
+# CI report: runs scripts/TrapReport.lean in the Lean interpreter inside the current Lake workspace.
+# (A native `lake exe` would have to compile all of Mathlib to C.)
+# Usage: run from a workspace that requires `convention-trap` (or from this repo), after `lake build`.
+TOOL_DIR=$(cd "$(dirname "$0")/.." && pwd)
+exec lake env lean --run "$TOOL_DIR/scripts/TrapReport.lean" "$@"
