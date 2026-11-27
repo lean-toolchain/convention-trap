@@ -1,0 +1,6031 @@
+[
+ {
+  "repo": "formal-conjectures",
+  "commit": "cccaef453",
+  "msg": "fix(ErdosProblems/951) (#7935)",
+  "tags": [
+   "pos_guard-",
+   "int_cast+",
+   "sub-"
+  ],
+  "size": 20
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "025583ade",
+  "msg": "fix(ErdosProblems/349): record Geneson's counterexample to the golden-ratio conjecture (#8002)",
+  "tags": [
+   "pos_guard+",
+   "int_cast-",
+   "sub+"
+  ],
+  "size": 18
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "9788d2a6f",
+  "msg": "fix(Wikipedia/HardyLittlewood): Fix evenness requirement (#7881) (#7926)",
+  "tags": [
+   "pos_guard+"
+  ],
+  "size": 10
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "2de491f90",
+  "msg": "fix(ErdosProblems/785) (#7983)",
+  "tags": [
+   "int_cast-",
+   "sub-"
+  ],
+  "size": 42
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "083f7d02c",
+  "msg": "fix(Wikipedia): refine weighing and Butson–Hadamard conjectures (#8019)",
+  "tags": [
+   "pos_guard+"
+  ],
+  "size": 100
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "1f521b5d5",
+  "msg": "Erdős 341: statement requires positive, strictly increasing sequence (#7645)",
+  "tags": [
+   "pos_guard+"
+  ],
+  "size": 10
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "3fa745850",
+  "msg": "misformalization/ai-audit-tracker (#8015)",
+  "tags": [
+   "int_cast+"
+  ],
+  "size": 25
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "9b214fa11",
+  "msg": "fix(GreensOpenProblems/29): separate the open problem from the false subset variant (#7810)",
+  "tags": [
+   "pos_guard+",
+   "int_cast+"
+  ],
+  "size": 36
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "2f91d251c",
+  "msg": "feat(ErdosProblems): prove 423, 1098, 1193, 427 solved statements (#7668)",
+  "tags": [
+   "pos_guard+",
+   "sub+",
+   "div+"
+  ],
+  "size": 86
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "d995ef5d3",
+  "msg": "fix(GreensOpenProblems/22, ErdosProblems/503): state two bounds without junk values of `sInf`/`sSup` (#6951)",
+  "tags": [
+   "domain+"
+  ],
+  "size": 17
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "021945646",
+  "msg": "fix(GreensOpenProblems/27): `green_27.lower` is solved by Cao–Yuan (#6968)",
+  "tags": [
+   "int_cast+",
+   "domain+"
+  ],
+  "size": 21
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "2b66de885",
+  "msg": "fix(ErdosProblems/422): prove that the Q-sequence is not eventually constant (#7182)",
+  "tags": [
+   "pnat+",
+   "sub+"
+  ],
+  "size": 39
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "c22dd4e9e",
+  "msg": "fix(ErdosProblems/887): rosenfeld_4 is false, fix its docstring (#7218)",
+  "tags": [
+   "pos_guard+",
+   "sub+"
+  ],
+  "size": 17
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "eb42d60a3",
+  "msg": "feat(ErdosProblems): add statement for Erdős Problem 882 (#5093)",
+  "tags": [
+   "pos_guard+",
+   "int_cast+",
+   "sub+",
+   "domain+"
+  ],
+  "size": 153
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "c1deb8f70",
+  "msg": "fix(OEIS/60957): record disproof of prime-exponent interpolation (#7038)",
+  "tags": [
+   "pos_guard+",
+   "int_cast+"
+  ],
+  "size": 120
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "e47a327f7",
+  "msg": "fix(ErdosProblems/295): define `k` without the proof of `exists_k` (#6952)",
+  "tags": [
+   "int_cast+",
+   "div+"
+  ],
+  "size": 5
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "3174f905c",
+  "msg": "fix(GreensOpenProblems/25): remove the redundant upper-bound variant (#7007)",
+  "tags": [
+   "pos_guard-",
+   "int_cast-"
+  ],
+  "size": 13
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "927610044",
+  "msg": "feat(ErdosProblems): add statement of Erdős Problem 311 (#6016)",
+  "tags": [
+   "pos_guard+",
+   "int_cast+",
+   "domain+"
+  ],
+  "size": 91
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "301e82fc9",
+  "msg": "Add cycle-cover API and clarify the Alon–Tarsi statement's scope (#7056)",
+  "tags": [
+   "int_cast+",
+   "div+"
+  ],
+  "size": 39
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "ea1dae34a",
+  "msg": "fix(ErdosProblems/30): state the Erdős–Turán bound as an upper bound (#6949)",
+  "tags": [
+   "sub+"
+  ],
+  "size": 5
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "98ccbd84a",
+  "msg": "docs(ErdosProblems/513): correct the docstring of `erdos_513.variants.lower_bound` (#6948)",
+  "tags": [
+   "div+"
+  ],
+  "size": 5
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "5973a7fd2",
+  "msg": "fix(ErdosProblems/65): state the GKS bound for large k, add the Liu–Montgomery bound (#7110)",
+  "tags": [
+   "int_cast+",
+   "sub+",
+   "div+",
+   "domain+"
+  ],
+  "size": 24
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "15bd12092",
+  "msg": "fix(ErdosProblems/319): answer `erdos_319.variants.isTheta` with `fun N ↦ N` (#6747)",
+  "tags": [
+   "int_cast+"
+  ],
+  "size": 10
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "57ddd22fa",
+  "msg": "fix(Paper/NLSCritical): use the spatial gradient in the Hamiltonian (#6845)",
+  "tags": [
+   "div+"
+  ],
+  "size": 4
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "c15c51979",
+  "msg": "fix(GreensOpenProblems/31): use the Babai–Sós Sidon notion in the abe… (#6883)",
+  "tags": [
+   "div+"
+  ],
+  "size": 63
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "34dced3db",
+  "msg": "fix(Mathoverflow/10799): require monotonicity in the isoperimetric inequality (#6844)",
+  "tags": [
+   "pos_guard+"
+  ],
+  "size": 5
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "cb7b46af4",
+  "msg": "fix(ErdosProblems/11): align problem 11 with 'every large odd integer' (#6650)",
+  "tags": [
+   "div+"
+  ],
+  "size": 26
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "d838afa7a",
+  "msg": "fix(ErdosProblems/457): variants.qnk follows from erdos_457 (#6684)",
+  "tags": [
+   "domain+"
+  ],
+  "size": 20
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "d4788aae7",
+  "msg": "fix(ErdosProblems/1108): restrict factorial indices to be positive (#6488)",
+  "tags": [
+   "pos_guard+"
+  ],
+  "size": 19
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "137aec5c7",
+  "msg": "fix(GreensOpenProblems/1): `green_1` is true (#6748)",
+  "tags": [
+   "pos_guard+"
+  ],
+  "size": 12
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "7d450ef6d",
+  "msg": "Fix the upper bound for snake-in-the-box (#6763)",
+  "tags": [
+   "pos_guard+",
+   "sub+",
+   "domain+"
+  ],
+  "size": 65
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "6a6c705ce",
+  "msg": "fix(ErdosProblems/968): the increasing and decreasing triple variants are true (#6752)",
+  "tags": [
+   "sub+",
+   "div+"
+  ],
+  "size": 22
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "a2ea058f0",
+  "msg": "fix(ErdosProblems/80): `erdos_80.parts.i` is false (#6751)",
+  "tags": [
+   "pos_guard+"
+  ],
+  "size": 14
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "c22507322",
+  "msg": "fix(ErdosProblems/44): `erdos_44.variants.empty_start` is true (#6750)",
+  "tags": [
+   "sub+"
+  ],
+  "size": 14
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "aa12eefa1",
+  "msg": "fix(ErdosProblems/331): `erdos_331.variants.ruzsa` is true (#6749)",
+  "tags": [
+   "sub+"
+  ],
+  "size": 16
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "aa320e1b7",
+  "msg": "fix(ErdosProblems/1084): mark `erdos_1084.variants.triangular_optimal_d2` as solved (#6743)",
+  "tags": [
+   "sub+"
+  ],
+  "size": 9
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "eb6d557b3",
+  "msg": "feat(Books/Bugeaud) Problem 32 (solved) (#5484)",
+  "tags": [
+   "pos_guard+",
+   "int_cast+",
+   "domain+"
+  ],
+  "size": 368
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "46aa5a8ef",
+  "msg": "fix(ErdosProblems/53): divide by log log |A| in the Erdős–Szemerédi bound (#6637)",
+  "tags": [
+   "div+"
+  ],
+  "size": 12
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "2d9220235",
+  "msg": "fix(Books/BugeaudDistributionModuloOne): Problem10_6 reassessment (#5018)",
+  "tags": [
+   "pos_guard+",
+   "int_cast+",
+   "sub+",
+   "div+",
+   "domain+"
+  ],
+  "size": 197
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "c80f32613",
+  "msg": "fix(OEIS/109074): define A005156 combinatorially and mark solved (#6513)",
+  "tags": [
+   "int_cast+",
+   "sub-"
+  ],
+  "size": 89
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "3db6db41f",
+  "msg": "fix(ErdosProblems/44): state the Sidon lower bound over ℝ (#6490)",
+  "tags": [
+   "domain+"
+  ],
+  "size": 2
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "79256c112",
+  "msg": "fix(Wikipedia/Falconer): falconer_conjecture is false at d = 1 (#5452)",
+  "tags": [
+   "sub+"
+  ],
+  "size": 16
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "e9234a1e9",
+  "msg": "fix(ErdosProblems/147): require a nonempty witness graph (#6481)",
+  "tags": [
+   "pos_guard+"
+  ],
+  "size": 16
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "572881c4a",
+  "msg": "fix(ErdosProblems/35): assume positive density in Plünnecke variant (#6483)",
+  "tags": [
+   "pos_guard+"
+  ],
+  "size": 8
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "3e8123e46",
+  "msg": "fix(ErdosProblems/308): shift Croot's bounds by one (#6484)",
+  "tags": [
+   "pos_guard+"
+  ],
+  "size": 11
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "9762066d8",
+  "msg": "fix(ErdosProblems/361): drop the elementary Theta asymptotic variant (#6487)",
+  "tags": [
+   "pos_guard-",
+   "int_cast-"
+  ],
+  "size": 12
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "88d4f609d",
+  "msg": "fix(ErdosProblems/664): restore the block-size bound in block_design (#6491)",
+  "tags": [
+   "pos_guard+",
+   "domain+"
+  ],
+  "size": 9
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "8d58a2291",
+  "msg": "fix(ErdosProblems/559): make Rödl-Szemerédi log exponent real (#6493)",
+  "tags": [
+   "int_cast+"
+  ],
+  "size": 2
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "f376614d5",
+  "msg": "fix(ErdosProblems/542): exclude 1 from the coverage sets, make c real (#6494)",
+  "tags": [
+   "int_cast+"
+  ],
+  "size": 25
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "ae0a0b4cd",
+  "msg": "fix(ErdosProblems/748): use real exponent in the lower bound (#6495)",
+  "tags": [
+   "int_cast+",
+   "div-"
+  ],
+  "size": 6
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "ad6e5df13",
+  "msg": "chore: status corrections across seven problem files (#5447)",
+  "tags": [
+   "sub+"
+  ],
+  "size": 91
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "29d7b1965",
+  "msg": "fix(Wikipedia/LehmerMahlerMeasureProblem): exclude antireciprocal f (#6499)",
+  "tags": [
+   "sub+"
+  ],
+  "size": 8
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "cd26e0a32",
+  "msg": "fix(ErdosProblems/868): count unordered representations, fix constant (#6500)",
+  "tags": [
+   "domain+"
+  ],
+  "size": 13
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "0e44b8943",
+  "msg": "fix(GreensOpenProblems/37): replace the unconstrained O/o variants (#6501)",
+  "tags": [
+   "pos_guard+",
+   "int_cast-",
+   "sub+",
+   "domain+"
+  ],
+  "size": 32
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "6d1059ab4",
+  "msg": "fix(WrittenOnTheWallII/GraphConjecture141): drop the floor on girth/2 (#6502)",
+  "tags": [
+   "sub+",
+   "div-"
+  ],
+  "size": 42
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "2eb2f367f",
+  "msg": "fix(WrittenOnTheWallII/GraphConjecture33): use dist_avg(M, V) (#6503)",
+  "tags": [
+   "pos_guard+",
+   "int_cast+"
+  ],
+  "size": 18
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "4a7594e93",
+  "msg": "fix(OEIS/167918): ask whether the ratio is bounded, state existence (#5543)",
+  "tags": [
+   "pos_guard+",
+   "div+",
+   "domain-"
+  ],
+  "size": 18
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "d9a4f0eb4",
+  "msg": "fix(GreensOpenProblems/38): the lower bound has been improved (#5535)",
+  "tags": [
+   "int_cast+",
+   "div+"
+  ],
+  "size": 35
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "94b187008",
+  "msg": "feat(Book/Bugeaud): Problem 10.53 (solved) (#6437)",
+  "tags": [
+   "int_cast+",
+   "div+",
+   "domain+"
+  ],
+  "size": 236
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "1f19f9e2a",
+  "msg": "feat(Books/Bugeaud): Problem 10.61 (#6439)",
+  "tags": [
+   "pos_guard+",
+   "int_cast+",
+   "sub+",
+   "div+",
+   "domain+"
+  ],
+  "size": 183
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "28e6bdd6b",
+  "msg": "feat(BugeadDistributionModuloOne/Problem10_4): add `formal_proof` (#6447)",
+  "tags": [
+   "pos_guard+",
+   "sub+"
+  ],
+  "size": 44
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "daa38c687",
+  "msg": "Formalize supplementary statements for Erdős Problem 873 and mark the all-scale conjecture as solved (#5544)",
+  "tags": [
+   "pos_guard+",
+   "int_cast+",
+   "div+",
+   "domain+"
+  ],
+  "size": 36
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "21e455694",
+  "msg": "Erdős 698: link the formal proof to the main statement (#6092)",
+  "tags": [
+   "sub+",
+   "div+"
+  ],
+  "size": 7
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "aa6b901e5",
+  "msg": "fix(ForMathlib): fix off-diagonal constraint in lovaszThetaFunction (#6100)",
+  "tags": [
+   "pos_guard+",
+   "int_cast+",
+   "domain+"
+  ],
+  "size": 180
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "d7d80f423",
+  "msg": "Prove two accumulation-point statements for (3/2)^n mod 1 (#6053)",
+  "tags": [
+   "pos_guard+",
+   "int_cast+",
+   "sub+",
+   "div+"
+  ],
+  "size": 56
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "035d4e59e",
+  "msg": "fix(ErdosProblems/697): correct thresholds and zero case (#5271)",
+  "tags": [
+   "pos_guard+"
+  ],
+  "size": 7
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "8c73b3507",
+  "msg": "fix(Books/Equidistribution): negate the transcendental (3/2)^n statement (#5838)",
+  "tags": [
+   "int_cast-",
+   "div+"
+  ],
+  "size": 23
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "a528dea8c",
+  "msg": "feat(ErdosProblems/405): Formalize the statements in Erdos Problem 405 (#3881)",
+  "tags": [
+   "sub+"
+  ],
+  "size": 96
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "bb9c3cde7",
+  "msg": "fix(ErdosProblems/1092): impose the edge budget at every subgraph size (#5820)",
+  "tags": [
+   "domain-"
+  ],
+  "size": 42
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "853c37c86",
+  "msg": "fix(GreensOpenProblems/41): ask for minCopies exactly, not a weaker bound (#5757)",
+  "tags": [
+   "pos_guard+",
+   "int_cast-"
+  ],
+  "size": 18
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "8e0b33665",
+  "msg": "fix(Wikipedia/WallSunSun): the Lucas parameters must not vary with p (#5550)",
+  "tags": [
+   "pos_guard+",
+   "int_cast+",
+   "sub+",
+   "domain+"
+  ],
+  "size": 119
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "7f8b9949f",
+  "msg": "feat(Other/VCDimConvex): make the universal statement interesting again (#6018)",
+  "tags": [
+   "pos_guard+"
+  ],
+  "size": 41
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "8b1e2cdc2",
+  "msg": "feat(Wikipedia/DiophantineTuple): prove two textbook statements (#6013)",
+  "tags": [
+   "pos_guard+"
+  ],
+  "size": 32
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "d8698b200",
+  "msg": "fix(GreensOpenProblems/16): forbid all nontrivial Zhao solutions (#5724)",
+  "tags": [
+   "int_cast-",
+   "div-"
+  ],
+  "size": 19
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "bcb1cdc17",
+  "msg": "fix(Wikipedia/ArtinPrimitiveRootsConjecture): assume Hooley's hypothesis, not Dirichlet GRH (#5743)",
+  "tags": [
+   "pos_guard+",
+   "int_cast+",
+   "sub+",
+   "div-"
+  ],
+  "size": 56
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "827abea2e",
+  "msg": "Arxiv/1609.08688: fix five misformalisations in sIncreasingrTuples (#5347)",
+  "tags": [
+   "pos_guard+",
+   "int_cast+"
+  ],
+  "size": 52
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "b88a424b4",
+  "msg": "fix(Arxiv/2504.17644/Margulis): embed F[t] into F((t⁻¹)) via t ↦ X⁻¹ (#5825)",
+  "tags": [
+   "int_cast+"
+  ],
+  "size": 9
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "141936eb6",
+  "msg": "fix(ErdosProblems/700): state part (a) as a set-level characterization (#5830)",
+  "tags": [
+   "div+"
+  ],
+  "size": 6
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "4dc44d830",
+  "msg": "fix(Wikipedia/Mahler32): FLP bound is `1/p ≤ Ω(p/q)`, not strict (#5732)",
+  "tags": [
+   "pos_guard+"
+  ],
+  "size": 6
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "ec6219bcd",
+  "msg": "fix(WrittenOnTheWallII/GraphConjecture34): average nonzero pair distances (#5733)",
+  "tags": [
+   "pos_guard+",
+   "int_cast+"
+  ],
+  "size": 25
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "5cba0ffd1",
+  "msg": "fix(ErdosProblems/1000): exclude denominators dividing an earlier term (#5837)",
+  "tags": [
+   "pos_guard+"
+  ],
+  "size": 20
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "f53366e3b",
+  "msg": "fix(ErdosProblems/319): remove the tautological isBigO and isLittleO variants (#5843)",
+  "tags": [
+   "pos_guard-",
+   "int_cast-"
+  ],
+  "size": 39
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "5ba2dbfc1",
+  "msg": "fix(Wikipedia/BatemanHorn): define the constant via ordered partial products (#5828)",
+  "tags": [
+   "pos_guard+",
+   "int_cast-",
+   "div+"
+  ],
+  "size": 38
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "786dd04e2",
+  "msg": "fix(GreensOpenProblems/54): use Minkowski sumsets, not scalar dilations (#5762)",
+  "tags": [
+   "int_cast-"
+  ],
+  "size": 25
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "e9f62b9e9",
+  "msg": "fix(ErdosProblems/959): ask for the order of extremalGap, not a log-exponent (#5765)",
+  "tags": [
+   "int_cast+",
+   "domain-"
+  ],
+  "size": 8
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "dcbfdb732",
+  "msg": "fix(OEIS/55487): conclude the prime p exists instead of assuming it (#5744)",
+  "tags": [
+   "pos_guard-"
+  ],
+  "size": 9
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "73f8e05bf",
+  "msg": "fix(ErdosProblems/1074): state the EHS density conjecture as density 1 (#5819)",
+  "tags": [
+   "sub+",
+   "div-"
+  ],
+  "size": 7
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "254a2097f",
+  "msg": "fix(Wikipedia/RegularPrimes): restrict Kummer's criterion to even Bernoulli indices (#5723)",
+  "tags": [
+   "sub+"
+  ],
+  "size": 7
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "d162fe155",
+  "msg": "fix(WrittenOnTheWallII/GraphConjecture32): average distances within A (#5729)",
+  "tags": [
+   "int_cast+"
+  ],
+  "size": 15
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "177bc26f1",
+  "msg": "fix(Wikipedia/MeanValueProblem): put Tischler hypotheses on p(X+z)-p(z) (#5741)",
+  "tags": [
+   "sub+"
+  ],
+  "size": 26
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "2c4a47c30",
+  "msg": "fix(WrittenOnTheWallII/GraphConjecture23): average pairwise distances in M (#5736)",
+  "tags": [
+   "int_cast+"
+  ],
+  "size": 25
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "afec3ed5b",
+  "msg": "fix(GreensOpenProblems/72): make NoKInLine a question, not an assertion (#5756)",
+  "tags": [
+   "sub+"
+  ],
+  "size": 16
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "871fd81ba",
+  "msg": "fix(ErdosProblems/891): assume Dickson's conjecture in the Weisenberg variant (#5771)",
+  "tags": [
+   "div+"
+  ],
+  "size": 9
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "3989be63d",
+  "msg": "fix(ErdosProblems/422): specify Hofstadter's Q-sequence by a predicate (#5791)",
+  "tags": [
+   "pnat+",
+   "sub+"
+  ],
+  "size": 54
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "76d9568f5",
+  "msg": "fix(ErdosProblems/282): use distinct denominators; scope Graham answer (#5806)",
+  "tags": [
+   "sub-",
+   "domain-"
+  ],
+  "size": 37
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "0645686c8",
+  "msg": "fix(ErdosProblems/272): ask for the exact maximum, not an asymptotic (#5807)",
+  "tags": [
+   "int_cast-"
+  ],
+  "size": 2
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "24762c5be",
+  "msg": "EllipticCurveRank: docstring fixes and status of Goldfeld's r ≥ 2 variant (#5381)",
+  "tags": [
+   "div+"
+  ],
+  "size": 21
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "7d5fa7e57",
+  "msg": "fix(OEIS/84046): a 27 = 0 but 27 is not an even square (#5587)",
+  "tags": [
+   "sub+"
+  ],
+  "size": 11
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "c9be232b8",
+  "msg": "fix(OEIS/100475): ask the existential question for positive starts (#5567)",
+  "tags": [
+   "pos_guard+"
+  ],
+  "size": 35
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "0c5ceace6",
+  "msg": "fix(ErdosProblems/1104): state the (1-o(1)) and (2+o(1)) bounds (#5816)",
+  "tags": [
+   "pos_guard-",
+   "int_cast+",
+   "sub+"
+  ],
+  "size": 20
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "2a74ddff1",
+  "msg": "fix(ErdosProblems/124): require positive exponents in melfi_construction (#5814)",
+  "tags": [
+   "pos_guard+"
+  ],
+  "size": 17
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "e0d54b193",
+  "msg": "fix(ErdosProblems/12): Schoen and Baier bounds hold for infinitely many N (#5813)",
+  "tags": [
+   "int_cast+"
+  ],
+  "size": 7
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "0dc45329f",
+  "msg": "fix(ErdosProblems/283): quantify over integer-valued polynomials (#5812)",
+  "tags": [
+   "int_cast+"
+  ],
+  "size": 42
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "e12f32f36",
+  "msg": "fix(ErdosProblems/366): state the Erdős–Graham uniqueness question (#5804)",
+  "tags": [
+   "pos_guard+"
+  ],
+  "size": 11
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "3efc52f85",
+  "msg": "fix(ErdosProblems/326): state the minimal-basis question from the source (#5802)",
+  "tags": [
+   "pos_guard+"
+  ],
+  "size": 28
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "9c248f2b1",
+  "msg": "fix(ErdosProblems/321): require positive iterated logs in upper bound (#5801)",
+  "tags": [
+   "domain+"
+  ],
+  "size": 6
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "c521073b5",
+  "msg": "fix(ErdosProblems/325): use Wooley's exponent 0.91709477 in the k = 3 bound (#5798)",
+  "tags": [
+   "int_cast+"
+  ],
+  "size": 7
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "92113b391",
+  "msg": "fix(ErdosProblems/349): count connected components of the good α set (#5797)",
+  "tags": [
+   "pos_guard+"
+  ],
+  "size": 10
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "8e5586166",
+  "msg": "fix(ErdosProblems/409): ask for the density and assume σ-termination (#5794)",
+  "tags": [
+   "int_cast-"
+  ],
+  "size": 13
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "e928ab47c",
+  "msg": "fix(ErdosProblems/377): state the almost-all variant with density one (#5792)",
+  "tags": [
+   "pos_guard+",
+   "int_cast+",
+   "sub+"
+  ],
+  "size": 6
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "9b88d91ba",
+  "msg": "fix(ErdosProblems/564): make the constant c a positive real (#5790)",
+  "tags": [
+   "pos_guard-"
+  ],
+  "size": 2
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "aec89b98d",
+  "msg": "fix(ErdosProblems/486): only forbid residues modulo n for 0 < n < m (#5788)",
+  "tags": [
+   "pos_guard+"
+  ],
+  "size": 12
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "a6c0a7426",
+  "msg": "fix(ErdosProblems/450): ask for the window threshold y(ε,n) itself (#5786)",
+  "tags": [
+   "int_cast+"
+  ],
+  "size": 19
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "dc4ca741e",
+  "msg": "fix(ErdosProblems/44): greedy Sidon construction gives size N^{1/3} (#5787)",
+  "tags": [
+   "domain-"
+  ],
+  "size": 5
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "3f4d64fcd",
+  "msg": "fix(ErdosProblems/429): quantify the shift n over the integers (#5785)",
+  "tags": [
+   "domain+"
+  ],
+  "size": 6
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "47a6c1a08",
+  "msg": "fix(ErdosProblems/830): count amicable pairs a ≤ b instead of ℕ-halving (#5784)",
+  "tags": [
+   "div-"
+  ],
+  "size": 5
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "a8af3b51d",
+  "msg": "fix(ErdosProblems/538): ask for the best possible bound, not convergence (#5782)",
+  "tags": [
+   "pos_guard-",
+   "div-",
+   "domain-"
+  ],
+  "size": 18
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "caf276695",
+  "msg": "fix(ErdosProblems/60): restrict He-Ma-Yang variant to q = 2^k (#5776)",
+  "tags": [
+   "sub+"
+  ],
+  "size": 7
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "4f325aa96",
+  "msg": "fix(ErdosProblems/692): count local maximum plateaus with encard (#5774)",
+  "tags": [
+   "int_cast-",
+   "sub+"
+  ],
+  "size": 14
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "05cebe2df",
+  "msg": "fix(ErdosProblems/785): take A, B positive; Chen–Fang bound uses min (#5773)",
+  "tags": [
+   "int_cast-"
+  ],
+  "size": 29
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "f46252167",
+  "msg": "fix(ErdosProblems/884): assume the qualitative prime tuples conjecture (#5770)",
+  "tags": [
+   "int_cast+"
+  ],
+  "size": 26
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "e03eccd16",
+  "msg": "fix(ErdosProblems/888): semiprime bound has leading constant 1 (#5768)",
+  "tags": [
+   "domain-"
+  ],
+  "size": 4
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "1a375ce84",
+  "msg": "fix(ErdosProblems/90): add the size bound and shortest-vector gap to Lemma 2 (#5767)",
+  "tags": [
+   "pos_guard+",
+   "int_cast+",
+   "sub+",
+   "div+"
+  ],
+  "size": 21
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "5df8ad54f",
+  "msg": "fix(ErdosProblems/920): Bradač's lower bound has exponent 1 - 1/(k-1) for k ≥ 5 (#5764)",
+  "tags": [
+   "pos_guard+"
+  ],
+  "size": 9
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "670c4e23a",
+  "msg": "fix(GreensOpenProblems/51): Ruzsa's upper bound has exponent 2/3 + ε (#5759)",
+  "tags": [
+   "pos_guard+"
+  ],
+  "size": 9
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "5e960556e",
+  "msg": "fix(Mathoverflow/10799): restate weak_kahn_kalai as in Kahn-Kalai (2006) (#5755)",
+  "tags": [
+   "int_cast+",
+   "div+",
+   "domain+"
+  ],
+  "size": 27
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "a5dc82414",
+  "msg": "fix(LittProblems/1): require the ODE denominator to be nonzero at the solution (#5754)",
+  "tags": [
+   "div+"
+  ],
+  "size": 9
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "bdc88821b",
+  "msg": "fix(ForMathlib/NumberTheory/NormalNumber): define normality via digit blocks (#5752)",
+  "tags": [
+   "int_cast+",
+   "div+"
+  ],
+  "size": 30
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "dccc51924",
+  "msg": "fix(OEIS/38552): compare odd and even fundamental discriminants, not radicands (#5751)",
+  "tags": [
+   "int_cast+"
+  ],
+  "size": 16
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "872d540ae",
+  "msg": "fix(OEIS/113213): require the prime pair 2^n ± m to eventually exist (#5750)",
+  "tags": [
+   "sub+"
+  ],
+  "size": 5
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "e26fecb23",
+  "msg": "fix(OptimizationConstants/1a): sup over [-1/2,1/2] and restrict C1a to L² f (#5749)",
+  "tags": [
+   "sub+"
+  ],
+  "size": 34
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "94906fb77",
+  "msg": "fix(OEIS/87455): state Benford's law for the full significand (#5747)",
+  "tags": [
+   "int_cast+",
+   "div-"
+  ],
+  "size": 21
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "3b66c8626",
+  "msg": "fix(OEIS/46969): state Conjecture I over primes p with 2p-1 prime (#5745)",
+  "tags": [
+   "div+"
+  ],
+  "size": 9
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "0f8410217",
+  "msg": "fix(ErdosProblems/346): the golden-ratio limit fails for a lacunary counterexample (#5571)",
+  "tags": [
+   "div+",
+   "domain+"
+  ],
+  "size": 11
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "b16d38462",
+  "msg": "fix(OEIS/24356): the only-zero claim also requires a 4 = 0 (#5555)",
+  "tags": [
+   "int_cast+"
+  ],
+  "size": 31
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "a639d2891",
+  "msg": "fix(ErdosProblems/1): the distinct subset sums conjecture is false (#5581)",
+  "tags": [
+   "pos_guard+",
+   "int_cast+",
+   "div+"
+  ],
+  "size": 107
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "8fff9a73c",
+  "msg": "fix(Erdos/939): state the second question as finiteness; r ≥ 6 infinitude  (#5396)",
+  "tags": [
+   "sub+"
+  ],
+  "size": 27
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "c8c172e1e",
+  "msg": "fix(GreensOpenProblems/14): the exponential lower bounds were contentless, and the polynomial question has a known answer (#5445)",
+  "tags": [
+   "pos_guard+"
+  ],
+  "size": 14
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "764675937",
+  "msg": "fix(ErdosProblems/1095): log g(k) ≍ k / log k is a Θ statement (#5530)",
+  "tags": [
+   "int_cast+",
+   "div-"
+  ],
+  "size": 3
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "27db7b783",
+  "msg": "fix(Wikipedia/Kakeya): require positive dimension in kakeya_finite (#5503)",
+  "tags": [
+   "pos_guard+"
+  ],
+  "size": 4
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "add65a6cd",
+  "msg": "fix(ForMathlib/DiamExtra): remove two false proof_wanted statements (#5465)",
+  "tags": [
+   "pos_guard-"
+  ],
+  "size": 15
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "2a0126f6e",
+  "msg": "fix(ErdosProblems/726): take the remainder in ℕ before casting (#5508)",
+  "tags": [
+   "div+"
+  ],
+  "size": 3
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "506e56a6e",
+  "msg": "fix(GreensOpenProblems/32): dirichlet_regime needs ⌊ω p⌋₊ > 100 (#5489)",
+  "tags": [
+   "sub+"
+  ],
+  "size": 6
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "c90271f0f",
+  "msg": "fix(ErdosProblems/1026): admissibleConstants quantifies over positive sequences (#5506)",
+  "tags": [
+   "pos_guard+"
+  ],
+  "size": 7
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "bafe088af",
+  "msg": "fix(ErdosProblems/683): restore the minimum with n - k + 1 in the three bounds (#5504)",
+  "tags": [
+   "int_cast+",
+   "sub+"
+  ],
+  "size": 26
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "46e1ac611",
+  "msg": "fix(ErdosProblems/756): require m ≥ 1 in bhowmick_general (#5502)",
+  "tags": [
+   "pos_guard+"
+  ],
+  "size": 5
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "f28e2aac1",
+  "msg": "fix(ErdosProblems/394): the logarithmic saving exponent is a real number (#5521)",
+  "tags": [
+   "pos_guard-",
+   "int_cast+"
+  ],
+  "size": 2
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "cb656b09f",
+  "msg": "fix(OEIS/167918): drop the existence hypothesis from conjecture1 (#5529)",
+  "tags": [
+   "pos_guard-",
+   "domain-"
+  ],
+  "size": 6
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "bb4e6ac41",
+  "msg": "fix(ErdosProblems/830.lean) (#5483)",
+  "tags": [
+   "div+"
+  ],
+  "size": 5
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "0a8b856c0",
+  "msg": "fix(GreensOpenProblems/38): sign conditions in the growth-rate statements (#5511)",
+  "tags": [
+   "int_cast+"
+  ],
+  "size": 12
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "9534f2b5b",
+  "msg": "fix(ErdosProblems/263): state Koizumi's theorem with a nondecreasing sequence (#5500)",
+  "tags": [
+   "pos_guard+",
+   "int_cast+"
+  ],
+  "size": 33
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "44e601797",
+  "msg": "fix(OEIS/113010): ask whether another fixed point exists (#5522)",
+  "tags": [
+   "pos_guard-"
+  ],
+  "size": 2
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "ef89599cc",
+  "msg": "fix(ErdosProblems/1048): require a positive root radius (#5507)",
+  "tags": [
+   "pos_guard+"
+  ],
+  "size": 4
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "0fc6741c4",
+  "msg": "fix(ErdosProblems/951): add the separation hypothesis to the Beurling variant (#5464)",
+  "tags": [
+   "pos_guard+"
+  ],
+  "size": 8
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "e99b54b6d",
+  "msg": "fix(ErdosProblems/978): sub_two needs no fixed (k - 2)-th power divisor (#5487)",
+  "tags": [
+   "sub+"
+  ],
+  "size": 7
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "f1190f847",
+  "msg": "fix(ErdosProblems/707): exclude modulus 0 in the Mian–Chowla and Hall counterexamples (#5493)",
+  "tags": [
+   "pos_guard+"
+  ],
+  "size": 8
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "5a8a055ad",
+  "msg": "fix(GreensOpenProblems/49): allow the factor 2 in the number of translates (#5494)",
+  "tags": [
+   "sub+"
+  ],
+  "size": 6
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "dea193cea",
+  "msg": "fix(Erdos/40): state the reduction to Erdős 28 for a single g, and prove it (#5378)",
+  "tags": [
+   "pos_guard-",
+   "int_cast+",
+   "sub+"
+  ],
+  "size": 86
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "b8a21903c",
+  "msg": "docs(FormalConjectures): cross-references, a duplicate declaration, and copy fixes (#5449)",
+  "tags": [
+   "sub+"
+  ],
+  "size": 43
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "a46176ee7",
+  "msg": "fix(Wikipedia/PierceBirkhoff): definition of IsSemiAlgebraic (#5480)",
+  "tags": [
+   "pos_guard+"
+  ],
+  "size": 10
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "e2640b91b",
+  "msg": "weak bsd statement (#5371)",
+  "tags": [
+   "div+"
+  ],
+  "size": 87
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "97c0f5c27",
+  "msg": "fix(OEIS/111291): state Colton's bound for sufficiently large x (#5233)",
+  "tags": [
+   "int_cast-"
+  ],
+  "size": 5
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "91166e295",
+  "msg": "fix(OEIS/108864): use A109883 per definition (#5230)",
+  "tags": [
+   "int_cast-",
+   "sub+"
+  ],
+  "size": 26
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "0552043ec",
+  "msg": "fix(ErdosProblems/424,822): use lower density for \"positive density\" (#4577)",
+  "tags": [
+   "pos_guard+"
+  ],
+  "size": 13
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "8fb9b56de",
+  "msg": "fix: Ramsey size linear (#5352)",
+  "tags": [
+   "pos_guard-",
+   "int_cast-",
+   "domain+"
+  ],
+  "size": 57
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "8824fa7bd",
+  "msg": "fix(OEIS/109074): define b as A005156 (per definition) and fix index shift (#5231)",
+  "tags": [
+   "sub+",
+   "div-"
+  ],
+  "size": 32
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "c1bc243e7",
+  "msg": "fix(OEIS/110854): quantify over A004275 per definition (#5232)",
+  "tags": [
+   "pos_guard-",
+   "int_cast-",
+   "sub-"
+  ],
+  "size": 9
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "43f5c4b5f",
+  "msg": "fix(ForMathlib): exclude the base point in distinctDistancesFrom (#5065)",
+  "tags": [
+   "sub-"
+  ],
+  "size": 5
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "c0008ab4e",
+  "msg": "feat(FormalConjecturesUtil): linter for answer(sorry) in solved statements (#5077)",
+  "tags": [
+   "pos_guard+"
+  ],
+  "size": 238
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "9e64bb9b3",
+  "msg": "fix(ErdosProblems/479): quantify integer k (#5242)",
+  "tags": [
+   "int_cast+"
+  ],
+  "size": 5
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "a9fb8e86c",
+  "msg": "fix(ErdosProblems/996): correct Fourier partial sums and tails (#5246)",
+  "tags": [
+   "sub+"
+  ],
+  "size": 6
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "97e268bfe",
+  "msg": "fix(ErdosProblems/683): add `k ≤ n / 2` (#4176)",
+  "tags": [
+   "sub-",
+   "div+"
+  ],
+  "size": 10
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "f19cf7f60",
+  "msg": "fix(Wikipedia): rename Polignac statement to generalized twin primes (#5176)",
+  "tags": [
+   "pos_guard+"
+  ],
+  "size": 6
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "8feeb0971",
+  "msg": "feat(Erdos/2): add covering system bound statement (#4313)",
+  "tags": [
+   "int_cast+"
+  ],
+  "size": 44
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "f2de2ed58",
+  "msg": "fix(VCDimConvex): exclude n = 0 degenerate case (#5030)",
+  "tags": [
+   "pos_guard+"
+  ],
+  "size": 4
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "e7f4b0e92",
+  "msg": "fix(ErdosProblems/477): range `b` over `{f(k) : k ∈ ℤ}` as the source and the docstrings say (#4991)",
+  "tags": [
+   "pos_guard-"
+  ],
+  "size": 14
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "ab7989605",
+  "msg": "fix(ErdosProblems/1055): `IsOfClass` must exclude lower classes (`p 2 = 13`, not `2`) (#4988)",
+  "tags": [
+   "pnat+",
+   "sub+"
+  ],
+  "size": 9
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "9ec87fd02",
+  "msg": "fix(OEIS/237271): `observation_carmichael` should quantify over Carmichael numbers (#4987)",
+  "tags": [
+   "pos_guard-",
+   "sub-"
+  ],
+  "size": 7
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "a2a45c075",
+  "msg": "feat(ErdosProblems/506): add circles-determined-by-n-points statement (#4396)",
+  "tags": [
+   "sub+"
+  ],
+  "size": 107
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "7e8918f9c",
+  "msg": "fix(WrittenOnTheWallII/100): use source definition of graph length (#4504)",
+  "tags": [
+   "domain-"
+  ],
+  "size": 44
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "4010c1f1b",
+  "msg": "feat(Bugeaud): Problem 10.9 (#4204)",
+  "tags": [
+   "pos_guard-",
+   "int_cast+",
+   "div+"
+  ],
+  "size": 126
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "0bd22d91e",
+  "msg": "Add proofs for four textbook statements (#4880)",
+  "tags": [
+   "pos_guard+",
+   "int_cast+",
+   "sub+",
+   "div+",
+   "domain+"
+  ],
+  "size": 164
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "163ac1ace",
+  "msg": "fix(Wikipedia): rule out negative radii in SquarePacking (#4863)",
+  "tags": [
+   "div+",
+   "domain+"
+  ],
+  "size": 31
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "1cef8c464",
+  "msg": "feat(ErdosProblems/660): add convex-polyhedron distinct-distances statement (#4397)",
+  "tags": [
+   "pos_guard+",
+   "int_cast+",
+   "sub+",
+   "div+"
+  ],
+  "size": 104
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "79afd32c9",
+  "msg": "Fix lander_parkin_selfridge: add missing positivity hypotheses on n, m (#4835)",
+  "tags": [
+   "pos_guard+"
+  ],
+  "size": 1
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "c2e0a029b",
+  "msg": "ErdosProblems/330: fix representability, density, and a typo (#4762)",
+  "tags": [
+   "pos_guard+"
+  ],
+  "size": 36
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "80b61d539",
+  "msg": "fix(Paper): correct Nisan example sensitivities (#4773)",
+  "tags": [
+   "pos_guard+"
+  ],
+  "size": 30
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "366715cf8",
+  "msg": "fix(ErdosProblems): record the maximizer for 434 (#4746)",
+  "tags": [
+   "sub+"
+  ],
+  "size": 22
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "de38a5951",
+  "msg": "fix(Erdős 124): correct the BEGL96 special case and link Lean proof (#4692)",
+  "tags": [
+   "pos_guard-"
+  ],
+  "size": 14
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "9cebb0091",
+  "msg": "fix(Wikipedia): make Frobenius traces integer-valued (#4742)",
+  "tags": [
+   "int_cast+",
+   "sub-"
+  ],
+  "size": 6
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "0dfe784ae",
+  "msg": "Fix two dead `formal_proof` links (#4748)",
+  "tags": [
+   "div-"
+  ],
+  "size": 4
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "eb5f135f5",
+  "msg": "Fix Erdős Problem 361 formalization (#4675)",
+  "tags": [
+   "pos_guard-",
+   "int_cast-"
+  ],
+  "size": 62
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "76923cc08",
+  "msg": "fix(GreensOpenProblems/72): add N ≥ k (#4523)",
+  "tags": [
+   "sub+"
+  ],
+  "size": 11
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "3944b5c51",
+  "msg": "fix(ErdosProblems): 888 (#4376)",
+  "tags": [
+   "int_cast+",
+   "domain+"
+  ],
+  "size": 64
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "db810e84d",
+  "msg": "feat(Bugeaud): Problem 10.8 and 10.7 (#4203)",
+  "tags": [
+   "pos_guard+",
+   "int_cast+",
+   "domain+"
+  ],
+  "size": 76
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "838af5f64",
+  "msg": "feat(ErdosProblems/221): add additive basis 2^k + a statement (#4338)",
+  "tags": [
+   "int_cast+",
+   "domain+"
+  ],
+  "size": 49
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "9742b2b9e",
+  "msg": "feat(ErdosProblems/872): primitive set game length statements (#4226)",
+  "tags": [
+   "pos_guard+",
+   "int_cast+",
+   "sub+",
+   "div+"
+  ],
+  "size": 199
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "a20ec630c",
+  "msg": "feat(ErdosProblems/459): add f(u) estimate statement (#4341)",
+  "tags": [
+   "sub+",
+   "domain+"
+  ],
+  "size": 57
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "fbe4917de",
+  "msg": "feat(ErdosProblems/154): add Sidon sumset equidistribution statement (#4340)",
+  "tags": [
+   "int_cast+",
+   "div+",
+   "domain+"
+  ],
+  "size": 86
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "2380a9ebe",
+  "msg": "fix(GreensOpenProblems/72): add `2 < k` (#4271)",
+  "tags": [
+   "sub+"
+  ],
+  "size": 6
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "9b6195752",
+  "msg": "feat(ErdosProblems/290): add harmonic-sum denominator statement (#4339)",
+  "tags": [
+   "pos_guard+",
+   "int_cast+"
+  ],
+  "size": 52
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "0c685f183",
+  "msg": "feat(Erdos655): formalise the disproof of the literal statement (regu… (#4190)",
+  "tags": [
+   "pos_guard+"
+  ],
+  "size": 16
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "0598b8f28",
+  "msg": "fix(ErdosProblems/264): type the bounded perturbation b over the integers (#4289)",
+  "tags": [
+   "int_cast+"
+  ],
+  "size": 6
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "0a6bc1ac9",
+  "msg": "fix conjecture 133 (#4282)",
+  "tags": [
+   "div-"
+  ],
+  "size": 32
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "64f61f72e",
+  "msg": "fix(ErdosProblems/329): mark variant as solved (#4103)",
+  "tags": [
+   "pos_guard+",
+   "domain-"
+  ],
+  "size": 26
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "1c0fbc277",
+  "msg": "Fix conjecture 100 (#4270)",
+  "tags": [
+   "int_cast+"
+  ],
+  "size": 8
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "3dd48c76a",
+  "msg": "fix(Paper/LatinSquares): restrict to odd (#4186)",
+  "tags": [
+   "div-"
+  ],
+  "size": 8
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "71d34fc29",
+  "msg": "fix: add `2 ≤ n` to `waldschmidt` (#4180)",
+  "tags": [
+   "pos_guard+",
+   "int_cast+",
+   "sub+",
+   "domain+"
+  ],
+  "size": 46
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "0e4ee7afd",
+  "msg": "fix(ErdosProblems/619): mark as solved (#4263)",
+  "tags": [
+   "pos_guard+"
+  ],
+  "size": 11
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "50d3bdc5f",
+  "msg": "fix(LittProblems/1): add `q ≠ 0` (#4179)",
+  "tags": [
+   "pos_guard+"
+  ],
+  "size": 1
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "10efdc97e",
+  "msg": "fix(GreensOpenProblems/39): `variant_theta` (#4183)",
+  "tags": [
+   "sub+"
+  ],
+  "size": 8
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "87e3d17fd",
+  "msg": "feat(Bugeaud): Problem 10.6 (#4038)",
+  "tags": [
+   "pos_guard+",
+   "int_cast+",
+   "div+",
+   "domain+"
+  ],
+  "size": 170
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "d3588cd71",
+  "msg": "Add Erdős Problem 1128 (Prikry-Mills counterexample for monochromatic countable boxes) (#3782)",
+  "tags": [
+   "pos_guard+"
+  ],
+  "size": 305
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "74b61ffd8",
+  "msg": "fix(Wikipedia/Bloch): dummy values (#4185)",
+  "tags": [
+   "pos_guard+",
+   "int_cast+",
+   "domain+"
+  ],
+  "size": 98
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "71c4d0286",
+  "msg": "fix(Paper/MonochromaticQuantumGraph): rm `eqSystem4_no_solution_d4_tr… (#4175)",
+  "tags": [
+   "int_cast-"
+  ],
+  "size": 10
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "9a09683b2",
+  "msg": "fix(ErdosProblems/153): dividing by `(A + A).card` (#4170)",
+  "tags": [
+   "int_cast-",
+   "sub-",
+   "div-"
+  ],
+  "size": 12
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "76bdd9013",
+  "msg": "fix(Wikipedia/Superperfectnumbers): exclude `n = 0` (#4096)",
+  "tags": [
+   "pos_guard+"
+  ],
+  "size": 4
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "c48b4c2d5",
+  "msg": "feat(Books/Bugeaud): Problem 10.7 (#4056)",
+  "tags": [
+   "pos_guard+",
+   "int_cast+",
+   "sub+",
+   "div+",
+   "domain+"
+  ],
+  "size": 136
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "b82dbac31",
+  "msg": "fix(ErdosProblems/1092): update status (#4114)",
+  "tags": [
+   "pos_guard+"
+  ],
+  "size": 37
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "bb6a369b9",
+  "msg": "fix(OEIS/80170): sign error (#4102)",
+  "tags": [
+   "sub-"
+  ],
+  "size": 2
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "1f6f39a4d",
+  "msg": "fix(ErdosProblems/50): missing assumption (#4028)",
+  "tags": [
+   "int_cast+"
+  ],
+  "size": 2
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "de4a219c6",
+  "msg": "fix(Mathoverflow/235893): quantifier fix (#4019)",
+  "tags": [
+   "pos_guard-"
+  ],
+  "size": 158
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "db4f611c3",
+  "msg": "fix(ErdosProblems): status for 90  (#4033)",
+  "tags": [
+   "pos_guard+"
+  ],
+  "size": 10
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "cbf0d415a",
+  "msg": "fix(Wikipedia/WallSunSun): restrict `D` to fundamental discriminants (#1813)",
+  "tags": [
+   "pos_guard-",
+   "int_cast+",
+   "div+",
+   "domain+"
+  ],
+  "size": 275
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "9caf381f8",
+  "msg": "feat(Other): SuffixPrefixAvoidance (#2424)",
+  "tags": [
+   "pos_guard+",
+   "int_cast+",
+   "sub+"
+  ],
+  "size": 93
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "59b50486c",
+  "msg": "fix(WOWII): Fix conjecture 34 (#3824)",
+  "tags": [
+   "int_cast+",
+   "div+",
+   "domain+"
+  ],
+  "size": 86
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "f22e9e2cc",
+  "msg": "feat(Bugeaud): Problem 10.5 (#3988)",
+  "tags": [
+   "pos_guard+",
+   "int_cast+",
+   "sub+",
+   "div+"
+  ],
+  "size": 110
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "4d4c3831f",
+  "msg": "Bugeaud Problem 4, move two defs to ForMathlib/Analysis/Equidistribution/ (#3811)",
+  "tags": [
+   "pos_guard+",
+   "int_cast+",
+   "sub+"
+  ],
+  "size": 107
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "a406a3a50",
+  "msg": "add problems from book: Bugeaud, Distribution Modulo One and Diophant… (#3799)",
+  "tags": [
+   "pos_guard+",
+   "int_cast+",
+   "div+",
+   "domain+"
+  ],
+  "size": 95
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "2c65b3633",
+  "msg": "fix(ErdosProblems/258): indexing (#1642)",
+  "tags": [
+   "pos_guard-"
+  ],
+  "size": 20
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "7978404f5",
+  "msg": "Add Tao (2017) variant statement for Lonely Runner (#2177)",
+  "tags": [
+   "pos_guard+",
+   "int_cast+",
+   "domain+"
+  ],
+  "size": 34
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "c31057027",
+  "msg": "fix: extended Riemann Hypothesis (#3932)",
+  "tags": [
+   "pos_guard-",
+   "int_cast-",
+   "div-"
+  ],
+  "size": 86
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "0f6d1a768",
+  "msg": "chore: fix some miscategorisations (#3910)",
+  "tags": [
+   "sub+"
+  ],
+  "size": 38
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "7eb492e06",
+  "msg": "fix(Arxiv): `MaximumAngle` (#3894)",
+  "tags": [
+   "pos_guard-",
+   "int_cast-",
+   "sub-"
+  ],
+  "size": 46
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "a6d9f8f2c",
+  "msg": "fix(Wikipedia): `DedekindNumber` (#3895)",
+  "tags": [
+   "sub+",
+   "domain+"
+  ],
+  "size": 37
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "1bc7eae85",
+  "msg": "fix(ErdosProblems): 522  (#3896)",
+  "tags": [
+   "int_cast+",
+   "sub-",
+   "div-"
+  ],
+  "size": 101
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "b04c64104",
+  "msg": "chore: enable `CategoryDocstringLinter` and fix findings (#3829)",
+  "tags": [
+   "pos_guard+"
+  ],
+  "size": 84
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "a7daca986",
+  "msg": "fix(WOWII): Fix conjecture 22 (#3823)",
+  "tags": [
+   "div+"
+  ],
+  "size": 18
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "5996f24dd",
+  "msg": "fix: Erdos 1196 sily typos (#3759)",
+  "tags": [
+   "pos_guard-"
+  ],
+  "size": 4
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "363731935",
+  "msg": "fix(ErdosProblems): 887  (#3631)",
+  "tags": [
+   "int_cast+"
+  ],
+  "size": 24
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "22be8eaa8",
+  "msg": "fix(OEIS): 80170  (#3679)",
+  "tags": [
+   "sub+"
+  ],
+  "size": 6
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "df4fdb6f1",
+  "msg": "fix(ErdosProblems): 951 (#3643)",
+  "tags": [
+   "sub-"
+  ],
+  "size": 46
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "812b9e608",
+  "msg": "fix: simplify mirror files to import-only (#3608)",
+  "tags": [
+   "div-"
+  ],
+  "size": 209
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "a31c81a6f",
+  "msg": "fix(ErdosProblems): 277  (#3599)",
+  "tags": [
+   "int_cast+"
+  ],
+  "size": 11
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "d5a8b6698",
+  "msg": "fix(ErdosProblems/978): require `k > 3` (#3408)",
+  "tags": [
+   "pos_guard+",
+   "sub-"
+  ],
+  "size": 33
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "0f12819ad",
+  "msg": "feat(Green/94): prove variant + amend main statement (#3526)",
+  "tags": [
+   "pos_guard+",
+   "div+"
+  ],
+  "size": 18
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "63e268d51",
+  "msg": "fix(ErdosProblems): Standardize Erdos Problem Theorems (part2) (#3468)",
+  "tags": [
+   "pos_guard-"
+  ],
+  "size": 51
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "8799f8d6b",
+  "msg": "Revert \"fix(ErdosProblems): Standardize Erdos Problem Theorems (part … (#3426)",
+  "tags": [
+   "pos_guard+"
+  ],
+  "size": 195
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "f3354e1f7",
+  "msg": "fix(ErdosProblems): Standardize Erdos Problem Theorems (part 2) (#2440)",
+  "tags": [
+   "pos_guard-"
+  ],
+  "size": 195
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "f8069e7ef",
+  "msg": "fix(ErdosProblems/770): definition of `h` (#2422)",
+  "tags": [
+   "domain+"
+  ],
+  "size": 18
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "f5cbb7c43",
+  "msg": "fix(ErdosProblems): Add formalized lean sources to Erdos Problems (#2383)",
+  "tags": [
+   "sub-",
+   "div+"
+  ],
+  "size": 360
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "c057e4b79",
+  "msg": "fix(ErdosProblems): 786 (#2283)",
+  "tags": [
+   "div+",
+   "domain+"
+  ],
+  "size": 68
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "fd086a79b",
+  "msg": "fix(): Update statuses of problems and fix minor issues (#2325)",
+  "tags": [
+   "pos_guard+",
+   "int_cast-",
+   "sub+",
+   "div+"
+  ],
+  "size": 356
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "4397ec8f7",
+  "msg": "fix(FormalConjecturesForMathlib): `szeged_aux` (#2295)",
+  "tags": [
+   "pos_guard-"
+  ],
+  "size": 4
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "4caa76f74",
+  "msg": "fix(ErdosProblems): 455  (#2261)",
+  "tags": [
+   "int_cast-"
+  ],
+  "size": 4
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "6e22374a4",
+  "msg": "fix(Wikipedia): Mahler32 (#2262)",
+  "tags": [
+   "domain+"
+  ],
+  "size": 4
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "7b66d11d0",
+  "msg": "fix(ErdosProblems): 307 (#2228)",
+  "tags": [
+   "int_cast+"
+  ],
+  "size": 30
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "c27126506",
+  "msg": "fix(Paper): Nat division in `StrongSensitivityConjecture` (#2208)",
+  "tags": [
+   "int_cast+"
+  ],
+  "size": 2
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "f50d9b6f2",
+  "msg": "fix(HilbertProblems): `17` (#2161)",
+  "tags": [
+   "pos_guard+",
+   "domain+"
+  ],
+  "size": 30
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "514ff1cf2",
+  "msg": "fix misleading definition of `f` (#1870)",
+  "tags": [
+   "int_cast-"
+  ],
+  "size": 37
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "23516220b",
+  "msg": "fix(ErdosProblems): remove disproved variant in `245` (#2159)",
+  "tags": [
+   "int_cast-"
+  ],
+  "size": 17
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "d06876e1b",
+  "msg": "fix(ErdosProblems): positivity in `918` variant (#2135)",
+  "tags": [
+   "pos_guard+"
+  ],
+  "size": 2
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "0983cf491",
+  "msg": "fix(ErdosProblems): make `510` asymptotic (#2136)",
+  "tags": [
+   "pos_guard-"
+  ],
+  "size": 8
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "2e6021b86",
+  "msg": "Don't import `Counterexamples`",
+  "tags": [
+   "sub+"
+  ],
+  "size": 14
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "307caa4c1",
+  "msg": "fix(ErdosProblems): 886, fix TODO and update question (#2133)",
+  "tags": [
+   "pos_guard+",
+   "int_cast+",
+   "div+"
+  ],
+  "size": 21
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "1e23130a8",
+  "msg": "fix(ErdosProblems/1084): `le` not `lt` in `IsSeparated` (#2039)",
+  "tags": [
+   "pos_guard+"
+  ],
+  "size": 48
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "be03d4208",
+  "msg": "fix(ErdosProblems): non-zero coefficient condition in `516` (#2043)",
+  "tags": [
+   "pos_guard+"
+  ],
+  "size": 8
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "a30909a40",
+  "msg": "fix(ErdosProblems): take `n` sufficiently large in `erdos_1004.EPS87_theorem` (#2040)",
+  "tags": [
+   "pos_guard-"
+  ],
+  "size": 2
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "00a1174e8",
+  "msg": "fix(ErdosProblems): avoid `Nat` division in `1102` (#2041)",
+  "tags": [
+   "int_cast+"
+  ],
+  "size": 2
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "586662815",
+  "msg": "fix(ErdosProblems): make intervals nonempty in `288` (#2008)",
+  "tags": [
+   "pos_guard+"
+  ],
+  "size": 11
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "3a9a30822",
+  "msg": "fix(ErdosProblems): add non-zero coeff condition in `517`  (#2009)",
+  "tags": [
+   "pos_guard+"
+  ],
+  "size": 13
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "d2c2fcda3",
+  "msg": "fix(ErdosProblems/480): use positive naturals in infimum (#1903)",
+  "tags": [
+   "pnat+"
+  ],
+  "size": 6
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "87d5599e7",
+  "msg": "Fix erdos_455 misformalization (#1901)",
+  "tags": [
+   "sub-"
+  ],
+  "size": 8
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "6c0e6ae69",
+  "msg": "Fix erdos_454 misformalization (#1898)",
+  "tags": [
+   "pos_guard+"
+  ],
+  "size": 13
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "58a9cb635",
+  "msg": "feat(ErdosProblems/124): more statements (#1420)",
+  "tags": [
+   "pos_guard+",
+   "int_cast+",
+   "sub+"
+  ],
+  "size": 82
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "ed30a36e6",
+  "msg": "fix(ErdosProblems/961): assume `k` positive (#1711)",
+  "tags": [
+   "pos_guard+"
+  ],
+  "size": 21
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "4e9832137",
+  "msg": "fix(ErdosProblems/503): use sSup (#1649)",
+  "tags": [
+   "domain+"
+  ],
+  "size": 2
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "e9db8f88e",
+  "msg": "fix(ErdosProblems/480): typo (#1540)",
+  "tags": [
+   "pos_guard-",
+   "pnat+",
+   "int_cast+",
+   "div+"
+  ],
+  "size": 36
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "e9e462c2a",
+  "msg": "fix(ErdosProblems/289): assume intervals are non-overlapping (#1574)",
+  "tags": [
+   "pos_guard-"
+  ],
+  "size": 7
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "8b880eea7",
+  "msg": "fix(ErdosProblems/859): make density vary in `t` (#1524)",
+  "tags": [
+   "pos_guard-",
+   "int_cast+",
+   "div+"
+  ],
+  "size": 11
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "ff51e6a91",
+  "msg": "fix(ErdosProblems/828): typo (#1585)",
+  "tags": [
+   "pos_guard+"
+  ],
+  "size": 7
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "3bf4a2996",
+  "msg": "fix(Wikipedia/WallSunSun): assume the discriminant is 0 or 1 mod 4 (#1528)",
+  "tags": [
+   "pos_guard+",
+   "pnat-"
+  ],
+  "size": 5
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "5c73f5c1d",
+  "msg": "fix(ErdosProblems/659): make asymptotic (#1522)",
+  "tags": [
+   "int_cast-",
+   "div+",
+   "domain-"
+  ],
+  "size": 18
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "9c6eb1b4c",
+  "msg": "fix docstring of `IsAttractingCycle` (#1571)",
+  "tags": [
+   "pos_guard+"
+  ],
+  "size": 4
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "f79a2d777",
+  "msg": "fix `density_of_hyperbolicity_general_exponent` (#1569)",
+  "tags": [
+   "pos_guard+"
+  ],
+  "size": 8
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "92606c75c",
+  "msg": "fix(ErdosProblems/942): make asymptotic (#1526)",
+  "tags": [
+   "pos_guard-"
+  ],
+  "size": 2
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "661e871ba",
+  "msg": "Fix erdos_354 (#1519)",
+  "tags": [
+   "int_cast+"
+  ],
+  "size": 2
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "79f46d18e",
+  "msg": "Fix formalisation of erdos_1094 (#1516)",
+  "tags": [
+   "pos_guard+"
+  ],
+  "size": 2
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "f3e646578",
+  "msg": "feat: statements for degree sequences in triangle-free graphs (#343)",
+  "tags": [
+   "pos_guard+",
+   "domain+"
+  ],
+  "size": 187
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "3d6dc14ba",
+  "msg": "fix(Wikipedia/WallSunSun): correct definition of Lucas-Wieferich primes (#1422)",
+  "tags": [
+   "int_cast+",
+   "sub+"
+  ],
+  "size": 91
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "b2f8846b1",
+  "msg": "fix(ErdosProblems/728): make interesting (#1421)",
+  "tags": [
+   "pos_guard-",
+   "sub+",
+   "domain-"
+  ],
+  "size": 26
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "5400046d5",
+  "msg": "fix(ErdosProblems/975): the polynomial cannot be constant (#1410)",
+  "tags": [
+   "pos_guard+",
+   "domain-"
+  ],
+  "size": 37
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "8b3bf8d0d",
+  "msg": "fix(ErdosProblems/1072): avoid nat division (#1409)",
+  "tags": [
+   "int_cast+"
+  ],
+  "size": 2
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "608a82fda",
+  "msg": "fix(GromovPolynomialGrowth): `HasPolynomialGrowth` should only quantify over positive `n` (#1259)",
+  "tags": [
+   "pos_guard+"
+  ],
+  "size": 125
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "3cd2df147",
+  "msg": "fix erdos_1003.variants.eps87 (#1377)",
+  "tags": [
+   "pos_guard-",
+   "int_cast+"
+  ],
+  "size": 11
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "2261f1f41",
+  "msg": "fix(ErdosProblems/317): typo (#1387)",
+  "tags": [
+   "int_cast-"
+  ],
+  "size": 9
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "cf5cd99b4",
+  "msg": "fix(ErdosProblems/1077): assume `ε` and `α` are small (#1391)",
+  "tags": [
+   "pos_guard-"
+  ],
+  "size": 28
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "7d3e773e1",
+  "msg": "fix(ErdosProblems/351): assume nonnegativity of the leading coefficient (#1380)",
+  "tags": [
+   "div+"
+  ],
+  "size": 36
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "fcf6a190f",
+  "msg": "fix(ErdosProblems/14): correctly bracket the statement (#1382)",
+  "tags": [
+   "int_cast-"
+  ],
+  "size": 10
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "7956fb998",
+  "msg": "fix: add modulo 1 in `isAccumulationPoint_three_halves_pow` (#1372)",
+  "tags": [
+   "int_cast+",
+   "div+"
+  ],
+  "size": 12
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "5b6baaac1",
+  "msg": "fix: `erdos_853` (#1337)",
+  "tags": [
+   "pos_guard+"
+  ],
+  "size": 12
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "37a34a76e",
+  "msg": "fix: `erdos_366` excluding `n = 0` everywhere (#1344)",
+  "tags": [
+   "pos_guard+"
+  ],
+  "size": 4
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "4aa20c7a6",
+  "msg": "fix: exclude `N = 0` and enforce positivity on `A` in `erdos_510` (#1340)",
+  "tags": [
+   "pos_guard+"
+  ],
+  "size": 6
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "aecb12c61",
+  "msg": "Fix definition of FloorMultiples.interleave (#1330)",
+  "tags": [
+   "div+"
+  ],
+  "size": 4
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "47e78861f",
+  "msg": "fix: missing conditions in `IsLucasWieferichPrime` (#1243)",
+  "tags": [
+   "sub+",
+   "div+"
+  ],
+  "size": 21
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "1bdb946df",
+  "msg": "fix: positivity in `erdos_20` (#1261)",
+  "tags": [
+   "pos_guard+",
+   "domain+"
+  ],
+  "size": 36
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "d7dea5f0a",
+  "msg": "fix: `n` should be positive in `erdos_477*` (#1242)",
+  "tags": [
+   "pos_guard+"
+  ],
+  "size": 10
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "638fbc273",
+  "msg": "fix: positivity in `358.lean` (#1241)",
+  "tags": [
+   "pos_guard+"
+  ],
+  "size": 10
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "0e276cb56",
+  "msg": "fix: typing and repetition in `erdos_354` (#1217)",
+  "tags": [
+   "int_cast+",
+   "div+"
+  ],
+  "size": 28
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "823471c66",
+  "msg": "fix: `P` should be non-constant in `erdos_351`  (#1216)",
+  "tags": [
+   "pos_guard+"
+  ],
+  "size": 2
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "271e3fdbb",
+  "msg": "fix: positivity in `erdos_253` (#1189)",
+  "tags": [
+   "pos_guard+"
+  ],
+  "size": 14
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "0346b9531",
+  "msg": "fix: exclude zero values in `erdos_288` (#1195)",
+  "tags": [
+   "pnat+"
+  ],
+  "size": 16
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "61f67f345",
+  "msg": "fix: remove false `erdos_44` variants (#1198)",
+  "tags": [
+   "int_cast-",
+   "sub-",
+   "domain-"
+  ],
+  "size": 18
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "bf0ea56fa",
+  "msg": "fix: exclude `0` and `1` cases when using `Set.IsAPOfLengthFree.maxCard` (#1187)",
+  "tags": [
+   "pos_guard-",
+   "domain+"
+  ],
+  "size": 15
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "0fa39bc67",
+  "msg": "fix: sign in `trivialZeros` (#1184)",
+  "tags": [
+   "sub+"
+  ],
+  "size": 2
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "2b146a692",
+  "msg": "fix: Artin's conjecture (#1174)",
+  "tags": [
+   "pos_guard+",
+   "int_cast+",
+   "sub+",
+   "div+"
+  ],
+  "size": 162
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "9d4724d8f",
+  "msg": "fix: remove `disjoint_differences_union_sidon` (#1175)",
+  "tags": [
+   "sub-"
+  ],
+  "size": 9
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "25e9df250",
+  "msg": "fix: nat division in `erdos_357.variants.infinite_set_sum` (#1160)",
+  "tags": [
+   "int_cast+",
+   "div-"
+  ],
+  "size": 2
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "3193948ea",
+  "msg": "fix: positivity in `erdos_728` (#1161)",
+  "tags": [
+   "pos_guard+"
+  ],
+  "size": 1
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "46751093f",
+  "msg": "fix: `n > 0` required in `erdos_942` (#1157)",
+  "tags": [
+   "pos_guard+"
+  ],
+  "size": 3
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "f25c23a67",
+  "msg": "fix: `erdos_828.variants.phi_dvd_self_iff_pow2_pow3` (#1155)",
+  "tags": [
+   "pos_guard+"
+  ],
+  "size": 3
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "79ba9c6da",
+  "msg": "fix: missing positivity condition in `erdos_1003.variants.eps87` (#1154)",
+  "tags": [
+   "int_cast-"
+  ],
+  "size": 2
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "5ed3a28ab",
+  "msg": "fix: `erdos_366` should exclude `n = 0`  (#1152)",
+  "tags": [
+   "pos_guard+"
+  ],
+  "size": 18
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "469cde23a",
+  "msg": "fix: Fix definition of completeness in erdos problem 348 (#685)",
+  "tags": [
+   "pos_guard-"
+  ],
+  "size": 30
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "20d8aa70d",
+  "msg": "feat: add union closed conjecture related statement (#684)",
+  "tags": [
+   "int_cast+",
+   "div+"
+  ],
+  "size": 12
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "121d27650",
+  "msg": "chore: fix formalisation of Artin's conjecture (#623)",
+  "tags": [
+   "int_cast+",
+   "sub+"
+  ],
+  "size": 34
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "d7e38b6b5",
+  "msg": "fix: exponent in Erdős Problem 41 (#637)",
+  "tags": [
+   "div+"
+  ],
+  "size": 17
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "4efcee051",
+  "msg": "fix: definition of halting for Busy Beaver machines and add some API (#560)",
+  "tags": [
+   "pos_guard+",
+   "domain+"
+  ],
+  "size": 221
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "7d39d76ae",
+  "msg": "fix: add missing non-zero condition to variant of erdos_499 (#572)",
+  "tags": [
+   "pos_guard+"
+  ],
+  "size": 4
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "da252df72",
+  "msg": "fix: separate notions of Giuga number (#563)",
+  "tags": [
+   "int_cast+",
+   "sub+",
+   "div+"
+  ],
+  "size": 79
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "d9578ae07",
+  "msg": "fix: `k` should be non-zero in `conjecture_3_4` (#574)",
+  "tags": [
+   "int_cast-"
+  ],
+  "size": 12
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "822c9f152",
+  "msg": "fix: `maxSidonSetSize_bound` should use `2 * Real.sqrt N` (#566)",
+  "tags": [
+   "pos_guard+",
+   "domain+"
+  ],
+  "size": 7
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "b27f2ba66",
+  "msg": "fix: `error_le` is not true for `r` close to `0` (#565)",
+  "tags": [
+   "pos_guard-",
+   "int_cast-"
+  ],
+  "size": 5
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "4acf9c859",
+  "msg": "fix: sign issue for mandelbrot questions (#552)",
+  "tags": [
+   "sub-"
+  ],
+  "size": 8
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "ec18cbc46",
+  "msg": "Fix Erdős 56 (#517)",
+  "tags": [
+   "pos_guard+"
+  ],
+  "size": 23
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "95b0f5db7",
+  "msg": "fix definition of `IsGiuga` (#515)",
+  "tags": [
+   "sub-"
+  ],
+  "size": 5
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "5ff9bc037",
+  "msg": "Feat: add formal statement for Erdos 416 (#352)",
+  "tags": [
+   "pos_guard+",
+   "int_cast+",
+   "sub+",
+   "div+"
+  ],
+  "size": 93
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "54d97a65c",
+  "msg": "fix: add positivity to `erdos_326.variants.eq` (#434)",
+  "tags": [
+   "pos_guard+",
+   "int_cast+"
+  ],
+  "size": 8
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "c32e689d7",
+  "msg": "fix: misformalisations in `GaussCircleProblem.lean` (#348)",
+  "tags": [
+   "pos_guard+",
+   "int_cast-"
+  ],
+  "size": 7
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "a73d5d956",
+  "msg": "Fix formalisation of `erdos_143.parts.ii` (#342)",
+  "tags": [
+   "int_cast-"
+  ],
+  "size": 6
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "0d2404c49",
+  "msg": "Fix formalisation of `WeaklyDivisible` (#262)",
+  "tags": [
+   "pos_guard+",
+   "domain+"
+  ],
+  "size": 45
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "86241327f",
+  "msg": "fix(EllipticCurveRank): corner cases and a sanity check (#252)",
+  "tags": [
+   "pnat-",
+   "int_cast+",
+   "div+"
+  ],
+  "size": 25
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "218c399bb",
+  "msg": "Small Fixes (#241)",
+  "tags": [
+   "pos_guard+"
+  ],
+  "size": 48
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "db029029a",
+  "msg": "feat: add upper density to `ForMathlib` and fix Erdos 244 (#179)",
+  "tags": [
+   "int_cast+",
+   "div+"
+  ],
+  "size": 60
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "22d87e7f7",
+  "msg": "Fix: Bateman-Horn Conjecture (#161)",
+  "tags": [
+   "int_cast+"
+  ],
+  "size": 37
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "ee2dae849",
+  "msg": "Formalize Collatz conjecture statement (#84)",
+  "tags": [
+   "pos_guard+",
+   "div+"
+  ],
+  "size": 40
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "ae720a0ec",
+  "msg": "chore: fix statement of erdos 316 (#130)",
+  "tags": [
+   "int_cast+",
+   "sub+"
+  ],
+  "size": 31
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "662fea92e",
+  "msg": "chore: fix AMS category on website (#76)",
+  "tags": [
+   "domain+"
+  ],
+  "size": 13
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "7fd982f94",
+  "msg": "fix: follow the answer(sorry) convention (#72)",
+  "tags": [
+   "pos_guard-"
+  ],
+  "size": 11
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "75f27b0f3",
+  "msg": "fix: erdos 418 (#32)",
+  "tags": [
+   "pos_guard-"
+  ],
+  "size": 17
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "2623e6d91",
+  "msg": "fix: exclude the junk value for `riemannZeta 1` (#36)",
+  "tags": [
+   "pos_guard+"
+  ],
+  "size": 4
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "53eccc775",
+  "msg": "fix misformalization: add missing factor 1/2 (#14)",
+  "tags": [
+   "div+"
+  ],
+  "size": 2
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "242d51256",
+  "msg": "Fix some latex formatting (#6)",
+  "tags": [
+   "div-"
+  ],
+  "size": 83
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "05ebcac54",
+  "msg": "Fix succ_pair_criterion for Edrős 730",
+  "tags": [
+   "sub+"
+  ],
+  "size": 13
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "587f6f5ac",
+  "msg": "Fix formalisation of `maximalLength_pow`. If `n = 1` then the hypothesis `h` is satisfied for any (unbounded) exponent `e`, leading to a disproof. This trivial case is probably not intended in the paper. Secondly, the exponent should be real type.",
+  "tags": [
+   "int_cast+",
+   "domain+"
+  ],
+  "size": 6
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "7afbdc2f5",
+  "msg": "Fix definition of WeaklyDivisible",
+  "tags": [
+   "pos_guard-"
+  ],
+  "size": 16
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "cb78bea2e",
+  "msg": "Hypotheses for several results in `409.lean` contain contradictions whenever `n` never reaches a prime under iteration of the relevant function. For example, `sigma 1 0` is always `0`, and therefore never reaches a prime. Re-formalise all results in the file to make use of existential quantifier to fix.",
+  "tags": [
+   "pos_guard+",
+   "int_cast+",
+   "sub-"
+  ],
+  "size": 127
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "61e0d5e22",
+  "msg": "Fix misinterpretation of \"equality is achieved\"",
+  "tags": [
+   "pos_guard-",
+   "div-"
+  ],
+  "size": 18
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "3007d22a3",
+  "msg": "correct use of `Int.fract`",
+  "tags": [
+   "sub-"
+  ],
+  "size": 20
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "d7e857fb8",
+  "msg": "Fix Erdos Problem 1",
+  "tags": [
+   "pos_guard+"
+  ],
+  "size": 32
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "958f1e13e",
+  "msg": "Wrong quantifier for density",
+  "tags": [
+   "int_cast+"
+  ],
+  "size": 9
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "214984a3c",
+  "msg": "Fix misformalizations in AgohGiuaga",
+  "tags": [
+   "sub+"
+  ],
+  "size": 6
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "2afa501dd",
+  "msg": "Fix to conditional versions of `erdos_913`. The website previously used `8p^2 + 1`, which was known to be finite. Website has since been corrected to `8p^2 - 1`",
+  "tags": [
+   "sub+"
+  ],
+  "size": 8
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "5a2b4b7b4",
+  "msg": "Fix misformalisations in Erdos Problem 897",
+  "tags": [
+   "pos_guard+",
+   "int_cast-"
+  ],
+  "size": 18
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "f4e2cf026",
+  "msg": "Fix some erdos misformalistions",
+  "tags": [
+   "pos_guard+"
+  ],
+  "size": 32
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "04bce34f7",
+  "msg": "Add formal statement of Erdos 469",
+  "tags": [
+   "pos_guard+",
+   "int_cast+",
+   "div+"
+  ],
+  "size": 37
+ },
+ {
+  "repo": "formal-conjectures",
+  "commit": "41151ea6a",
+  "msg": "Add statement from Baumgartner's proof of Erdos question.",
+  "tags": [
+   "pos_guard+"
+  ],
+  "size": 108
+ },
+ {
+  "repo": "PutnamBench",
+  "commit": "4dbe26ef2",
+  "msg": "Fix solution predicate for Putnam 1974 B1 (#355)",
+  "tags": [
+   "pos_guard+"
+  ],
+  "size": 1
+ },
+ {
+  "repo": "PutnamBench",
+  "commit": "2319346de",
+  "msg": "Fix: putnam_1984_a2",
+  "tags": [
+   "int_cast+"
+  ],
+  "size": 2
+ },
+ {
+  "repo": "PutnamBench",
+  "commit": "a82fbd218",
+  "msg": "attempt to fix check_docstrings",
+  "tags": [
+   "div-"
+  ],
+  "size": 8
+ },
+ {
+  "repo": "PutnamBench",
+  "commit": "c261db79c",
+  "msg": "fix build",
+  "tags": [
+   "int_cast-",
+   "div+"
+  ],
+  "size": 2
+ },
+ {
+  "repo": "PutnamBench",
+  "commit": "abbb6480b",
+  "msg": "Fix 11 problems",
+  "tags": [
+   "pos_guard+",
+   "int_cast+",
+   "sub+",
+   "div+"
+  ],
+  "size": 23
+ },
+ {
+  "repo": "PutnamBench",
+  "commit": "25bc64838",
+  "msg": "Fixed statements for 15 problems.",
+  "tags": [
+   "pos_guard+",
+   "int_cast+"
+  ],
+  "size": 37
+ },
+ {
+  "repo": "PutnamBench",
+  "commit": "64c8f3fc2",
+  "msg": "2025 statements",
+  "tags": [
+   "pos_guard+",
+   "int_cast+",
+   "sub+",
+   "div+"
+  ],
+  "size": 259
+ },
+ {
+  "repo": "PutnamBench",
+  "commit": "c31e400ab",
+  "msg": "fix: Putnam 2007 B3 wrong answer",
+  "tags": [
+   "int_cast+",
+   "div+",
+   "domain+"
+  ],
+  "size": 1
+ },
+ {
+  "repo": "PutnamBench",
+  "commit": "10bdc9e5d",
+  "msg": "lean: fix deprecation warnings",
+  "tags": [
+   "int_cast+",
+   "sub+"
+  ],
+  "size": 200
+ },
+ {
+  "repo": "PutnamBench",
+  "commit": "6916c2a82",
+  "msg": "Fix build error",
+  "tags": [
+   "sub+"
+  ],
+  "size": 3
+ },
+ {
+  "repo": "PutnamBench",
+  "commit": "2c2ee36ba",
+  "msg": "Fix misformalization.",
+  "tags": [
+   "pos_guard+"
+  ],
+  "size": 2
+ },
+ {
+  "repo": "PutnamBench",
+  "commit": "c6be8d3a8",
+  "msg": "Fix 2012 A4",
+  "tags": [
+   "pos_guard+",
+   "int_cast+"
+  ],
+  "size": 24
+ },
+ {
+  "repo": "PutnamBench",
+  "commit": "ccc1bda9f",
+  "msg": "Fix Lean versions of 2023 A2 and 2023 B1",
+  "tags": [
+   "pos_guard+"
+  ],
+  "size": 4
+ },
+ {
+  "repo": "PutnamBench",
+  "commit": "a2f1e6003",
+  "msg": "Fix 1989 B2",
+  "tags": [
+   "pos_guard-"
+  ],
+  "size": 12
+ },
+ {
+  "repo": "PutnamBench",
+  "commit": "534c83185",
+  "msg": "Fix 2021 A1",
+  "tags": [
+   "domain-"
+  ],
+  "size": 12
+ },
+ {
+  "repo": "PutnamBench",
+  "commit": "a669b2b47",
+  "msg": "Fix 1984 A6 (again)",
+  "tags": [
+   "pos_guard+"
+  ],
+  "size": 10
+ },
+ {
+  "repo": "PutnamBench",
+  "commit": "bd3fee168",
+  "msg": "Fix 2009 B4",
+  "tags": [
+   "int_cast+"
+  ],
+  "size": 15
+ },
+ {
+  "repo": "PutnamBench",
+  "commit": "fac23f27d",
+  "msg": "Fix 1994 B3",
+  "tags": [
+   "int_cast-"
+  ],
+  "size": 10
+ },
+ {
+  "repo": "PutnamBench",
+  "commit": "68e16f8aa",
+  "msg": "Fix 2022 A1",
+  "tags": [
+   "sub+",
+   "domain+"
+  ],
+  "size": 1
+ },
+ {
+  "repo": "PutnamBench",
+  "commit": "f2b97adb3",
+  "msg": "Add informal + Lean statement for 2023 A4",
+  "tags": [
+   "pos_guard+",
+   "int_cast+",
+   "sub+",
+   "domain+"
+  ],
+  "size": 19
+ },
+ {
+  "repo": "PutnamBench",
+  "commit": "704ff2cac",
+  "msg": "Add informal + Lean statement for 2023 A6",
+  "tags": [
+   "pos_guard+"
+  ],
+  "size": 22
+ },
+ {
+  "repo": "PutnamBench",
+  "commit": "3e3f94825",
+  "msg": "Add informal + Lean statement for 2023 B3",
+  "tags": [
+   "int_cast+",
+   "sub+"
+  ],
+  "size": 20
+ },
+ {
+  "repo": "PutnamBench",
+  "commit": "a3d575231",
+  "msg": "Fix 2017 A1 (again)",
+  "tags": [
+   "pos_guard+"
+  ],
+  "size": 2
+ },
+ {
+  "repo": "PutnamBench",
+  "commit": "295b586c8",
+  "msg": "Fix 1984 A6",
+  "tags": [
+   "pos_guard+",
+   "div-"
+  ],
+  "size": 24
+ },
+ {
+  "repo": "PutnamBench",
+  "commit": "224426d82",
+  "msg": "Fix 2005 B3",
+  "tags": [
+   "pos_guard+",
+   "int_cast-"
+  ],
+  "size": 11
+ },
+ {
+  "repo": "PutnamBench",
+  "commit": "8b11ed668",
+  "msg": "Fix 2007 A1",
+  "tags": [
+   "int_cast+",
+   "div+",
+   "domain+"
+  ],
+  "size": 10
+ },
+ {
+  "repo": "PutnamBench",
+  "commit": "72fee9dc7",
+  "msg": "Fix 1965 B4",
+  "tags": [
+   "pos_guard+",
+   "div+"
+  ],
+  "size": 16
+ },
+ {
+  "repo": "PutnamBench",
+  "commit": "7b4dc9532",
+  "msg": "Fix 2005 A3 (again)",
+  "tags": [
+   "pos_guard+"
+  ],
+  "size": 2
+ },
+ {
+  "repo": "PutnamBench",
+  "commit": "5fd2126a4",
+  "msg": "Fix 2016 A2",
+  "tags": [
+   "pos_guard+"
+  ],
+  "size": 11
+ },
+ {
+  "repo": "PutnamBench",
+  "commit": "ed3631f40",
+  "msg": "Fix 1998 A4 (again)",
+  "tags": [
+   "pos_guard+"
+  ],
+  "size": 2
+ },
+ {
+  "repo": "PutnamBench",
+  "commit": "7a9215271",
+  "msg": "Fix 1963 A3",
+  "tags": [
+   "pos_guard+",
+   "int_cast+",
+   "sub+"
+  ],
+  "size": 25
+ },
+ {
+  "repo": "PutnamBench",
+  "commit": "c10941934",
+  "msg": "Fix 1962 A2",
+  "tags": [
+   "pos_guard-",
+   "int_cast-",
+   "sub+",
+   "domain-"
+  ],
+  "size": 18
+ },
+ {
+  "repo": "PutnamBench",
+  "commit": "5552a8952",
+  "msg": "Fix 1963 A4",
+  "tags": [
+   "sub+"
+  ],
+  "size": 14
+ },
+ {
+  "repo": "PutnamBench",
+  "commit": "7c68ba59e",
+  "msg": "Fix 1964 B1",
+  "tags": [
+   "int_cast+",
+   "div-"
+  ],
+  "size": 13
+ },
+ {
+  "repo": "PutnamBench",
+  "commit": "6bc9d96af",
+  "msg": "Fix 1965 A6",
+  "tags": [
+   "pos_guard+",
+   "int_cast-",
+   "sub+"
+  ],
+  "size": 18
+ },
+ {
+  "repo": "PutnamBench",
+  "commit": "f1d6d78a2",
+  "msg": "Fix 1968 A3",
+  "tags": [
+   "sub-"
+  ],
+  "size": 14
+ },
+ {
+  "repo": "PutnamBench",
+  "commit": "69ca70d4e",
+  "msg": "Fix 1969 A5",
+  "tags": [
+   "int_cast+"
+  ],
+  "size": 17
+ },
+ {
+  "repo": "PutnamBench",
+  "commit": "d12e05a30",
+  "msg": "Fix 1974 A4",
+  "tags": [
+   "int_cast+",
+   "sub+",
+   "div+"
+  ],
+  "size": 13
+ },
+ {
+  "repo": "PutnamBench",
+  "commit": "46892171b",
+  "msg": "Fix 1974 B1",
+  "tags": [
+   "pos_guard+",
+   "domain-"
+  ],
+  "size": 16
+ },
+ {
+  "repo": "PutnamBench",
+  "commit": "db2d98bf5",
+  "msg": "Fix 1976 A2",
+  "tags": [
+   "sub+"
+  ],
+  "size": 22
+ },
+ {
+  "repo": "PutnamBench",
+  "commit": "245ca3aa2",
+  "msg": "Fix 1977 A3",
+  "tags": [
+   "sub+"
+  ],
+  "size": 8
+ },
+ {
+  "repo": "PutnamBench",
+  "commit": "d4e0247ef",
+  "msg": "Fix 1989 B3",
+  "tags": [
+   "int_cast+",
+   "sub+",
+   "div+"
+  ],
+  "size": 18
+ },
+ {
+  "repo": "PutnamBench",
+  "commit": "b940dc5a3",
+  "msg": "Fix 1990 B1",
+  "tags": [
+   "int_cast+"
+  ],
+  "size": 11
+ },
+ {
+  "repo": "PutnamBench",
+  "commit": "2277d66b8",
+  "msg": "Fix 1991 A4",
+  "tags": [
+   "pos_guard-"
+  ],
+  "size": 19
+ },
+ {
+  "repo": "PutnamBench",
+  "commit": "c75c0b07d",
+  "msg": "Fix 2018 B5",
+  "tags": [
+   "pos_guard+",
+   "int_cast-"
+  ],
+  "size": 19
+ },
+ {
+  "repo": "PutnamBench",
+  "commit": "8143158da",
+  "msg": "Fix 1995 B4",
+  "tags": [
+   "div+"
+  ],
+  "size": 10
+ },
+ {
+  "repo": "PutnamBench",
+  "commit": "924236180",
+  "msg": "Fix 1996 B5",
+  "tags": [
+   "pos_guard-",
+   "int_cast+"
+  ],
+  "size": 16
+ },
+ {
+  "repo": "PutnamBench",
+  "commit": "a493028f5",
+  "msg": "Fix 1998 A4",
+  "tags": [
+   "pos_guard+",
+   "sub-"
+  ],
+  "size": 13
+ },
+ {
+  "repo": "PutnamBench",
+  "commit": "1ca780d20",
+  "msg": "Fix 2001 B2",
+  "tags": [
+   "pos_guard+"
+  ],
+  "size": 14
+ },
+ {
+  "repo": "PutnamBench",
+  "commit": "9cd2031ae",
+  "msg": "Fix 2003 A2",
+  "tags": [
+   "pos_guard+",
+   "int_cast+"
+  ],
+  "size": 13
+ },
+ {
+  "repo": "PutnamBench",
+  "commit": "3f98c26d3",
+  "msg": "Fix 2003 B3",
+  "tags": [
+   "pos_guard-"
+  ],
+  "size": 10
+ },
+ {
+  "repo": "PutnamBench",
+  "commit": "1bae7086b",
+  "msg": "Fix 2008 B3",
+  "tags": [
+   "pos_guard-"
+  ],
+  "size": 17
+ },
+ {
+  "repo": "PutnamBench",
+  "commit": "1c469e688",
+  "msg": "fix the problems",
+  "tags": [
+   "domain+"
+  ],
+  "size": 2
+ },
+ {
+  "repo": "PutnamBench",
+  "commit": "fa18e6e08",
+  "msg": "Fix 2005 A3",
+  "tags": [
+   "pos_guard+"
+  ],
+  "size": 19
+ },
+ {
+  "repo": "PutnamBench",
+  "commit": "11dee0787",
+  "msg": "Fix 1989 A1",
+  "tags": [
+   "pos_guard-"
+  ],
+  "size": 10
+ },
+ {
+  "repo": "PutnamBench",
+  "commit": "47fdc958d",
+  "msg": "Fix 1999 A3",
+  "tags": [
+   "pos_guard-"
+  ],
+  "size": 13
+ },
+ {
+  "repo": "PutnamBench",
+  "commit": "da40f2f80",
+  "msg": "Fixed unknown identifiers.",
+  "tags": [
+   "pos_guard-",
+   "int_cast+",
+   "sub-"
+  ],
+  "size": 24
+ },
+ {
+  "repo": "PutnamBench",
+  "commit": "64e63b68c",
+  "msg": "Remove solution from statement of `putnam_2021_b2`",
+  "tags": [
+   "div-"
+  ],
+  "size": 2
+ },
+ {
+  "repo": "PutnamBench",
+  "commit": "b87d5c1a8",
+  "msg": "Fix 2013 B4",
+  "tags": [
+   "int_cast-"
+  ],
+  "size": 13
+ },
+ {
+  "repo": "PutnamBench",
+  "commit": "3e4fc8633",
+  "msg": "Fix 2021 B2",
+  "tags": [
+   "pnat+",
+   "div+"
+  ],
+  "size": 13
+ },
+ {
+  "repo": "PutnamBench",
+  "commit": "c4512cac2",
+  "msg": "Fix 2017 A1",
+  "tags": [
+   "pos_guard+"
+  ],
+  "size": 17
+ },
+ {
+  "repo": "PutnamBench",
+  "commit": "6c0a61d0d",
+  "msg": "Fix 2019 B3",
+  "tags": [
+   "sub+"
+  ],
+  "size": 2
+ },
+ {
+  "repo": "PutnamBench",
+  "commit": "b3c227104",
+  "msg": "Fix 2023 B6",
+  "tags": [
+   "int_cast+",
+   "div+"
+  ],
+  "size": 1
+ },
+ {
+  "repo": "PutnamBench",
+  "commit": "14b744ddc",
+  "msg": "Fixed Euclidean dist issues w.t.t. Eric Wieser for his suggestion",
+  "tags": [
+   "int_cast+",
+   "sub+",
+   "domain+"
+  ],
+  "size": 281
+ },
+ {
+  "repo": "PutnamBench",
+  "commit": "7fd48eadd",
+  "msg": "Fix elaboration issues.",
+  "tags": [
+   "pos_guard+",
+   "div-"
+  ],
+  "size": 12
+ },
+ {
+  "repo": "PutnamBench",
+  "commit": "f4affcafb",
+  "msg": "Fixed failed compilation.",
+  "tags": [
+   "sub+"
+  ],
+  "size": 9
+ },
+ {
+  "repo": "PutnamBench",
+  "commit": "d4c0a0b6d",
+  "msg": "Fixed dist issue in putnam_1965_a1.lean",
+  "tags": [
+   "sub+"
+  ],
+  "size": 4
+ },
+ {
+  "repo": "PutnamBench",
+  "commit": "3e1817a18",
+  "msg": "74-84, 85-97 Lean fixes, 62-73, 06-10, 1967 extra 3 Isabelle formalizations.",
+  "tags": [
+   "div+"
+  ],
+  "size": 45
+ },
+ {
+  "repo": "PutnamBench",
+  "commit": "cc9ccc8c1",
+  "msg": "Hard 62-73 and 11-23 Lean fixes.",
+  "tags": [
+   "pos_guard+",
+   "pnat+",
+   "int_cast+",
+   "div-"
+  ],
+  "size": 83
+ },
+ {
+  "repo": "PutnamBench",
+  "commit": "94cce8069",
+  "msg": "Replaced ⊤ with the correct atTop in some limit problems in Lean.",
+  "tags": [
+   "int_cast+",
+   "domain+"
+  ],
+  "size": 87
+ },
+ {
+  "repo": "PutnamBench",
+  "commit": "ca39f56cb",
+  "msg": "Coq Batch, Lean fixes Batches 52 & (54/55), Isabelle fixes during Coq Batch.",
+  "tags": [
+   "pos_guard+",
+   "int_cast+",
+   "sub+",
+   "domain-"
+  ],
+  "size": 87
+ },
+ {
+  "repo": "PutnamBench",
+  "commit": "4864ace52",
+  "msg": "Fixed formalizations of Batch 51, and one from 1973.",
+  "tags": [
+   "pos_guard-"
+  ],
+  "size": 14
+ },
+ {
+  "repo": "PutnamBench",
+  "commit": "a84cf31c4",
+  "msg": "fixed 'extra' Lean formalizations",
+  "tags": [
+   "sub+"
+  ],
+  "size": 15
+ },
+ {
+  "repo": "PutnamBench",
+  "commit": "5e0b091f2",
+  "msg": "Added Lean 4 formalization fixes from Batch -4.",
+  "tags": [
+   "pos_guard+",
+   "int_cast-",
+   "sub+",
+   "domain+"
+  ],
+  "size": 50
+ },
+ {
+  "repo": "PutnamBench",
+  "commit": "001a682dc",
+  "msg": "Added Batch -2 Lean fixes, particular Isabelle fix.",
+  "tags": [
+   "int_cast+",
+   "sub-"
+  ],
+  "size": 23
+ },
+ {
+  "repo": "PutnamBench",
+  "commit": "dc31990fd",
+  "msg": "Added Batch -1 Isabelle formalizations and fixes, Batch 47 fixes, JSON fixes to tags.",
+  "tags": [
+   "pos_guard-"
+  ],
+  "size": 9
+ },
+ {
+  "repo": "PutnamBench",
+  "commit": "9681116d7",
+  "msg": "Added Batch -1 Isabelle formalizations, and various fixes to Lean files with poor imports for solutions.",
+  "tags": [
+   "int_cast+"
+  ],
+  "size": 24
+ },
+ {
+  "repo": "PutnamBench",
+  "commit": "1c46f6c04",
+  "msg": "Correct Lean formalizations 2004-2008, 2014-2018",
+  "tags": [
+   "int_cast+",
+   "sub-",
+   "div-"
+  ],
+  "size": 73
+ },
+ {
+  "repo": "PutnamBench",
+  "commit": "a0a6790d4",
+  "msg": "fixed lean nat stuff for 2019-2023 (and other lean/isabelle stuff I found along the way)",
+  "tags": [
+   "int_cast+"
+  ],
+  "size": 14
+ },
+ {
+  "repo": "PutnamBench",
+  "commit": "b0a8698c8",
+  "msg": "Lean Formalization fixes for 1989-1993",
+  "tags": [
+   "pos_guard+",
+   "int_cast+"
+  ],
+  "size": 33
+ },
+ {
+  "repo": "PutnamBench",
+  "commit": "5cf666fa6",
+  "msg": "changed lean problems 1994-2003 to use ints instead of nats; also did a few general fixes",
+  "tags": [
+   "int_cast+",
+   "sub+",
+   "div-"
+  ],
+  "size": 72
+ },
+ {
+  "repo": "PutnamBench",
+  "commit": "a8b9a2a4c",
+  "msg": "did lean fixes for 2009-2013",
+  "tags": [
+   "int_cast+",
+   "sub+"
+  ],
+  "size": 42
+ },
+ {
+  "repo": "PutnamBench",
+  "commit": "5d3da9428",
+  "msg": "Fixed Nat issue in 1969-1988 Lean formalizations",
+  "tags": [
+   "pos_guard-",
+   "int_cast+",
+   "sub-"
+  ],
+  "size": 159
+ },
+ {
+  "repo": "PutnamBench",
+  "commit": "a7c50f542",
+  "msg": "Latest Lean formalization fixes.",
+  "tags": [
+   "int_cast+"
+  ],
+  "size": 79
+ },
+ {
+  "repo": "PutnamBench",
+  "commit": "9f48527a8",
+  "msg": "Lean fixes for Batches 26, 40.",
+  "tags": [
+   "pos_guard-",
+   "int_cast+"
+  ],
+  "size": 36
+ },
+ {
+  "repo": "PutnamBench",
+  "commit": "7a4b34732",
+  "msg": "Batch 41, 44 Lean fixes, 44 Isabelle formalizations.",
+  "tags": [
+   "pos_guard-",
+   "int_cast+",
+   "sub-"
+  ],
+  "size": 32
+ },
+ {
+  "repo": "PutnamBench",
+  "commit": "c51bf770a",
+  "msg": "Added Lean fixes for Batches 11, 21, 43, and 45.",
+  "tags": [
+   "int_cast+",
+   "div-"
+  ],
+  "size": 28
+ },
+ {
+  "repo": "PutnamBench",
+  "commit": "b737ab678",
+  "msg": "Added Isabelle Batch 42, all pending Lean fixes.",
+  "tags": [
+   "pos_guard+",
+   "sub-"
+  ],
+  "size": 93
+ },
+ {
+  "repo": "PutnamBench",
+  "commit": "8bb993a6d",
+  "msg": "Added Batch 38 and Lean fixes.",
+  "tags": [
+   "div+"
+  ],
+  "size": 8
+ },
+ {
+  "repo": "PutnamBench",
+  "commit": "2ac9fafb6",
+  "msg": "Added Batch 47 and fixed SizeOf instances.",
+  "tags": [
+   "pos_guard+",
+   "int_cast+",
+   "sub+",
+   "div+"
+  ],
+  "size": 81
+ },
+ {
+  "repo": "PutnamBench",
+  "commit": "fa2ab79c6",
+  "msg": "Added latest Lean 4 formalization fixes and Batch 45",
+  "tags": [
+   "pos_guard+",
+   "int_cast+",
+   "sub+"
+  ],
+  "size": 128
+ },
+ {
+  "repo": "PutnamBench",
+  "commit": "1687974a2",
+  "msg": "Latest Lean formalizations and fixes.",
+  "tags": [
+   "pos_guard+",
+   "int_cast+",
+   "sub+",
+   "domain+"
+  ],
+  "size": 118
+ },
+ {
+  "repo": "PutnamBench",
+  "commit": "99d68c315",
+  "msg": "Fixed some Lean formalizations, added Batch 19, modified .gitignore.",
+  "tags": [
+   "pos_guard+",
+   "sub+"
+  ],
+  "size": 131
+ },
+ {
+  "repo": "miniF2F-lean4",
+  "commit": "1be24b76c",
+  "msg": "Fix 7 erroneous theorem formalizations in the test split",
+  "tags": [
+   "pos_guard+",
+   "int_cast+",
+   "sub+"
+  ],
+  "size": 16
+ },
+ {
+  "repo": "miniF2F-lean4",
+  "commit": "53bae3dff",
+  "msg": "Fix imo_1960_p2 and imo_1981_p6 theorem goals",
+  "tags": [
+   "pos_guard+"
+  ],
+  "size": 5
+ },
+ {
+  "repo": "miniF2F-lean4",
+  "commit": "6bcf0b494",
+  "msg": "fix a few statements",
+  "tags": [
+   "int_cast+"
+  ],
+  "size": 6
+ },
+ {
+  "repo": "miniF2F-lean4",
+  "commit": "a2fed697d",
+  "msg": "minor fix",
+  "tags": [
+   "div+",
+   "domain+"
+  ],
+  "size": 119
+ },
+ {
+  "repo": "compfiles",
+  "commit": "929b58afc",
+  "msg": "Add the statement of USAMO 1975 Problem 2",
+  "tags": [
+   "sub+"
+  ],
+  "size": 35
+ },
+ {
+  "repo": "compfiles",
+  "commit": "6390eacc4",
+  "msg": "Add statement for IMO 1974 P2",
+  "tags": [
+   "div+",
+   "domain+"
+  ],
+  "size": 48
+ },
+ {
+  "repo": "compfiles",
+  "commit": "21d23ae0e",
+  "msg": "fix warnings",
+  "tags": [
+   "sub-"
+  ],
+  "size": 306
+ },
+ {
+  "repo": "compfiles",
+  "commit": "1a2e0369c",
+  "msg": "Fix informal solutionImportedFrom uses and answer-revealing docs (review fix round 3)",
+  "tags": [
+   "sub-",
+   "div-"
+  ],
+  "size": 51
+ },
+ {
+  "repo": "compfiles",
+  "commit": "2a40f1a1a",
+  "msg": "Remove solutions from top-level doc comments (review fix); determine fixes where applicable",
+  "tags": [
+   "int_cast+",
+   "sub-",
+   "div-"
+  ],
+  "size": 131
+ },
+ {
+  "repo": "compfiles",
+  "commit": "48f167f7b",
+  "msg": "Use determine for yes/no answers and the hardcoded 7 (review fix round 2)",
+  "tags": [
+   "pos_guard+"
+  ],
+  "size": 108
+ },
+ {
+  "repo": "compfiles",
+  "commit": "0c77e4fc7",
+  "msg": "Use determine for hardcoded answers in 3 problem statements (review fix)",
+  "tags": [
+   "pos_guard+",
+   "int_cast+",
+   "div+"
+  ],
+  "size": 25
+ },
+ {
+  "repo": "compfiles",
+  "commit": "afb81217f",
+  "msg": "add problem statements for Imo1983P3, Imo1995P6, Imo1999P2",
+  "tags": [
+   "pos_guard+",
+   "sub+"
+  ],
+  "size": 99
+ },
+ {
+  "repo": "compfiles",
+  "commit": "9539d3f4d",
+  "msg": "[Imo2004P4] add problem statement",
+  "tags": [
+   "pos_guard+",
+   "div+"
+  ],
+  "size": 40
+ },
+ {
+  "repo": "compfiles",
+  "commit": "3f1380b23",
+  "msg": "[Imo2014P2] add problem statement",
+  "tags": [
+   "sub+"
+  ],
+  "size": 44
+ },
+ {
+  "repo": "compfiles",
+  "commit": "5bb9620d3",
+  "msg": "[Imo2016P2] add statement",
+  "tags": [
+   "pos_guard+",
+   "int_cast+",
+   "sub+",
+   "div+"
+  ],
+  "size": 75
+ },
+ {
+  "repo": "compfiles",
+  "commit": "84f2431ac",
+  "msg": "[Imo1988P4][Imo1989P3] add problem statements",
+  "tags": [
+   "pos_guard+",
+   "int_cast+",
+   "sub+",
+   "div+",
+   "domain+"
+  ],
+  "size": 80
+ },
+ {
+  "repo": "compfiles",
+  "commit": "852091cd5",
+  "msg": "dashboard: fix all.html links and include non-USA/non-IMO files in build",
+  "tags": [
+   "pos_guard-"
+  ],
+  "size": 100
+ },
+ {
+  "repo": "compfiles",
+  "commit": "a229d92d1",
+  "msg": "[Imo1978P6] make problem statement nicer",
+  "tags": [
+   "int_cast+"
+  ],
+  "size": 21
+ },
+ {
+  "repo": "compfiles",
+  "commit": "db2a28a2c",
+  "msg": "golfs found by bugfixed tryAtEachStep",
+  "tags": [
+   "int_cast-",
+   "div-"
+  ],
+  "size": 82
+ },
+ {
+  "repo": "compfiles",
+  "commit": "cb464874b",
+  "msg": "[Imo2023P6] import problem statement from IMOLean",
+  "tags": [
+   "div+"
+  ],
+  "size": 62
+ },
+ {
+  "repo": "compfiles",
+  "commit": "75087be28",
+  "msg": "[Imo2022P6] import problem statement from IMOLean",
+  "tags": [
+   "pnat+"
+  ],
+  "size": 70
+ },
+ {
+  "repo": "compfiles",
+  "commit": "61121fbef",
+  "msg": "[Imo2022P1] import problem statement from IMOLean",
+  "tags": [
+   "pos_guard+",
+   "sub+",
+   "div+"
+  ],
+  "size": 91
+ },
+ {
+  "repo": "compfiles",
+  "commit": "503bbc534",
+  "msg": "[Imo2025P5] import problem statement from IMOLean",
+  "tags": [
+   "int_cast+",
+   "div+"
+  ],
+  "size": 76
+ },
+ {
+  "repo": "compfiles",
+  "commit": "e807279a5",
+  "msg": "IMO 1971 P1 statement & solution (#157)",
+  "tags": [
+   "pos_guard+",
+   "int_cast+",
+   "sub+"
+  ],
+  "size": 290
+ },
+ {
+  "repo": "compfiles",
+  "commit": "a8831c428",
+  "msg": "[Imo2005P2] update formal problem statement to more closely match English statement",
+  "tags": [
+   "pos_guard+"
+  ],
+  "size": 7
+ },
+ {
+  "repo": "compfiles",
+  "commit": "734a95af0",
+  "msg": "Imo1967p5 - fixed formalization and added solution (#147)",
+  "tags": [
+   "pos_guard+",
+   "div+"
+  ],
+  "size": 224
+ },
+ {
+  "repo": "compfiles",
+  "commit": "62f433b60",
+  "msg": "[Russia1995P10] add statement and solution (#130)",
+  "tags": [
+   "pos_guard+",
+   "sub+",
+   "div+"
+  ],
+  "size": 59
+ },
+ {
+  "repo": "compfiles",
+  "commit": "1fadf5f44",
+  "msg": "Add statement for USAMO 1976 P3 (#134)",
+  "tags": [
+   "int_cast+"
+  ],
+  "size": 27
+ },
+ {
+  "repo": "compfiles",
+  "commit": "0dfc01c31",
+  "msg": "[Usa1974P1] add statement and solution (#131)",
+  "tags": [
+   "int_cast+",
+   "sub+"
+  ],
+  "size": 58
+ },
+ {
+  "repo": "compfiles",
+  "commit": "5ac3c4eb2",
+  "msg": "[Imo2000P5] add problem statement",
+  "tags": [
+   "pos_guard+"
+  ],
+  "size": 31
+ },
+ {
+  "repo": "compfiles",
+  "commit": "429632d34",
+  "msg": "[Imo2002P3] add problem statement",
+  "tags": [
+   "pos_guard+",
+   "sub+"
+  ],
+  "size": 35
+ },
+ {
+  "repo": "compfiles",
+  "commit": "43310c275",
+  "msg": "[Imo1991P5] add problem statement",
+  "tags": [
+   "div+"
+  ],
+  "size": 36
+ },
+ {
+  "repo": "compfiles",
+  "commit": "78d2a7ba5",
+  "msg": "[Imo1991P2] add problem statement",
+  "tags": [
+   "pos_guard+",
+   "sub+"
+  ],
+  "size": 39
+ },
+ {
+  "repo": "compfiles",
+  "commit": "1798603b3",
+  "msg": "[Imo1976P6] fix error in problem statement",
+  "tags": [
+   "pos_guard+"
+  ],
+  "size": 2
+ },
+ {
+  "repo": "compfiles",
+  "commit": "ac4c7fe4e",
+  "msg": "[Imo1988P3] fix problem statement: f is defined on *positive integers*",
+  "tags": [
+   "pos_guard-",
+   "pnat+"
+  ],
+  "size": 17
+ },
+ {
+  "repo": "compfiles",
+  "commit": "d8c3abcf2",
+  "msg": "[Imo1971P3] fix problem statement",
+  "tags": [
+   "pnat+"
+  ],
+  "size": 7
+ },
+ {
+  "repo": "compfiles",
+  "commit": "b29406698",
+  "msg": "[Usa1993P3] fix formal problem: f's domain is a *real* interval",
+  "tags": [
+   "int_cast+"
+  ],
+  "size": 18
+ },
+ {
+  "repo": "compfiles",
+  "commit": "863f9af61",
+  "msg": "fix linter warnings",
+  "tags": [
+   "int_cast-"
+  ],
+  "size": 125
+ },
+ {
+  "repo": "compfiles",
+  "commit": "9b021df78",
+  "msg": "[Imo2022P3] import problem statement from IMOLean",
+  "tags": [
+   "pos_guard+"
+  ],
+  "size": 41
+ },
+ {
+  "repo": "compfiles",
+  "commit": "d23a9c034",
+  "msg": "fix bugs",
+  "tags": [
+   "pos_guard-"
+  ],
+  "size": 8
+ },
+ {
+  "repo": "compfiles",
+  "commit": "27665bb66",
+  "msg": "fix deprecation warnings in checkSolution",
+  "tags": [
+   "div-"
+  ],
+  "size": 6
+ },
+ {
+  "repo": "compfiles",
+  "commit": "416b56a20",
+  "msg": "[Imo1994P5] nicer problem statement",
+  "tags": [
+   "int_cast-"
+  ],
+  "size": 27
+ },
+ {
+  "repo": "compfiles",
+  "commit": "b3d999183",
+  "msg": "[Imo1978P1] fix up problem statement",
+  "tags": [
+   "pos_guard+",
+   "div-"
+  ],
+  "size": 15
+ },
+ {
+  "repo": "compfiles",
+  "commit": "79f6b02e5",
+  "msg": "[Imo2024P3] add problem statement",
+  "tags": [
+   "pnat+",
+   "sub+"
+  ],
+  "size": 42
+ },
+ {
+  "repo": "compfiles",
+  "commit": "8977437fc",
+  "msg": "[Imo2024P1] don't use Condition def in problem statement",
+  "tags": [
+   "pos_guard+",
+   "int_cast+"
+  ],
+  "size": 17
+ },
+ {
+  "repo": "compfiles",
+  "commit": "2cf767907",
+  "msg": "[Imo2024P2] add problem statement",
+  "tags": [
+   "pnat+"
+  ],
+  "size": 34
+ },
+ {
+  "repo": "compfiles",
+  "commit": "6a7714698",
+  "msg": "[Imo2024P1] add problem statement",
+  "tags": [
+   "int_cast+"
+  ],
+  "size": 34
+ },
+ {
+  "repo": "compfiles",
+  "commit": "328c10a98",
+  "msg": "[Bulgaria1998P11] weaker, more correct formulation of Thue",
+  "tags": [
+   "div+"
+  ],
+  "size": 13
+ },
+ {
+  "repo": "compfiles",
+  "commit": "28c01b97e",
+  "msg": "[Bulgaria1998P1] fix 'aesop says' by using 'omega'. remove unused lemma",
+  "tags": [
+   "pos_guard-",
+   "sub-"
+  ],
+  "size": 20
+ },
+ {
+  "repo": "compfiles",
+  "commit": "1eaeae313",
+  "msg": "add statement",
+  "tags": [
+   "div+"
+  ],
+  "size": 95
+ },
+ {
+  "repo": "compfiles",
+  "commit": "c50dc5eb1",
+  "msg": "Fixed PR comments",
+  "tags": [
+   "int_cast-"
+  ],
+  "size": 43
+ },
+ {
+  "repo": "compfiles",
+  "commit": "8a33ae45e",
+  "msg": "[Imo1963P4] add problem statement",
+  "tags": [
+   "int_cast+"
+  ],
+  "size": 39
+ },
+ {
+  "repo": "compfiles",
+  "commit": "a267b27e6",
+  "msg": "[Imo1983P6] add problem statement",
+  "tags": [
+   "int_cast+",
+   "sub+"
+  ],
+  "size": 38
+ },
+ {
+  "repo": "compfiles",
+  "commit": "3f89cc95a",
+  "msg": "[Usa1992P1] add problem statement",
+  "tags": [
+   "sub+"
+  ],
+  "size": 33
+ },
+ {
+  "repo": "compfiles",
+  "commit": "68ca180b4",
+  "msg": "[Imo1994P4] add problem statement",
+  "tags": [
+   "pos_guard+",
+   "int_cast+",
+   "sub+"
+  ],
+  "size": 31
+ },
+ {
+  "repo": "compfiles",
+  "commit": "b8c79ae21",
+  "msg": "[Imo2018P3] fix predicate and add an rintro step to proof stub",
+  "tags": [
+   "pos_guard+"
+  ],
+  "size": 5
+ },
+ {
+  "repo": "compfiles",
+  "commit": "224745769",
+  "msg": "[Imo2018P5] add problem statement",
+  "tags": [
+   "pos_guard+",
+   "int_cast+",
+   "div+"
+  ],
+  "size": 40
+ },
+ {
+  "repo": "compfiles",
+  "commit": "5cb1673e9",
+  "msg": "[Imo2020P5] add problem statement",
+  "tags": [
+   "pnat+",
+   "int_cast+"
+  ],
+  "size": 43
+ },
+ {
+  "repo": "compfiles",
+  "commit": "c16495af8",
+  "msg": "[Imo2016P4] add problem statement",
+  "tags": [
+   "pnat+"
+  ],
+  "size": 43
+ },
+ {
+  "repo": "compfiles",
+  "commit": "aae7505fb",
+  "msg": "[Imo1963P1] Add problem statement",
+  "tags": [
+   "int_cast+",
+   "sub+",
+   "domain+"
+  ],
+  "size": 30
+ },
+ {
+  "repo": "compfiles",
+  "commit": "828584996",
+  "msg": "[Imo2004P2] add problem statement",
+  "tags": [
+   "sub+"
+  ],
+  "size": 32
+ },
+ {
+  "repo": "compfiles",
+  "commit": "b7a713e8e",
+  "msg": "[Imo2011P5] add problem statement",
+  "tags": [
+   "pos_guard+",
+   "sub+"
+  ],
+  "size": 30
+ },
+ {
+  "repo": "compfiles",
+  "commit": "723037eca",
+  "msg": "[Usa2015P1] add problem statement",
+  "tags": [
+   "int_cast+"
+  ],
+  "size": 27
+ },
+ {
+  "repo": "compfiles",
+  "commit": "e8d438650",
+  "msg": "[Imo2004P1] add problem statement",
+  "tags": [
+   "pos_guard+"
+  ],
+  "size": 32
+ },
+ {
+  "repo": "compfiles",
+  "commit": "0769d8c34",
+  "msg": "[Usa2024P2] add problem statement",
+  "tags": [
+   "int_cast+"
+  ],
+  "size": 45
+ },
+ {
+  "repo": "compfiles",
+  "commit": "43f42fa57",
+  "msg": "[Usa2008P1] add problem statement",
+  "tags": [
+   "pos_guard+",
+   "sub+"
+  ],
+  "size": 30
+ },
+ {
+  "repo": "compfiles",
+  "commit": "03c0fa75a",
+  "msg": "[Usa1978P1] add problem statement",
+  "tags": [
+   "int_cast+"
+  ],
+  "size": 34
+ },
+ {
+  "repo": "compfiles",
+  "commit": "e359ec1d5",
+  "msg": "[Usa1980P5] add problem statement",
+  "tags": [
+   "int_cast+",
+   "sub+"
+  ],
+  "size": 30
+ },
+ {
+  "repo": "compfiles",
+  "commit": "93850bc6e",
+  "msg": "[Usa1983P5] add problem statement",
+  "tags": [
+   "pos_guard+",
+   "int_cast+",
+   "div+"
+  ],
+  "size": 28
+ },
+ {
+  "repo": "compfiles",
+  "commit": "411ed82db",
+  "msg": "[Imo1985P4] add problem statement",
+  "tags": [
+   "pos_guard+"
+  ],
+  "size": 27
+ },
+ {
+  "repo": "compfiles",
+  "commit": "76a41d5cf",
+  "msg": "[Imo1993P5] add problem statement",
+  "tags": [
+   "pnat+"
+  ],
+  "size": 35
+ },
+ {
+  "repo": "compfiles",
+  "commit": "d296bfcd6",
+  "msg": "[Imo1966P4] add problem statement",
+  "tags": [
+   "int_cast+",
+   "sub+",
+   "div+"
+  ],
+  "size": 33
+ },
+ {
+  "repo": "compfiles",
+  "commit": "40fe4afa1",
+  "msg": "[Imo2009P6] add problem statement",
+  "tags": [
+   "pos_guard+",
+   "sub+"
+  ],
+  "size": 40
+ },
+ {
+  "repo": "compfiles",
+  "commit": "b17bca0aa",
+  "msg": "[Imo2008P5] avoid division in the problem statement",
+  "tags": [
+   "pos_guard-",
+   "sub-"
+  ],
+  "size": 9
+ },
+ {
+  "repo": "compfiles",
+  "commit": "1895abaa5",
+  "msg": "[Imo1991P6] add problem statement",
+  "tags": [
+   "int_cast+",
+   "sub+"
+  ],
+  "size": 37
+ },
+ {
+  "repo": "compfiles",
+  "commit": "99ef79119",
+  "msg": "[Imo1964P2] add problem statement",
+  "tags": [
+   "int_cast+",
+   "sub+"
+  ],
+  "size": 35
+ },
+ {
+  "repo": "compfiles",
+  "commit": "8108a7139",
+  "msg": "[Imo2008P5] add problem statement",
+  "tags": [
+   "sub+"
+  ],
+  "size": 49
+ },
+ {
+  "repo": "compfiles",
+  "commit": "5306d494f",
+  "msg": "[Imo1995P2] add problem statement",
+  "tags": [
+   "pos_guard+",
+   "int_cast+",
+   "div+"
+  ],
+  "size": 27
+ },
+ {
+  "repo": "compfiles",
+  "commit": "e136f9737",
+  "msg": "[Imo1983P1] add problem statement",
+  "tags": [
+   "pos_guard+"
+  ],
+  "size": 35
+ },
+ {
+  "repo": "compfiles",
+  "commit": "4e600e05b",
+  "msg": "[Imo2006P3] make problem statement clearer",
+  "tags": [
+   "int_cast-"
+  ],
+  "size": 19
+ },
+ {
+  "repo": "compfiles",
+  "commit": "9f63ff661",
+  "msg": "[Imo2005P4] somewhat more precise problem statement",
+  "tags": [
+   "pnat+"
+  ],
+  "size": 6
+ },
+ {
+  "repo": "compfiles",
+  "commit": "0d25940bb",
+  "msg": "[Imo1970P4] add problem statement",
+  "tags": [
+   "pnat+"
+  ],
+  "size": 35
+ },
+ {
+  "repo": "compfiles",
+  "commit": "e37c88862",
+  "msg": "[Imo1970P6] add problem statement",
+  "tags": [
+   "int_cast+",
+   "div+"
+  ],
+  "size": 47
+ },
+ {
+  "repo": "compfiles",
+  "commit": "f9e9cb0f3",
+  "msg": "[Imo2014P4] add problem statement",
+  "tags": [
+   "div+"
+  ],
+  "size": 51
+ },
+ {
+  "repo": "compfiles",
+  "commit": "be850cdc4",
+  "msg": "[Usa2001P4] add problem statement",
+  "tags": [
+   "div+"
+  ],
+  "size": 37
+ },
+ {
+  "repo": "compfiles",
+  "commit": "efbb40064",
+  "msg": "[Imo1965P2] add problem statement",
+  "tags": [
+   "pos_guard+"
+  ],
+  "size": 35
+ },
+ {
+  "repo": "compfiles",
+  "commit": "838854f83",
+  "msg": "[Imo1962P2] fix parenthesization",
+  "tags": [
+   "pos_guard+",
+   "sub+"
+  ],
+  "size": 8
+ },
+ {
+  "repo": "compfiles",
+  "commit": "15e365e61",
+  "msg": "[Imo1962P2] add problem statement",
+  "tags": [
+   "pos_guard+",
+   "int_cast+",
+   "sub+",
+   "domain+"
+  ],
+  "size": 29
+ },
+ {
+  "repo": "compfiles",
+  "commit": "787de92ca",
+  "msg": "[Imo1999P6] add problem statement",
+  "tags": [
+   "sub+"
+  ],
+  "size": 31
+ },
+ {
+  "repo": "compfiles",
+  "commit": "40c31bc90",
+  "msg": "[Imo2002P5] add problem statement",
+  "tags": [
+   "sub+"
+  ],
+  "size": 32
+ },
+ {
+  "repo": "compfiles",
+  "commit": "5c5c80b1c",
+  "msg": "[Usa1998P3] rpow -> hpow in problem statement, 'nlinarith only' for speed",
+  "tags": [
+   "int_cast+"
+  ],
+  "size": 14
+ },
+ {
+  "repo": "compfiles",
+  "commit": "22aa8dc0c",
+  "msg": "[Imo2000P2] add problem statement",
+  "tags": [
+   "int_cast+",
+   "sub+",
+   "div+"
+  ],
+  "size": 26
+ },
+ {
+  "repo": "compfiles",
+  "commit": "fae8b510a",
+  "msg": "[CIIM2022P6] add problem statement",
+  "tags": [
+   "pos_guard+"
+  ],
+  "size": 30
+ },
+ {
+  "repo": "compfiles",
+  "commit": "d81fef465",
+  "msg": "[Usa1993P1] add problem statement",
+  "tags": [
+   "pos_guard+",
+   "int_cast+"
+  ],
+  "size": 30
+ },
+ {
+  "repo": "compfiles",
+  "commit": "a229843a5",
+  "msg": "[Usa2017P5] fix problem statement",
+  "tags": [
+   "pos_guard+"
+  ],
+  "size": 6
+ },
+ {
+  "repo": "compfiles",
+  "commit": "2f8fd3921",
+  "msg": "[Usa2017P5] add problem statement",
+  "tags": [
+   "pos_guard+",
+   "int_cast+",
+   "sub+",
+   "domain+"
+  ],
+  "size": 38
+ },
+ {
+  "repo": "compfiles",
+  "commit": "d69c0cdad",
+  "msg": "[Usa2005P2] add problem statement",
+  "tags": [
+   "int_cast+"
+  ],
+  "size": 29
+ },
+ {
+  "repo": "compfiles",
+  "commit": "2656b2e9f",
+  "msg": "[Usa1985P1] positivity bug?",
+  "tags": [
+   "pos_guard+"
+  ],
+  "size": 23
+ },
+ {
+  "repo": "compfiles",
+  "commit": "eeb3c697c",
+  "msg": "[Usa1985P1] add problem statement",
+  "tags": [
+   "int_cast+"
+  ],
+  "size": 41
+ },
+ {
+  "repo": "compfiles",
+  "commit": "e0bd7c54e",
+  "msg": "[Usa1989P5] add problem statement",
+  "tags": [
+   "int_cast+"
+  ],
+  "size": 39
+ },
+ {
+  "repo": "compfiles",
+  "commit": "fd5385888",
+  "msg": "[Usa1990P2] add problem statement",
+  "tags": [
+   "int_cast+",
+   "domain+"
+  ],
+  "size": 36
+ },
+ {
+  "repo": "compfiles",
+  "commit": "fc654aa34",
+  "msg": "[Usa1982P4] add problem statement",
+  "tags": [
+   "pos_guard+"
+  ],
+  "size": 30
+ },
+ {
+  "repo": "compfiles",
+  "commit": "6d0e72ec4",
+  "msg": "[Usa1987P1] add problem statement",
+  "tags": [
+   "pos_guard+",
+   "int_cast+",
+   "sub+"
+  ],
+  "size": 31
+ },
+ {
+  "repo": "compfiles",
+  "commit": "989605793",
+  "msg": "[Usa2001P3] add problem statement",
+  "tags": [
+   "int_cast+",
+   "sub+"
+  ],
+  "size": 32
+ },
+ {
+  "repo": "compfiles",
+  "commit": "81a9c6957",
+  "msg": "[Usa1981P5] add problem statement",
+  "tags": [
+   "int_cast+"
+  ],
+  "size": 30
+ },
+ {
+  "repo": "compfiles",
+  "commit": "c76b05bfd",
+  "msg": "[Imo2007P1] add the problem statement (for real this time)",
+  "tags": [
+   "pos_guard+",
+   "sub+",
+   "div+"
+  ],
+  "size": 41
+ },
+ {
+  "repo": "compfiles",
+  "commit": "59e3c32e7",
+  "msg": "[Imo1979P1] add problem statement",
+  "tags": [
+   "pos_guard+",
+   "int_cast+",
+   "sub+",
+   "div+"
+  ],
+  "size": 31
+ },
+ {
+  "repo": "compfiles",
+  "commit": "6424767c7",
+  "msg": "update mathlib and fix lots of breakage",
+  "tags": [
+   "pnat+",
+   "int_cast+",
+   "div+"
+  ],
+  "size": 227
+ },
+ {
+  "repo": "compfiles",
+  "commit": "111111e27",
+  "msg": "[Imo1961P1] add problem statement",
+  "tags": [
+   "pos_guard+",
+   "int_cast+",
+   "sub+"
+  ],
+  "size": 51
+ },
+ {
+  "repo": "compfiles",
+  "commit": "25a80275c",
+  "msg": "[Usa2023P4] add problem statement",
+  "tags": [
+   "pos_guard+",
+   "pnat+"
+  ],
+  "size": 78
+ },
+ {
+  "repo": "compfiles",
+  "commit": "0027afc76",
+  "msg": "[Imo2003P6] add problem statement",
+  "tags": [
+   "int_cast+",
+   "sub+"
+  ],
+  "size": 26
+ },
+ {
+  "repo": "compfiles",
+  "commit": "72079e160",
+  "msg": "[Imo2003P2] add problem statement",
+  "tags": [
+   "pos_guard+",
+   "int_cast+",
+   "sub+"
+  ],
+  "size": 32
+ },
+ {
+  "repo": "compfiles",
+  "commit": "323af0996",
+  "msg": "[Imo2007P5] add problem statement",
+  "tags": [
+   "pos_guard+",
+   "int_cast+",
+   "sub+"
+  ],
+  "size": 25
+ },
+ {
+  "repo": "compfiles",
+  "commit": "e1338fd66",
+  "msg": "[Imo2010P3] add problem statement",
+  "tags": [
+   "pos_guard+"
+  ],
+  "size": 36
+ },
+ {
+  "repo": "compfiles",
+  "commit": "664a3fd11",
+  "msg": "[Imo2014P1] fix another problem statement error. make some proof progress",
+  "tags": [
+   "pos_guard+",
+   "sub+"
+  ],
+  "size": 41
+ },
+ {
+  "repo": "compfiles",
+  "commit": "d05b0a18f",
+  "msg": "[Imo2015P2] add problem statement",
+  "tags": [
+   "pos_guard+",
+   "int_cast+",
+   "sub+"
+  ],
+  "size": 33
+ },
+ {
+  "repo": "compfiles",
+  "commit": "400ff5cf0",
+  "msg": "[Imo2012P2] add problem statement",
+  "tags": [
+   "pos_guard+",
+   "int_cast+"
+  ],
+  "size": 29
+ },
+ {
+  "repo": "compfiles",
+  "commit": "0dcd814b4",
+  "msg": "[Imo2014P1] add problem statement",
+  "tags": [
+   "pos_guard+"
+  ],
+  "size": 31
+ },
+ {
+  "repo": "compfiles",
+  "commit": "d8f7bc532",
+  "msg": "[Imo2016P5] add problem statement",
+  "tags": [
+   "int_cast+",
+   "sub+"
+  ],
+  "size": 49
+ },
+ {
+  "repo": "compfiles",
+  "commit": "145afffc1",
+  "msg": "[Imo2021P6] add problem statement",
+  "tags": [
+   "int_cast+"
+  ],
+  "size": 32
+ },
+ {
+  "repo": "compfiles",
+  "commit": "1ef8412fd",
+  "msg": "[Imo2019P4] add problem statement",
+  "tags": [
+   "pos_guard+",
+   "sub+"
+  ],
+  "size": 31
+ },
+ {
+  "repo": "compfiles",
+  "commit": "b4ccbf2af",
+  "msg": "[Imo2021P2] add problem statement",
+  "tags": [
+   "sub+",
+   "domain+"
+  ],
+  "size": 30
+ },
+ {
+  "repo": "compfiles",
+  "commit": "b66166896",
+  "msg": "[Imo2023P3] add problem statement",
+  "tags": [
+   "pos_guard+",
+   "pnat+"
+  ],
+  "size": 40
+ },
+ {
+  "repo": "compfiles",
+  "commit": "bf58df1ef",
+  "msg": "[Imo2023P5] fix up indexing",
+  "tags": [
+   "pos_guard+"
+  ],
+  "size": 15
+ },
+ {
+  "repo": "compfiles",
+  "commit": "09b2b8a30",
+  "msg": "[Imo2023P4] add problem statement",
+  "tags": [
+   "pos_guard+",
+   "div+",
+   "domain+"
+  ],
+  "size": 40
+ },
+ {
+  "repo": "compfiles",
+  "commit": "b1fdb4fc4",
+  "msg": "[Imo2023P1] add problem statement",
+  "tags": [
+   "pos_guard+"
+  ],
+  "size": 37
+ },
+ {
+  "repo": "compfiles",
+  "commit": "dbfc42d39",
+  "msg": "[Imo2001P6] add problem statement",
+  "tags": [
+   "pos_guard+",
+   "int_cast+",
+   "sub+"
+  ],
+  "size": 31
+ },
+ {
+  "repo": "compfiles",
+  "commit": "4ee82d7f7",
+  "msg": "[Imo1982P1] add problem statement",
+  "tags": [
+   "pos_guard+"
+  ],
+  "size": 36
+ },
+ {
+  "repo": "compfiles",
+  "commit": "a03802e0d",
+  "msg": "[Imo1968] add problem statement",
+  "tags": [
+   "int_cast+",
+   "domain+"
+  ],
+  "size": 41
+ },
+ {
+  "repo": "compfiles",
+  "commit": "f5546b16a",
+  "msg": "[Imo1968P2] add problem statement",
+  "tags": [
+   "sub+"
+  ],
+  "size": 32
+ },
+ {
+  "repo": "compfiles",
+  "commit": "9b4015f1c",
+  "msg": "[Usa2022P4] add problem statement",
+  "tags": [
+   "sub+"
+  ],
+  "size": 29
+ },
+ {
+  "repo": "compfiles",
+  "commit": "bab9957d3",
+  "msg": "[Usa2011P4] add problem statement",
+  "tags": [
+   "sub+",
+   "div+"
+  ],
+  "size": 38
+ },
+ {
+  "repo": "compfiles",
+  "commit": "07ae493ef",
+  "msg": "[Usa2023P5] add problem statement",
+  "tags": [
+   "pos_guard+"
+  ],
+  "size": 62
+ },
+ {
+  "repo": "compfiles",
+  "commit": "7bf949ceb",
+  "msg": "[Imo2022P2] add problem statement and a start on the solution",
+  "tags": [
+   "pos_guard+",
+   "div+"
+  ],
+  "size": 50
+ },
+ {
+  "repo": "compfiles",
+  "commit": "8a0678e97",
+  "msg": "[Imo2022P5] add problem statement and prove easy direction",
+  "tags": [
+   "pos_guard+"
+  ],
+  "size": 33
+ },
+ {
+  "repo": "compfiles",
+  "commit": "ea9338c51",
+  "msg": "[Imo2017P1] add problem statement",
+  "tags": [
+   "domain+"
+  ],
+  "size": 39
+ },
+ {
+  "repo": "compfiles",
+  "commit": "9a1d6fdc6",
+  "msg": "[Imo2017P6] add problem statement",
+  "tags": [
+   "pos_guard+",
+   "sub+"
+  ],
+  "size": 33
+ },
+ {
+  "repo": "compfiles",
+  "commit": "4feee9db9",
+  "msg": "[Imo2017P2] add problem statement and proof of easy direction",
+  "tags": [
+   "sub+"
+  ],
+  "size": 33
+ },
+ {
+  "repo": "compfiles",
+  "commit": "d6e27d685",
+  "msg": "[Imo1997P5] add problem statement",
+  "tags": [
+   "pos_guard+"
+  ],
+  "size": 24
+ },
+ {
+  "repo": "compfiles",
+  "commit": "1c895a2c6",
+  "msg": "[Imo1992P1] add problem statement",
+  "tags": [
+   "int_cast+",
+   "sub+"
+  ],
+  "size": 26
+ },
+ {
+  "repo": "compfiles",
+  "commit": "bf264feb6",
+  "msg": "[Imo1974Q5] add problem statement",
+  "tags": [
+   "pos_guard+",
+   "int_cast+"
+  ],
+  "size": 31
+ },
+ {
+  "repo": "compfiles",
+  "commit": "bd29e6322",
+  "msg": "[Usa2023Q2] add problem statement",
+  "tags": [
+   "pos_guard+"
+  ],
+  "size": 37
+ },
+ {
+  "repo": "compfiles",
+  "commit": "3e13b4981",
+  "msg": "[Usa2019Q1] add problem statement",
+  "tags": [
+   "pnat+"
+  ],
+  "size": 37
+ },
+ {
+  "repo": "compfiles",
+  "commit": "6b849f467",
+  "msg": "[Usa1996Q1] add problem statement",
+  "tags": [
+   "int_cast+",
+   "div+"
+  ],
+  "size": 25
+ },
+ {
+  "repo": "compfiles",
+  "commit": "8048593bc",
+  "msg": "[Usa2003Q1] add problem statement and informal solution",
+  "tags": [
+   "pos_guard+"
+  ],
+  "size": 37
+ },
+ {
+  "repo": "compfiles",
+  "commit": "1b02a5dee",
+  "msg": "[Usa1999Q1] fix inequality",
+  "tags": [
+   "sub-",
+   "div-"
+  ],
+  "size": 3
+ },
+ {
+  "repo": "compfiles",
+  "commit": "782cff44d",
+  "msg": "[Usa1999Q1] problem statement",
+  "tags": [
+   "sub+",
+   "div+"
+  ],
+  "size": 42
+ },
+ {
+  "repo": "compfiles",
+  "commit": "9aafb6f33",
+  "msg": "[Usa20001Q1] add problem statement",
+  "tags": [
+   "sub+"
+  ],
+  "size": 24
+ },
+ {
+  "repo": "compfiles",
+  "commit": "fcb10b66b",
+  "msg": "[Bulgaria1998Q1] add problem statement",
+  "tags": [
+   "pos_guard+",
+   "sub+"
+  ],
+  "size": 51
+ },
+ {
+  "repo": "compfiles",
+  "commit": "770cc08a7",
+  "msg": "[Canada1998Q5] add problem statement",
+  "tags": [
+   "pos_guard+",
+   "int_cast+",
+   "sub+"
+  ],
+  "size": 39
+ },
+ {
+  "repo": "compfiles",
+  "commit": "cbba49558",
+  "msg": "[IntegersInACircle] add problem statements",
+  "tags": [
+   "pos_guard+"
+  ],
+  "size": 28
+ },
+ {
+  "repo": "compfiles",
+  "commit": "1c26e163d",
+  "msg": "[Usa1998Q3] add problem statement",
+  "tags": [
+   "sub+",
+   "div+"
+  ],
+  "size": 34
+ },
+ {
+  "repo": "compfiles",
+  "commit": "6b9ddee3d",
+  "msg": "[Usa1998Q1] add problem statement",
+  "tags": [
+   "pos_guard+",
+   "sub+",
+   "div+"
+  ],
+  "size": 42
+ },
+ {
+  "repo": "compfiles",
+  "commit": "3826ecb88",
+  "msg": "[Imo1989Q5] fix up some indices",
+  "tags": [
+   "sub+"
+  ],
+  "size": 19
+ },
+ {
+  "repo": "compfiles",
+  "commit": "9d8cd101e",
+  "msg": "[UpperLowerContinuous] add statement of real induction lemma",
+  "tags": [
+   "int_cast+"
+  ],
+  "size": 13
+ },
+ {
+  "repo": "compfiles",
+  "commit": "bdcca06ca",
+  "msg": "[Usa2022Q1] add problem statement",
+  "tags": [
+   "pos_guard+",
+   "sub+"
+  ],
+  "size": 32
+ },
+ {
+  "repo": "compfiles",
+  "commit": "ee0a12dac",
+  "msg": "[Bulgaria1998Q6] add problem statement",
+  "tags": [
+   "pos_guard+",
+   "int_cast+",
+   "sub+"
+  ],
+  "size": 26
+ },
+ {
+  "repo": "compfiles",
+  "commit": "1b6539a11",
+  "msg": "[Imo1989Q5] add problem statement",
+  "tags": [
+   "pos_guard+"
+  ],
+  "size": 20
+ },
+ {
+  "repo": "compfiles",
+  "commit": "8fc48fd71",
+  "msg": "add problem statement for Usa1998Q5",
+  "tags": [
+   "sub+"
+  ],
+  "size": 17
+ },
+ {
+  "repo": "compfiles",
+  "commit": "d4ba1b69b",
+  "msg": "add problem statement for Canada1998Q3",
+  "tags": [
+   "int_cast+",
+   "sub+"
+  ],
+  "size": 18
+ },
+ {
+  "repo": "compfiles",
+  "commit": "cd3f3160e",
+  "msg": "[Imo2013Q5] close another sorry. the fix is kinda silly",
+  "tags": [
+   "int_cast+"
+  ],
+  "size": 3
+ },
+ {
+  "repo": "compfiles",
+  "commit": "149648813",
+  "msg": "add problem statement for imo1964_q1b",
+  "tags": [
+   "sub+"
+  ],
+  "size": 16
+ }
+]

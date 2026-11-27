@@ -151,6 +151,24 @@ def hasGroupWithZero (α : Expr) : MetaM Bool := do
   try return (← synthInstance? (← mkAppM ``GroupWithZero #[α])).isSome
   catch _ => return false
 
+def finBound? (ty : Expr) : Option Expr :=
+  let ty := ty.consumeMData
+  if ty.isAppOfArity ``Fin 1 then some ty.appArg! else none
+
+/-- `Fin.val` of a `Fin` term, or the ℕ literal itself for a numeral. -/
+def finValOf (x : Expr) : MetaM Expr := do
+  let x := x.consumeMData
+  if x.isAppOfArity ``OfNat.ofNat 3 then
+    if let some k := x.getAppArgs[1]!.rawNatLit? then return mkNatLit k
+  mkAppM ``Fin.val #[x]
+
+def zmodModulus? (ty : Expr) : Option Expr :=
+  let ty := ty.consumeMData
+  if ty.isAppOfArity `ZMod 1 then
+    let n := ty.appArg!
+    if (n.rawNatLit?.isSome || n.nat?.isSome) then none else some n
+  else none
+
 def isNatSub (e : Expr) : Bool :=
   let e := e.consumeMData
   e.isAppOfArity ``HSub.hSub 6 && isNatTy e.getAppArgs[0]! && isNatTy e.getAppArgs[1]!
@@ -161,12 +179,23 @@ def checkPatterns (e : Expr) (ctx : Ctx) : DetectM (Option (Array Expr)) := do
   let some c := e.getAppFn.constName? | return none
   match c, args.size with
   | ``HSub.hSub, 6 =>
+    if let some _ := finBound? args[0]! then
+      let cond ← mkAppM ``LE.le #[← finValOf args[5]!, ← finValOf args[4]!]
+      recordSite ctx .finWrap e cond (mkNot cond)
     if isNatSub e then
       let kind := if ctx.inHyp.isSome then .natSubHyp else if ctx.inExp then .expTrunc else .natSub
       recordSite ctx kind e (← mkAppM ``LE.le #[args[5]!, args[4]!])
         (← mkAppM ``LT.lt #[args[4]!, args[5]!])
     return none
+  | ``Int.cast, 3 =>
+    if let some n := zmodModulus? args[0]! then
+      let cond ← mkAppM ``Ne #[n, ← zeroOf (← inferType n)]
+      recordSite ctx .zmodZero e cond (mkNot cond)
+    return none
   | ``Nat.cast, 3 =>
+    if let some n := zmodModulus? args[0]! then
+      let cond ← mkAppM ``Ne #[n, ← zeroOf (← inferType n)]
+      recordSite ctx .zmodZero e cond (mkNot cond)
     let x := args[2]!.consumeMData
     if isNatSub x then
       let xa := x.getAppArgs
@@ -208,6 +237,10 @@ def checkPatterns (e : Expr) (ctx : Ctx) : DetectM (Option (Array Expr)) := do
     let z ← zeroOf (mkConst ``Real)
     recordSite ctx .realDomain e (← mkAppM ``LT.lt #[z, args[0]!]) (← mkAppM ``LE.le #[args[0]!, z])
     return none
+  | `Real.logb, 2 =>
+    let z ← zeroOf (mkConst ``Real)
+    recordSite ctx .realDomain e (← mkAppM ``LT.lt #[z, args[1]!]) (← mkAppM ``LE.le #[args[1]!, z])
+    return none
   | ``HPow.hPow, 6 =>
     if isRealTy args[0]! && isRealTy args[1]! then
       let z ← zeroOf (mkConst ``Real)
@@ -216,6 +249,58 @@ def checkPatterns (e : Expr) (ctx : Ctx) : DetectM (Option (Array Expr)) := do
   | ``Int.toNat, 1 =>
     let z ← zeroOf (mkConst ``Int)
     recordSite ctx .intToNat e (← mkAppM ``LE.le #[z, args[0]!]) (← mkAppM ``LT.lt #[args[0]!, z])
+    return none
+  | ``HAdd.hAdd, 6 =>
+    if let some n := finBound? args[0]! then
+      let sum ← mkAppM ``HAdd.hAdd #[← finValOf args[4]!, ← finValOf args[5]!]
+      let cond ← mkAppM ``LT.lt #[sum, n]
+      recordSite ctx .finWrap e cond (mkNot cond)
+    return none
+  | ``LT.lt, 4 =>
+    let t ← whnfR args[0]!
+    if let .forallE n d _ _ := t then
+      unless (← isProp t) do
+        let cond ← withLocalDeclD n d fun i => do
+          mkForallFVars #[i] (← mkAppM ``LT.lt #[mkApp args[2]! i, mkApp args[3]! i])
+        recordSite ctx .piOrder e cond (mkNot cond)
+    return none
+  | `InfSet.sInf, 3 | `SupSet.sSup, 3 =>
+    let α := args[0]!
+    let S := args[2]!
+    let isInf := c == `InfSet.sInf
+    if isNatTy α then
+      let cond ← if isInf then mkAppM ``Set.Nonempty #[S] else mkAppM ``BddAbove #[S]
+      recordSite ctx .sSupInf e cond (mkNot cond)
+    else if isRealTy α then
+      let cond ← mkAppM ``And #[← mkAppM ``Set.Nonempty #[S],
+        ← mkAppM (if isInf then ``BddBelow else ``BddAbove) #[S]]
+      recordSite ctx .sSupInf e cond (mkNot cond)
+    return none
+  | `iSup, 4 | `iInf, 4 =>
+    let α := args[0]!
+    let isInf := c == `iInf
+    if isNatTy α || isRealTy α then
+      let rng ← mkAppM ``Set.range #[args[3]!]
+      let bdd ← mkAppM (if isInf then ``BddBelow else ``BddAbove) #[rng]
+      let cond ← if isRealTy α then mkAppM ``And #[← mkAppM ``Nonempty #[args[1]!], bdd] else pure bdd
+      unless isNatTy α && isInf do
+        recordSite ctx .sSupInf e cond (mkNot cond)
+    return none
+  | `Set.ncard, 2 =>
+    let cond ← mkAppM ``Set.Finite #[args[1]!]
+    recordSite ctx .card e cond (mkNot cond)
+    return none
+  | `Nat.card, 1 =>
+    let cond ← mkAppM ``Finite #[args[0]!]
+    recordSite ctx .card e cond (mkNot cond)
+    return none
+  | `Metric.diam, 3 =>
+    let cond ← mkAppM `Bornology.IsBounded #[args[2]!]
+    recordSite ctx .diam e cond (mkNot cond)
+    return none
+  | `deriv, 8 =>
+    let cond ← mkAppM `DifferentiableAt #[args[0]!, args[6]!, args[7]!]
+    recordSite ctx .deriv e cond (mkNot cond)
     return none
   | _, _ => return none
 
@@ -262,8 +347,10 @@ partial def visit (e : Expr) (ctx : Ctx) : DetectM Unit := do
         visit args[0]! (← addHyp { ctx with atom := none } args[1]!)
         visit args[1]! (← addHyp { ctx with atom := none } args[0]!)
       else
+        -- Guarded conjunction: whatever the polarity, if the left conjunct is false the
+        -- conjunction is false regardless of the right one, so the right side may assume it.
         visit args[0]! { ctx with atom := none }
-        visit args[1]! { ctx with atom := none }
+        visit args[1]! (← addHyp { ctx with atom := none } args[0]!)
     | some ``Or, 2 | some ``Iff, 2 =>
       visit args[0]! { ctx with atom := none }
       visit args[1]! { ctx with atom := none }

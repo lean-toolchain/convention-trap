@@ -1,0 +1,41 @@
+name: ci
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  build-test-eval:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install elan
+        run: |
+          curl -sSfL https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh | sh -s -- -y --default-toolchain none
+          echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
+      - uses: actions/cache@v4
+        with:
+          path: .lake
+          key: lake-${{ runner.os }}-${{ hashFiles('lean-toolchain', 'lake-manifest.json') }}-${{ hashFiles('ConventionTrap/**', 'ConventionTrap.lean') }}
+          restore-keys: lake-${{ runner.os }}-${{ hashFiles('lean-toolchain', 'lake-manifest.json') }}-
+      - name: Mathlib cache
+        run: lake exe cache get
+      - name: Build library
+        run: lake build ConventionTrap
+      - name: Unit tests (#guard_msgs)
+        run: lake build ConventionTrapTest
+      - name: Evaluate (seed corpus + real incidents)
+        run: |
+          set -o pipefail
+          scripts/trap-report --modules ConventionTrapTest.Corpus --mode ci --out-dir out/corpus --fail-on never
+          scripts/trap-report --modules ConventionTrapTest.Real --mode ci --out-dir out/real --fail-on never
+          {
+            echo '## Seed corpus'; echo '```'; python3 scripts/eval.py out/corpus/report.json; echo '```'
+            echo '## Real incidents'; echo '```'; CORPUS=test/ConventionTrapTest/Real.lean python3 scripts/eval.py out/real/report.json; echo '```'
+          } | tee -a "$GITHUB_STEP_SUMMARY"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: eval-reports
+          path: out/

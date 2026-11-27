@@ -1,0 +1,64 @@
+name: mathlib-noise
+# Runs the detector over (a sample of) Mathlib's own statements and reports how often it fires.
+# Mathlib theorems are proved, so every warning is a candidate false positive to review.
+on:
+  workflow_dispatch:
+    inputs:
+      sample_mod:
+        description: "keep 1 of every N declarations (1 = all)"
+        default: "10"
+      prefix:
+        description: "module prefix to scan"
+        default: "Mathlib"
+  pull_request:
+    paths: ["ConventionTrap/**", "scripts/TrapReport.lean", ".github/workflows/mathlib-noise.yml"]
+
+env:
+  SAMPLE_MOD: ${{ github.event.inputs.sample_mod || '50' }}
+  PREFIX: ${{ github.event.inputs.prefix || 'Mathlib' }}
+
+jobs:
+  shard:
+    runs-on: ubuntu-latest
+    timeout-minutes: 300
+    strategy:
+      fail-fast: false
+      matrix:
+        shard: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install elan
+        run: |
+          curl -sSfL https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh | sh -s -- -y --default-toolchain none
+          echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
+      - uses: actions/cache@v4
+        with:
+          path: .lake
+          key: lake-${{ runner.os }}-${{ hashFiles('lean-toolchain', 'lake-manifest.json') }}-${{ hashFiles('ConventionTrap/**', 'ConventionTrap.lean') }}
+          restore-keys: lake-${{ runner.os }}-${{ hashFiles('lean-toolchain', 'lake-manifest.json') }}-
+      - run: lake exe cache get
+      - run: lake build ConventionTrap
+      - name: Scan shard
+        run: |
+          scripts/trap-report --import Mathlib --prefix "$PREFIX" --shard ${{ matrix.shard }}/16 \
+            --sample-mod "$SAMPLE_MOD" --mode ci --format json --progress \
+            --out-dir out/shard-${{ matrix.shard }} --fail-on never
+      - uses: actions/upload-artifact@v4
+        with:
+          name: shard-${{ matrix.shard }}
+          path: out/
+  aggregate:
+    needs: shard
+    if: always()
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          path: shards
+      - name: Aggregate
+        run: python3 scripts/noise_aggregate.py shards noise | tee -a "$GITHUB_STEP_SUMMARY"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: mathlib-noise
+          path: noise/

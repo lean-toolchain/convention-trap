@@ -18,6 +18,10 @@ register_option linter.conventionTrap.castSub : Bool := {
   defValue := true, descr := "convention trap: cast of a truncated subtraction" }
 register_option linter.conventionTrap.natZero : Bool := {
   defValue := true, descr := "convention trap: counterexample at 0 (natZero, falseStatement)" }
+register_option linter.conventionTrap.junkFun : Bool := {
+  defValue := true, descr := "convention trap: junk values of sInf/sSup/iSup, ncard/Nat.card, Metric.diam, deriv" }
+register_option linter.conventionTrap.leanOps : Bool := {
+  defValue := true, descr := "convention trap: Pi order `<`, Fin wraparound, ZMod 0" }
 register_option linter.conventionTrap.heartbeats : Nat := {
   defValue := 20000, descr := "convention trap: heartbeat budget per condition" }
 register_option linter.conventionTrap.mode : String := {

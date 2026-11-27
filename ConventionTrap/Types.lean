@@ -12,20 +12,25 @@ open Lean
 /-- Kinds of Mathlib convention traps (MVP list). -/
 inductive TrapKind where
   | natSub | natSubHyp | div | intDiv | modZero | intDivNeg | realDomain | rpow
-  | castSub | natZero | intToNat | expTrunc | falseStatement
+  | castSub | natZero | intToNat | expTrunc | falseStatement | trivialWitness
+  | sSupInf | card | diam | deriv | piOrder | finWrap | zmodZero
   deriving Inhabited, BEq, DecidableEq, Repr, Hashable, Ord
 
 namespace TrapKind
 
 def all : Array TrapKind :=
   #[natSub, natSubHyp, div, intDiv, modZero, intDivNeg, realDomain, rpow, castSub, natZero,
-    intToNat, expTrunc, falseStatement]
+    intToNat, expTrunc, falseStatement, trivialWitness,
+    sSupInf, card, diam, deriv, piOrder, finWrap, zmodZero]
 
 def toString : TrapKind → String
   | natSub => "natSub" | natSubHyp => "natSubHyp" | div => "div" | intDiv => "intDiv"
   | modZero => "modZero" | intDivNeg => "intDivNeg" | realDomain => "realDomain"
   | rpow => "rpow" | castSub => "castSub" | natZero => "natZero" | intToNat => "intToNat"
   | expTrunc => "expTrunc" | falseStatement => "falseStatement"
+  | trivialWitness => "trivialWitness"
+  | sSupInf => "sSupInf" | card => "card" | diam => "diam" | deriv => "deriv"
+  | piOrder => "piOrder" | finWrap => "finWrap" | zmodZero => "zmodZero"
 
 instance : ToString TrapKind := ⟨TrapKind.toString⟩
 
@@ -36,8 +41,16 @@ def optionName : TrapKind → Name
   | natSubHyp | expTrunc => `linter.conventionTrap.natSub
   | modZero | intDivNeg => `linter.conventionTrap.intDiv
   | rpow | intToNat => `linter.conventionTrap.realDomain
-  | falseStatement => `linter.conventionTrap.natZero
+  | falseStatement | trivialWitness => `linter.conventionTrap.natZero
+  | sSupInf | card | diam | deriv => `linter.conventionTrap.junkFun
+  | piOrder | finWrap | zmodZero => `linter.conventionTrap.leanOps
   | k => `linter.conventionTrap ++ Name.mkSimple k.toString
+
+/-- Kinds whose variables are sets/functions: no concrete witness can be built, so an unproved
+condition that is not benign is reported as a warning directly. -/
+def isStructural : TrapKind → Bool
+  | sSupInf | card | diam | deriv | piOrder | finWrap => true
+  | _ => false
 
 /-- Is this kind decided only by refutation (no syntactic site)? -/
 def isRefutation : TrapKind → Bool
@@ -94,7 +107,7 @@ def TrapConfig.tacticList (cfg : TrapConfig) : Array Name :=
   if !cfg.tactics.isEmpty then cfg.tactics
   else match cfg.mode with
     | .editor => #[`assumption, `omega, `positivity]
-    | .ci => #[`assumption, `omega, `positivity, `linarith, `simp_arith, `grind]
+    | .ci => #[`assumption, `omega, `positivity, `linarith, `nlinarith, `simp_arith, `grind]
 
 /-- One reported (or suppressed / benign) result. -/
 structure Finding where

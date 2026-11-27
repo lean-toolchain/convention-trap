@@ -92,7 +92,7 @@ discharged: 0
 #guard_msgs in #trap_check intDiv_benign
 /--
 info: natZero false: ∀ (a b : ℕ), a % b < b {a=0, b=0}
-modZero reachable: a % b ⊢ b ≠ 0 {a=0, b=0}
+modZero reachable: a % b ⊢ b ≠ 0 {b=0}
 discharged: 0
 -/
 #guard_msgs in #trap_check mod_a
@@ -180,7 +180,7 @@ theorem exp_d (a n k : ℕ) (h : k ≤ n) : a ^ (n - k) * a ^ k = a ^ n := by
 
 /--
 info: natZero false: ∀ (a n k : ℕ), a ^ (n - k) * a ^ k = a ^ n {a=0, n=0, k=1}
-expTrunc reachable: n - k ⊢ k ≤ n {a=0, n=0, k=1}
+expTrunc reachable: n - k ⊢ k ≤ n {n=0, k=1}
 discharged: 0
 -/
 #guard_msgs in #trap_check exp_a
@@ -210,12 +210,12 @@ discharged: 0
 -/
 #guard_msgs in #trap_check fin_circ
 
-/-! ## polarity: no facts from under `¬` -/
+/-! ## polarity: under `¬` only the guarded-conjunction rule applies (left guards right) -/
 theorem neg_pol (a b : ℕ) : ¬ (b ≤ a ∧ a - b = 5) ∨ a - b + b = a := sorry
 
 /--
 info: natSub reachable: a - b ⊢ b ≤ a {a=0, b=1}
-discharged: 0
+discharged: 1
 -/
 #guard_msgs in #trap_check neg_pol
 

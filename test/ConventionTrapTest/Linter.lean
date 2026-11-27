@@ -55,7 +55,7 @@ theorem natSub_intended (a b : ℕ) : a - b ≤ a + 1 := by omega
 theorem natSub_noreason (a b : ℕ) : a - b ≤ a + 1 := by omega
 
 /--
-error: trap_ok: 알 수 없는 함정 종류 'bogus'. 가능한 값: natSub, natSubHyp, div, intDiv, modZero, intDivNeg, realDomain, rpow, castSub, natZero, intToNat, expTrunc, falseStatement
+error: trap_ok: 알 수 없는 함정 종류 'bogus'. 가능한 값: natSub, natSubHyp, div, intDiv, modZero, intDivNeg, realDomain, rpow, castSub, natZero, intToNat, expTrunc, falseStatement, trivialWitness, sSupInf, card, diam, deriv, piOrder, finWrap, zmodZero
 -/
 #guard_msgs in
 @[trap_ok bogus "x"]
