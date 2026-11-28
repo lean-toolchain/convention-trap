@@ -72,24 +72,37 @@ scripts/trap-report --modules ConventionTrapTest.Corpus --out-dir /tmp/tr
 python3 scripts/eval.py /tmp/tr/report.json
 ```
 
-## Measured on real incidents
-See [`real-cases/README.md`](real-cases/README.md): 25 buggy / 7 fixed statements from miniF2F,
-PutnamBench and Formal Conjectures — currently 22/25 flagged by default, 0/7 false positives.
+## Benchmark results
 
-## Measured on Mathlib (false-positive test)
-All 257,221 Mathlib declarations (CI workflow `mathlib-noise`): warnings on 10 (0.004%), all
-intentional junk-value Prop definitions. Proved theorems are trusted (`linter.conventionTrap.trustProofs`).
+A *misformalized statement* here is a theorem statement that compiles but means something other
+than intended because of a Mathlib convention (e.g. `0 - 1 = 0` in `ℕ`, `x / 0 = 0`).
 
-## Measured on the seed corpus (25 positive / 30 negative, `test/ConventionTrapTest/Corpus.lean`)
-| configuration | recall | negatives flagged | worst per-kind FP rate |
-|---|---|---|---|
-| full, `--mode ci` | 24/25 (96%) | 0/30 | 0% |
-| full, `--mode editor` | 24/25 (96%) | 0/30 | 0% |
-| baseline (`--no-witness --no-benign --no-self-guard --unfold-depth 0`) | 25/25 | 4/30 | 50% (natSubHyp) |
+| Metric | Data | Result |
+|---|---|---|
+| **Detection rate on misformalized statements** — statements that other projects later found to be wrong and fixed, checked in their *pre-fix* form: does the tool warn? | 25 statements from miniF2F, PutnamBench and Formal Conjectures | **22 / 25 (88%)** |
+| **Warning rate on correct statements** — theorems already proved and reviewed, so none should be misformalized: how often does the tool warn? | all 257,221 Mathlib declarations | **10 declarations (0.004%)** |
 
-The miss is miniF2F IMO 2001 P6: its hypothesis `h₄` does imply the guard, but only via nonlinear
-reasoning, so the site is `unknown` (listed in the CI report's `unknown` section, hidden in the editor).
-Buzzard's FLT statement is reported as `error [natZero]` with `a = b = c = 0, n = 3`.
+Mathlib v4.36.0, measured by the CI workflows `ci` and `mathlib-noise`.
+
+**Misformalized statements** (`test/ConventionTrapTest/Real.lean`; sources and per-case notes in
+[`real-cases/README.md`](real-cases/README.md)). Missed:
+- miniF2F `amc12a_2021_p25`: the function is only specified for `0 < n`, so no counterexample value is found.
+- miniF2F `imo_1982_p1`: values of `f m` are not searched as witnesses.
+- Formal Conjectures #6467: needs evaluating a statement that quantifies over subsets, which is
+  skipped to avoid exponential blowup.
+
+**Correct statements.** All 10 flagged Mathlib declarations are Prop definitions that use a junk
+value on purpose (`Nat.ModEq`, `Int.ModEq`, `LiouvilleWith`, `Nat.ProbablePrime`, …), plus one
+lemma whose existential is witnessed by `0`. Proved theorems are trusted: a theorem proved without
+a guard is true in the junk case too, so it cannot be misformalized
+(`linter.conventionTrap.trustProofs`).
+
+**Limits.** 25 cases is small (one or two per trap kind), so the detection rate has a wide error
+margin. Some cases are simplified models of the original project definitions (`[model]` in the
+file). Mathlib contains no misformalized statements, so it measures warnings, not detection.
+
+**Reproduce.** Run the `ci` workflow (detection rate in the job summary) and `mathlib-noise` with
+`sample_mod=1` (artifact `mathlib-noise`: `noise.json`, `review-sample.md`).
 
 ## Deviations from the design (deliberate / MVP)
 - `trap-report` runs through the Lean interpreter (`lean --run`) instead of `lake exe`: a native
