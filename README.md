@@ -79,8 +79,8 @@ than intended because of a Mathlib convention (e.g. `0 - 1 = 0` in `ℕ`, `x / 0
 
 | Metric | Data | Result |
 |---|---|---|
-| **Detection rate on misformalized statements** — statements that other projects later found to be wrong and fixed, checked in their *pre-fix* form: does the tool warn? | 25 statements from miniF2F, PutnamBench and Formal Conjectures | **22 / 25 (88%)** |
-| **Warning rate on correct statements** — theorems already proved and reviewed, so none should be misformalized: how often does the tool warn? | all 257,221 Mathlib declarations | **10 declarations (0.004%)** |
+| Detection rate on misformalized statements | 25 statements from miniF2F, PutnamBench, Formal Conjectures | **22 / 25 (88%)** |
+| Warning rate on correct statements | all 257,221 Mathlib declarations | **10 (0.004%)** |
 
 Mathlib v4.36.0, measured by the CI workflows `ci` and `mathlib-noise`.
 
