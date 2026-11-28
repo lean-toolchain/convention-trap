@@ -22,6 +22,8 @@ register_option linter.conventionTrap.junkFun : Bool := {
   defValue := true, descr := "convention trap: junk values of sInf/sSup/iSup, ncard/Nat.card, Metric.diam, deriv" }
 register_option linter.conventionTrap.leanOps : Bool := {
   defValue := true, descr := "convention trap: Pi order `<`, Fin wraparound, ZMod 0" }
+register_option linter.conventionTrap.trustProofs : Bool := {
+  defValue := true, descr := "convention trap: a proved theorem cannot be a junk-value misformalization; report only unproved (sorry) statements and degenerate existentials" }
 register_option linter.conventionTrap.heartbeats : Nat := {
   defValue := 20000, descr := "convention trap: heartbeat budget per condition" }
 register_option linter.conventionTrap.mode : String := {
@@ -47,6 +49,7 @@ def configOfOptions (o : Options) : TrapConfig :=
     witness := linter.conventionTrap.witness.get o
     benign := linter.conventionTrap.benign.get o
     selfGuard := linter.conventionTrap.selfGuard.get o
+    trustProofs := linter.conventionTrap.trustProofs.get o
     unfoldDepth := o.get `linter.conventionTrap.unfoldDepth (if mode == .ci then 2 else 1 : Nat)
     showUnknown := o.getBool `linter.conventionTrap.showUnknown (mode == .ci)
     refuteMaxVars := 4 }

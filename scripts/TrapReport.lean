@@ -32,12 +32,13 @@ structure Args where
   /-- `--sample-mod m`: keep targets whose hash ≡ 0 (mod m) (after sharding, independent hash). -/
   sampleMod : Nat := 1
   progress : Bool := false
+  trustProofs : Bool := true
 
 def usage : String :=
   "usage: trap-report [--modules M,...] [--decls N,...] [--mode ci|editor] [--format md|json|both]\n" ++
   "                   [--out-dir DIR] [--fail-on error|warning|never]\n" ++
   "                   [--no-witness] [--no-benign] [--no-self-guard] [--unfold-depth N]\n" ++
-  "                   [--import M,...] [--prefix P,...] [--shard K/N] [--sample-mod M] [--progress]"
+  "                   [--import M,...] [--prefix P,...] [--shard K/N] [--sample-mod M] [--progress] [--no-trust-proofs]"
 
 def splitNames (s : String) : Array Name :=
   (s.splitOn ",").toArray.filter (!·.isEmpty) |>.map String.toName
@@ -72,6 +73,7 @@ partial def parseArgs : List String → Args → Except String Args
   | "--sample-mod" :: v :: rest, a => match v.toNat? with
     | some m => if m > 0 then parseArgs rest { a with sampleMod := m } else .error "bad --sample-mod"
     | none => .error s!"bad --sample-mod {v}"
+  | "--no-trust-proofs" :: rest, a => parseArgs rest { a with trustProofs := false }
   | "--progress" :: rest, a => parseArgs rest { a with progress := true }
   | x :: _, _ => .error s!"unknown argument {x}"
 
@@ -130,7 +132,7 @@ unsafe def main (argv : List String) : IO UInt32 := do
     catch e => IO.eprintln s!"trap-report: import failed: {e}"; return 4
   let modSet := modules.foldl (fun s m => s.insert m) ({} : Std.HashSet Name)
   let cfg : TrapConfig := {
-    mode := args.mode, witness := args.witness, benign := args.benign, selfGuard := args.selfGuard,
+    mode := args.mode, trustProofs := args.trustProofs, witness := args.witness, benign := args.benign, selfGuard := args.selfGuard,
     unfoldDepth := args.unfoldDepth.getD (if args.mode == .ci then 2 else 1),
     showUnknown := args.mode == .ci }
   let opts : Options := {}

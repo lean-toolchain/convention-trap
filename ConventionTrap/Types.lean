@@ -86,6 +86,8 @@ def Mode.toString : Mode → String
   | .editor => "editor" | .ci => "ci"
 
 structure TrapConfig where
+  /-- Demote junk-region findings of proved (sorry-free) theorems to `benign`. -/
+  trustProofs     : Bool := true
   /-- Budget per condition, in `maxHeartbeats` units (×1000). -/
   heartbeats      : Nat := 20000
   /-- Tactics tried in order. Empty means "mode default". -/

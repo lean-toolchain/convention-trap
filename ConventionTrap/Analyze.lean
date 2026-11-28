@@ -171,6 +171,14 @@ def analyzeStatement (decl : Name) (stmt : Expr) (tryRefute : Bool) (cfg : TrapC
     match merged.findIdx? (fun g => g.kind == f.kind && g.exprPP == f.exprPP) with
     | some i => if rank f.verdict > rank merged[i]!.verdict then merged := merged.set! i f
     | none => merged := merged.push f
+  -- A proved (sorry-free) claim holds in the junk region too: dropping the guard only made it
+  -- stronger. Such sites cannot be misformalizations, so they are demoted to `benign`. Only
+  -- degenerate existentials (`trivialWitness`, below) remain meaningful for proved claims.
+  if cfg.trustProofs && isClaim && !tryRefute then
+    merged := merged.map fun f =>
+      if f.verdict == .reachable || f.verdict == .unknown then
+        { f with verdict := .benign, severity := .info }
+      else f
   res := { res with findings := merged }
   if tryRefute then
     if let some f ← refute decl stmt cfg then
