@@ -84,8 +84,18 @@ def closedFactTactics : TermElabM (Array (TSyntax `tactic)) := do
 /-- Powers (and factorials) can make evaluation explode (`2 ^ 2 ^ 50`): such terms are never
 evaluated by the compiler nor sampled by Plausible. -/
 def hasExplosiveOp (e : Expr) : Bool :=
-  (e.find? fun t => t.isAppOf ``HPow.hPow || t.isAppOf ``Nat.pow || t.isAppOf `Monoid.npow ||
-    t.isAppOf ``Nat.factorial).isSome
+  (e.find? fun t =>
+    t.isAppOf ``HPow.hPow || t.isAppOf ``Nat.pow || t.isAppOf `Monoid.npow ||
+    t.isAppOf ``Nat.factorial || t.isAppOf ``Finset.powerset ||
+    -- quantifying over sets/finsets/functions: deciding it enumerates 2^n subsets
+    (match t with
+     | .forallE _ d _ _ | .lam _ d _ _ => isBigDomain d
+     | _ => false)).isSome
+where
+  isBigDomain (d : Expr) : Bool :=
+    let d := d.consumeMData
+    d.isAppOf ``Finset || d.isAppOf ``Set || d.isAppOf ``Multiset || d.isAppOf ``List ||
+      (d.isForall && !d.bindingBody!.hasLooseBVars && !d.bindingDomain!.isSort)
 
 /-- Evaluate a closed decidable proposition with the compiler (like `#eval decide p`).
 Used only to *find* witness values when `decide` is blocked by well-founded recursion
