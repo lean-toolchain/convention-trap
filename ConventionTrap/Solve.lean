@@ -81,15 +81,15 @@ def closedFactTactics : TermElabM (Array (TSyntax `tactic)) := do
     ← `(tactic| norm_num [Real.sqrt_eq_zero_of_nonpos, Real.log_zero, Real.log_neg_eq_log,
         Nat.sub_eq_zero_of_le, Int.toNat_of_nonpos])]
 
-/-- Evaluate a closed decidable proposition with the compiler (like `#eval decide p`).
-Used only to *find* witness values when `decide` is blocked by well-founded recursion
-(`Nat.sqrt`, `Nat.digits`, …); the result is reported as an example, never as a proof. -/
 /-- Powers (and factorials) can make evaluation explode (`2 ^ 2 ^ 50`): such terms are never
 evaluated by the compiler nor sampled by Plausible. -/
 def hasExplosiveOp (e : Expr) : Bool :=
-  (e.find? fun t => t.isAppOf ``HPow.hPow || t.isAppOf ``Nat.pow || t.isAppOf ``Monoid.npow ||
+  (e.find? fun t => t.isAppOf ``HPow.hPow || t.isAppOf ``Nat.pow || t.isAppOf `Monoid.npow ||
     t.isAppOf ``Nat.factorial).isSome
 
+/-- Evaluate a closed decidable proposition with the compiler (like `#eval decide p`).
+Used only to *find* witness values when `decide` is blocked by well-founded recursion
+(`Nat.sqrt`, `Nat.digits`, …); the result is reported as an example, never as a proof. -/
 unsafe def evalDecideUnsafe (p : Expr) : TermElabM (Option Bool) := do
   if p.hasFVar || p.hasMVar || hasExplosiveOp p then return none
   let some inst ← (try synthInstance? (mkApp (mkConst ``Decidable) p) catch _ => pure none)
