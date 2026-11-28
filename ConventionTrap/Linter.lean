@@ -81,9 +81,9 @@ def suggestedSignature (sig : Syntax) (hyps : Array (String × String)) : Comman
   return some s!"{binderText}{sep}{extra} {typeText}"
 
 def emitFinding (f : Finding) (declId sig : Syntax) (cfg : TrapConfig) : CommandElabM Unit := do
-  let show? := match f.verdict with
+  let show? : Bool := match f.verdict with
     | .false_ | .reachable => true
-    | .unknown => !cfg.witness || cfg.showUnknown || f.timeout
+    | .unknown => !cfg.witness || cfg.showUnknown || f.timeout || f.severity == .warning
     | .benign | .safe => false
   unless show? do return
   let ref := (← locateFinding f sig).getD declId

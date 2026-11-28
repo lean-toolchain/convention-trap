@@ -30,7 +30,19 @@ def junkDescription : TrapKind → String
   | .realDomain => "Mathlib 관례값입니다 (√x = 0 (x < 0), log 0 = 0, log (-x) = log x)"
   | .rpow => "음수 밑에서 복소 정의의 실수부가 됩니다"
   | .intToNat => "0입니다"
-  | .natZero | .falseStatement => ""
+  | .natZero | .falseStatement | .trivialWitness => ""
+  | .sSupInf => "0입니다 (sInf ∅ = 0, 유계가 아닌 집합의 sSup = 0)"
+  | .card => "0입니다 (무한 집합의 개수는 0)"
+  | .diam => "0입니다 (유계가 아닌 집합의 지름은 0)"
+  | .deriv => "0입니다 (미분 불가능한 점의 deriv는 0)"
+  | .piOrder => "Pi 순서입니다 (모든 i에서 ≤ 이고 어떤 i에서 ≠, 즉 '모든 i에서 <'가 아님)"
+  | .finWrap => "n으로 나눈 나머지로 순환합니다"
+  | .zmodZero => "ZMod 0 = ℤ 입니다"
+  | .integral => "0입니다 (적분 불가능한 함수의 적분은 0)"
+  | .tsum => "0입니다 (Summable이 아니면 ∑' = 0; Summable은 무조건(절대) 수렴)"
+  | .guardScope => "가드가 ↔ 한쪽 안에만 있습니다: 가드가 거짓이면 그쪽이 자명하게 참이 되어 반대쪽도 참이어야 합니다"
+  | .litNat => "ℕ입니다 (타입을 적지 않은 상수가 ℕ로 추론되었을 수 있습니다; ℝ 상수를 의도했나요?)"
+  | .trivialProof => ""
 
 def assignStr (σ : Array (Name × Candidate)) : String :=
   ", ".intercalate (σ.toList.map fun (n, c) => s!"{n} = {c.display}")
@@ -53,7 +65,10 @@ def analyzeSite (decl : Name) (site : TrapSite) (cfg : TrapConfig) (budgetLeft :
     conditionPP := some site.condPP, message := "", head := site.head,
     suggestedHyps := if site.suggestable then #[site.condPP] else #[],
     suggestVars := site.condVars }
-  let head := s!"[{site.kind}] {site.exprPP} : {site.typePP} 는 {site.violPP}일 때 {junkDescription site.kind}"
+  let head := match site.kind with
+    | .guardScope => s!"[guardScope] {site.exprPP}: {junkDescription site.kind}"
+    | .litNat => s!"[litNat] {site.exprPP} : {site.typePP} 는 {junkDescription site.kind}"
+    | _ => s!"[{site.kind}] {site.exprPP} : {site.typePP} 는 {site.violPP}일 때 {junkDescription site.kind}"
   if !budgetLeft then
     return some { base with
       timeout := true, message := s!"{head}. 선언당 시간 예산을 넘어 {site.condPP}를 증명하지 않았습니다." }
@@ -66,6 +81,10 @@ def analyzeSite (decl : Name) (site : TrapSite) (cfg : TrapConfig) (budgetLeft :
     let r ← tryClose site.goal tac cfg.heartbeats
     if r.closed then return none
     timedOut := timedOut || r.timedOut
+  if site.kind.isStructural then
+    tried := tried.push "structural(infer_instance, Set.toFinite, fun_prop, simp_all, aesop)"
+    for tac in ← structuralTactics do
+      if (← tryClose site.goal tac cfg.heartbeats).closed then return none
   let triedJoined := ", ".intercalate tried.toList
   let triedStr := s!"시도: {triedJoined} (각 실패)"
   let base := { base with tacticsTried := tried, timeout := timedOut }
@@ -82,14 +101,45 @@ def analyzeSite (decl : Name) (site : TrapSite) (cfg : TrapConfig) (budgetLeft :
       return some { base with
         verdict := .reachable, severity := .warning, counterexample := σ.map fun (n, c) => (n.toString, c.display),
         message := s!"{head}. 가정에서 {site.condPP}를 증명하지 못했습니다.\n  예: {assignStr σ} 일 때 가정을 모두 만족하고 {site.violPP} 입니다.\n  {triedStr}" }
-  let sev := if cfg.witness then Severity.info else .warning
+  let sev := if cfg.witness && !site.kind.isStructural then Severity.info else .warning
   return some { base with
     verdict := .unknown, severity := sev, message := s!"{head}. 가정에서 {site.condPP}를 증명하지 못했습니다 (반례 값도 찾지 못함).\n  {triedStr}" }
+
+/-- Randomized refutation with Plausible (CI mode, after the small-value enumeration failed).
+Returns the counterexample lines (`x := v`). -/
+def plausibleRefute (stmt : Expr) (cfg : TrapConfig) : TermElabM (Option (Array String)) := do
+  if hasExplosiveOp stmt then return none
+  let saved ← saveState
+  let msgs := (← getThe Core.State).messages
+  let tac ← `(tactic| plausible)
+  let res ← tryCatchRuntimeEx
+    (do
+      let mvar ← mkFreshExprMVar stmt
+      discard <| withTheReader Core.Context (fun c => { c with maxHeartbeats := cfg.heartbeats * 5000 }) <|
+        withCurrHeartbeats <| Tactic.run mvar.mvarId! (Tactic.evalTactic tac)
+      pure none)
+    (fun ex => do
+      let m ← ex.toMessageData.toString
+      if (m.splitOn "counter-example").length > 1 then
+        let lines := (m.splitOn "\n").filter (fun l => (l.splitOn " := ").length > 1)
+        pure (some (lines.toArray.map (·.trimAscii.toString)))
+      else pure none)
+  saved.restore (restoreInfo := true)
+  modifyThe Core.State fun s => { s with messages := msgs }
+  return res
 
 /-- Whole-statement refutation (natZero / falseStatement). -/
 def refute (decl : Name) (stmt : Expr) (cfg : TrapConfig) : TermElabM (Option Finding) := do
   unless cfg.enabled .natZero do return none
-  let some σ ← findAssignment stmt (searchCfg cfg false) | return none
+  let some σ ← findAssignment stmt (searchCfg cfg false) | do
+    unless cfg.mode == .ci do return none
+    let some lines ← plausibleRefute stmt cfg | return none
+    let ce := ", ".intercalate lines.toList
+    return some {
+      decl, kind := .falseStatement, severity := .error, verdict := .false_, exprPP := ← ppStr stmt,
+      counterexample := lines.map fun l => match l.splitOn " := " with
+        | [a, b] => (a, b) | _ => ("?", l),
+      message := s!"[falseStatement] 명제가 거짓입니다 (Plausible 무작위 검사): {ce} 에서 결론이 거짓입니다." }
   let zeros := σ.filter fun (_, c) => c.isZero
   let kind := if zeros.isEmpty then TrapKind.falseStatement else .natZero
   let zeroHyps := ", ".intercalate (zeros.toList.map fun (n, _) => s!"0 < {n}")
@@ -114,8 +164,61 @@ def statementOf (ci : ConstantInfo) : MetaM (Option (Expr × Bool)) := do
     return none
   | _ => return none
 
-def analyzeStatement (decl : Name) (stmt : Expr) (tryRefute : Bool) (cfg : TrapConfig) :
-    TermElabM AnalysisResult := do
+/-- An existential statement that is already proved by the witness `0`, `1` or `∅`
+(after unfolding local definitions) usually means the formalization admits a degenerate case. -/
+def trivialWitness (decl : Name) (stmt : Expr) (cfg : TrapConfig) : TermElabM (Option Finding) := do
+  unless cfg.enabled .trivialWitness do return none
+  let env ← getEnv
+  let mut locals : Array Name := #[]
+  for c in stmt.getUsedConstants do
+    if (env.find? c).any (·.isDefinition) then
+      if ← isLocalDef c then locals := locals.push c
+  let stmt' ← deltaExpand stmt locals.contains
+  let isExists ← forallTelescope stmt' fun _ b => return b.consumeMData.isAppOfArity ``Exists 2
+  unless isExists do return none
+  let tacs : Array (String × TSyntax `tactic) := #[
+    ("0", ← `(tactic| (intros; refine ⟨0, ?_⟩; simp_all; done))),
+    ("∅", ← `(tactic| (intros; refine ⟨∅, ?_⟩; simp_all; done))),
+    ("1", ← `(tactic| (intros; refine ⟨1, ?_⟩; simp_all; done)))]
+  for (w, tac) in tacs do
+    if (← tryClose stmt' tac cfg.heartbeats).closed then
+      return some {
+        decl, kind := .trivialWitness, severity := .warning, verdict := .reachable,
+        exprPP := ← ppStr stmt, counterexample := #[("witness", w)],
+        message := s!"[trivialWitness] 존재 명제가 자명한 증인 {w}로 바로 증명됩니다. 0·∅·1 같은 퇴화된 경우를 의도에서 빼야 하지 않나요?" }
+  return none
+
+/-- An unproved claim whose hypotheses are already contradictory is vacuous: it says nothing.
+(A junk value or a wrong bound in a hypothesis often causes this.) Checked by closing
+`∀ xs, hyps → False` with one automatic tactic. -/
+def trivialProof (decl : Name) (stmt : Expr) (cfg : TrapConfig) : TermElabM (Option Finding) := do
+  unless cfg.enabled .trivialProof do return none
+  let vac? ← forallTelescope stmt fun xs _ => do
+    let mut hs := #[]
+    for x in xs do
+      if ← isProp (← inferType x) then hs := hs.push x
+    if hs.isEmpty then return none
+    -- drop the conclusion, keep binders up to the last hypothesis
+    let last := xs.findIdx? (· == hs.back!) |>.getD 0
+    let pre := xs.extract 0 (last + 1)
+    return some (← mkForallFVars pre (mkConst ``False))
+  let some vac := vac? | return none
+  if vac.hasLooseBVars then return none
+  let tacs : Array (String × TSyntax `tactic) := #[
+    ("omega", ← `(tactic| (intros; omega))),
+    ("simp_all", ← `(tactic| (intros; simp_all; done))),
+    ("linarith", ← `(tactic| (intros; linarith))),
+    ("norm_num", ← `(tactic| (intros; norm_num at *; done)))]
+  for (name, tac) in tacs do
+    if (← tryClose vac tac cfg.heartbeats).closed then
+      return some {
+        decl, kind := .trivialProof, severity := .warning, verdict := .reachable,
+        exprPP := ← ppStr stmt, counterexample := #[("tactic", name)],
+        message := s!"[trivialProof] 가정끼리 모순입니다 (`{name}`로 False가 증명됨). 명제가 공허하게 참이 됩니다. 가정의 범위나 관례값을 확인하세요." }
+  return none
+
+def analyzeStatement (decl : Name) (stmt : Expr) (tryRefute : Bool) (cfg : TrapConfig)
+    (isClaim : Bool := true) : TermElabM AnalysisResult := do
   let sites ← detect stmt {
     selfGuard := cfg.selfGuard, benign := cfg.benign,
     unfoldDepth := cfg.unfoldDepth, enabled := cfg.enabled }
@@ -136,9 +239,23 @@ def analyzeStatement (decl : Name) (stmt : Expr) (tryRefute : Bool) (cfg : TrapC
     match merged.findIdx? (fun g => g.kind == f.kind && g.exprPP == f.exprPP) with
     | some i => if rank f.verdict > rank merged[i]!.verdict then merged := merged.set! i f
     | none => merged := merged.push f
+  -- A proved (sorry-free) claim holds in the junk region too: dropping the guard only made it
+  -- stronger. Such sites cannot be misformalizations, so they are demoted to `benign`. Only
+  -- degenerate existentials (`trivialWitness`, below) remain meaningful for proved claims.
+  if cfg.trustProofs && isClaim && !tryRefute then
+    merged := merged.map fun f =>
+      if f.verdict == .reachable || f.verdict == .unknown then
+        { f with verdict := .benign, severity := .info }
+      else f
   res := { res with findings := merged }
   if tryRefute then
     if let some f ← refute decl stmt cfg then
+      res := { res with findings := #[f] ++ res.findings }
+    else if isClaim then
+      if let some f ← trivialProof decl stmt cfg then
+        res := { res with findings := #[f] ++ res.findings }
+  if isClaim then
+    if let some f ← trivialWitness decl stmt cfg then
       res := { res with findings := #[f] ++ res.findings }
   return res
 
@@ -150,6 +267,6 @@ def analyzeDecl (declName : Name) (cfg : TrapConfig) : TermElabM AnalysisResult 
   -- A Prop definition asserts nothing, so "still true in the junk region" is no evidence of
   -- harmlessness: benign classification only applies to claimed statements.
   let cfg := if ci.isDefinition then { cfg with benign := false } else cfg
-  analyzeStatement declName stmt unproved cfg
+  analyzeStatement declName stmt unproved cfg (isClaim := !ci.isDefinition)
 
 end ConventionTrap

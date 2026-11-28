@@ -42,16 +42,33 @@ def dischargeTactic : Name → TermElabM (Option (TSyntax `tactic))
   | `assumption => some <$> `(tactic| (intros; assumption))
   | `omega => some <$> `(tactic| (intros; omega))
   | `positivity => some <$> `(tactic| (intros; positivity))
-  | `linarith => some <$> `(tactic| (intros; linarith))
+  | `linarith => some <$> `(tactic| (intros; simp only [Set.mem_Ioi, Set.mem_Ici, Set.mem_Ioo, Set.mem_Icc, Set.mem_Ioc, Set.mem_Ico] at *; linarith))
+  | `nlinarith => some <$> `(tactic| (intros; nlinarith [sq_nonneg (0 : ℕ)]))
   | `simp_arith => some <$> `(tactic| (intros; simp_all +arith; done))
   | `simp => some <$> `(tactic| (intros; simp_all; done))
   | `grind => some <$> `(tactic| (intros; grind))
   | `norm_num => some <$> `(tactic| (intros; norm_num at *; done))
   | _ => pure none
 
+/-- Extra discharge tactics for structural conditions (finiteness, boundedness, differentiability,
+nonemptiness): instances, `Set.toFinite`, `fun_prop`, and simp with the hypotheses. -/
+def structuralTactics : TermElabM (Array (TSyntax `tactic)) := do
+  return #[← `(tactic| (intros; infer_instance)),
+    ← `(tactic| (intros; exact Set.toFinite _)),
+    ← `(tactic| (intros; fun_prop)),
+    ← `(tactic| (intros; refine ⟨?_, ?_⟩ <;>
+        first | infer_instance | assumption | exact ⟨_, ‹_›⟩ | (simp_all; done))),
+    ← `(tactic| (intros; first
+        | exact Metric.isBounded_Icc _ _ | exact Metric.isBounded_Ico _ _
+        | exact Metric.isBounded_Ioc _ _ | exact Metric.isBounded_Ioo _ _
+        | exact Set.Finite.isBounded (Set.toFinite _) | exact Bornology.isBounded_empty)),
+    ← `(tactic| (intros; simp_all; done)),
+    ← `(tactic| (intros; aesop))]
+
 /-- Tactics used to show that a statement is *still true* in the junk region (benign). -/
 def benignTactics : TermElabM (Array (TSyntax `tactic)) := do
   return #[← `(tactic| (intros; omega)),
+    ← `(tactic| (intros; simp_all [Nat.card_pos_iff]; done)),
     ← `(tactic| (intros; simp_all [Nat.sub_eq_zero_of_le, div_zero, inv_zero, zero_div,
         Nat.div_zero, Int.ediv_zero, Nat.mod_zero, Int.emod_zero,
         Real.sqrt_eq_zero_of_nonpos, Real.log_zero, Int.toNat_of_nonpos,
@@ -64,10 +81,40 @@ def closedFactTactics : TermElabM (Array (TSyntax `tactic)) := do
     ← `(tactic| norm_num [Real.sqrt_eq_zero_of_nonpos, Real.log_zero, Real.log_neg_eq_log,
         Nat.sub_eq_zero_of_le, Int.toNat_of_nonpos])]
 
+/-- Powers (and factorials) can make evaluation explode (`2 ^ 2 ^ 50`): such terms are never
+evaluated by the compiler nor sampled by Plausible. -/
+def hasExplosiveOp (e : Expr) : Bool :=
+  (e.find? fun t =>
+    t.isAppOf ``HPow.hPow || t.isAppOf ``Nat.pow || t.isAppOf `Monoid.npow ||
+    t.isAppOf ``Nat.factorial || t.isAppOf ``Finset.powerset ||
+    -- quantifying over sets/finsets/functions: deciding it enumerates 2^n subsets
+    (match t with
+     | .forallE _ d _ _ | .lam _ d _ _ => isBigDomain d
+     | _ => false)).isSome
+where
+  isBigDomain (d : Expr) : Bool :=
+    let d := d.consumeMData
+    d.isAppOf ``Finset || d.isAppOf ``Set || d.isAppOf ``Multiset || d.isAppOf ``List ||
+      (d.isForall && !d.bindingBody!.hasLooseBVars && !d.bindingDomain!.isSort)
+
+/-- Evaluate a closed decidable proposition with the compiler (like `#eval decide p`).
+Used only to *find* witness values when `decide` is blocked by well-founded recursion
+(`Nat.sqrt`, `Nat.digits`, …); the result is reported as an example, never as a proof. -/
+unsafe def evalDecideUnsafe (p : Expr) : TermElabM (Option Bool) := do
+  if p.hasFVar || p.hasMVar || hasExplosiveOp p then return none
+  let some inst ← (try synthInstance? (mkApp (mkConst ``Decidable) p) catch _ => pure none)
+    | return none
+  try
+    some <$> Lean.Meta.evalExpr Bool (mkConst ``Bool) (mkApp2 (mkConst ``Decidable.decide) p inst)
+  catch _ => return none
+
+@[implemented_by evalDecideUnsafe]
+opaque evalDecide (p : Expr) : TermElabM (Option Bool)
+
 def proveClosedFact (p : Expr) (hb : Nat) : TermElabM Bool := do
   for tac in ← closedFactTactics do
     if (← tryClose p tac hb).closed then return true
-  return false
+  return (← evalDecide p) == some true
 
 /-! ## Concrete values -/
 
@@ -201,10 +248,69 @@ partial def checkAssignment (ty : Expr) (vals : List Expr) (hb : Nat) : TermElab
   | concl, [] => proveClosedFact (mkNot concl) hb
   | _, _ :: _ => return false
 
+/-- Simplify a closed statement before searching values:
+1. a premise `∀ ys, f ys = rhs` (with `f` a binder not occurring in `rhs`) defines `f`:
+   substitute `f := fun ys => rhs` and drop the premise;
+2. keep only the data binders connected to the conclusion through premises, and the premises
+   among them (closed premises are kept). Disconnected premises are assumed satisfiable. -/
+def reduceStatement (ty : Expr) : MetaM Expr :=
+  forallTelescope ty fun xs concl => do
+    let mut fs : Array Expr := #[]
+    let mut lams : Array Expr := #[]
+    let mut defPremises : Array Expr := #[]
+    for p in xs do
+      let pt ← inferType p
+      unless ← isProp pt do continue
+      let r? ← forallTelescope pt fun ys b => do
+        let b := b.consumeMData
+        unless b.isAppOfArity ``Eq 3 && ys.size > 0 do return none
+        let lhs := b.appFn!.appArg!
+        let rhs := b.appArg!
+        let f := lhs.getAppFn
+        unless f.isFVar && xs.contains f && lhs.getAppArgs == ys do return none
+        if rhs.containsFVar f.fvarId! then return none
+        return some (f, ← mkLambdaFVars ys rhs)
+      if let some (f, lam) := r? then
+        unless fs.contains f do
+          fs := fs.push f; lams := lams.push lam; defPremises := defPremises.push p
+    let subst (e : Expr) : MetaM Expr := do
+      if fs.isEmpty then return e
+      Core.betaReduce (e.replaceFVars fs lams)
+    let concl' ← subst concl
+    let mut dataVars : Array Expr := #[]
+    let mut premises : Array Expr := #[]
+    for x in xs do
+      if fs.contains x || defPremises.contains x then continue
+      let t ← inferType x
+      if ← isProp t then
+        let t' ← subst t
+        -- premises that mention other proofs are dropped
+        unless (← (collectFVars {} t').fvarIds.anyM fun v => do isProp (← v.getType)) do
+          premises := premises.push t'
+      else dataVars := dataVars.push x
+    let fvarsOf (e : Expr) : Array FVarId := (collectFVars {} e).fvarIds
+    let mut comp : Array FVarId := (fvarsOf concl').filter fun v => dataVars.any (·.fvarId! == v)
+    let mut keep : Array Bool := premises.map fun pr => (fvarsOf pr).isEmpty
+    let mut changed := true
+    while changed do
+      changed := false
+      for h : i in [0:premises.size] do
+        if keep[i]! then continue
+        let vs := fvarsOf premises[i]
+        if vs.any comp.contains then
+          keep := keep.set! i true
+          for v in vs do
+            unless comp.contains v do comp := comp.push v; changed := true
+    let vars := dataVars.filter fun x => comp.contains x.fvarId!
+    let kept := (premises.zip keep).filterMap fun (pr, k) => if k then some pr else none
+    let body ← kept.foldrM (fun pr acc => mkArrow pr acc) concl'
+    mkForallFVars vars body
+
 /-- Search an assignment of the leading data binders of the closed statement `ty`
 under which every premise holds and the conclusion is false. -/
 def findAssignment (ty : Expr) (cfg : SearchCfg) :
     TermElabM (Option (Array (Name × Candidate))) := do
+  let ty ← try reduceStatement ty catch _ => pure ty
   let binders ← forallTelescope ty fun xs _ => do
     let mut out : Array (Name × Expr × Bool) := #[]
     for x in xs do

@@ -32,19 +32,24 @@ for f in flagged:
             tp[f["kind"]] += 1
         # other kinds on a positive item are not counted either way (unlabelled)
 
-corpus = open("test/ConventionTrapTest/Corpus.lean").read()
+import os
+corpus = open(os.environ.get("CORPUS", "test/ConventionTrapTest/Corpus.lean")).read()
 positives = re.findall(r"theorem (pos_([A-Za-z]+)_\w+)", corpus)
+any_hit = 0
 for name, kind in positives:
     pos_total += 1
-    hit = any(d.split(".")[-1] == name and kind in ks for d, ks in by_decl.items())
+    ks_here = set().union(*[ks for d, ks in by_decl.items() if d.split(".")[-1] == name] or [set()])
+    hit = kind in ks_here
     pos_hit += hit
+    any_hit += bool(ks_here)
     if not hit:
-        misses.append(f"{name} ({kind})")
+        misses.append(f"{name} ({kind}{'; flagged as ' + ','.join(sorted(ks_here)) if ks_here else ''})")
 negatives = re.findall(r"theorem (neg_\w+)", corpus)
 neg_flagged = sorted({d.split(".")[-1] for d in by_decl if d.split(".")[-1].startswith("neg_")})
 
 print(f"mode={r['inputs']['mode']} include_unknown={include_unknown}")
-print(f"recall: {pos_hit}/{pos_total} = {pos_hit/pos_total:.0%}")
+print(f"recall (right kind): {pos_hit}/{pos_total} = {pos_hit/pos_total:.0%}")
+print(f"recall (any flag):   {any_hit}/{pos_total} = {any_hit/pos_total:.0%}")
 if misses: print("  missed:", ", ".join(misses))
 print(f"negatives flagged: {len(neg_flagged)}/{len(negatives)} {neg_flagged}")
 print("per-kind precision (labelled flags only):")
