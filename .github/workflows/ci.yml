@@ -30,7 +30,7 @@ jobs:
         run: |
           set -o pipefail
           scripts/trap-report --modules ConventionTrapTest.Corpus --mode ci --out-dir out/corpus --fail-on never
-          scripts/trap-report --modules ConventionTrapTest.Real --mode ci --out-dir out/real --fail-on never
+          (ulimit -v 12000000; scripts/trap-report --modules ConventionTrapTest.Real --mode ci --out-dir out/real --fail-on never --progress)
           {
             echo '## Seed corpus'; echo '```'; python3 scripts/eval.py out/corpus/report.json; echo '```'
             echo '## Real incidents'; echo '```'; CORPUS=test/ConventionTrapTest/Real.lean python3 scripts/eval.py out/real/report.json; echo '```'

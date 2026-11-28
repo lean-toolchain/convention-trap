@@ -160,7 +160,7 @@ unsafe def main (argv : List String) : IO UInt32 := do
     let mut i := 0
     for (n, mod) in targets do
       i := i + 1
-      if args.progress && i % 200 == 0 then
+      if args.progress && (total ≤ 500 || i % 200 == 0) then
         IO.println s!"trap-report: {i}/{total} ({n})"
         (← IO.getStdout).flush
       let res ← try analyzeDecl n cfg catch _ => pure {}
