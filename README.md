@@ -24,7 +24,7 @@ For every trap site in the statement (never the proof):
 
 Kinds: `natSub natSubHyp div intDiv modZero intDivNeg realDomain rpow castSub natZero intToNat
 expTrunc falseStatement trivialWitness` and junk-function / Lean-operation kinds
-`sSupInf card diam deriv piOrder finWrap zmodZero` (set/function conditions: an unproved, non-benign
+`sSupInf card diam deriv piOrder finWrap zmodZero integral tsum guardScope litNat trivialProof` (set/function conditions: an unproved, non-benign
 condition is a warning directly, since no concrete witness can be built).
 
 ## Use
@@ -74,7 +74,11 @@ python3 scripts/eval.py /tmp/tr/report.json
 
 ## Measured on real incidents
 See [`real-cases/README.md`](real-cases/README.md): 25 buggy / 7 fixed statements from miniF2F,
-PutnamBench and Formal Conjectures — currently 18/25 flagged by default, 0/7 false positives.
+PutnamBench and Formal Conjectures — currently 22/25 flagged by default, 0/7 false positives.
+
+## Measured on Mathlib (false-positive test)
+All 257,221 Mathlib declarations (CI workflow `mathlib-noise`): warnings on 10 (0.004%), all
+intentional junk-value Prop definitions. Proved theorems are trusted (`linter.conventionTrap.trustProofs`).
 
 ## Measured on the seed corpus (25 positive / 30 negative, `test/ConventionTrapTest/Corpus.lean`)
 | configuration | recall | negatives flagged | worst per-kind FP rate |
