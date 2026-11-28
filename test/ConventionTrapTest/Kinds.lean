@@ -198,7 +198,7 @@ theorem good_d (n : ℕ) (h : IsGood n) : (n - 1) + 1 = n := by unfold IsGood at
 #guard_msgs in #trap_check prime_d
 /-- info: discharged: 2 -/
 #guard_msgs in #trap_check range_d
-/-- info: discharged: 1 -/
+/-- info: discharged: 2 -/
 #guard_msgs in #trap_check good_d
 
 /-! ## circularity: a data binder's own type cannot justify the trap inside it -/

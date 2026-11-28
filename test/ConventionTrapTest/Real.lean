@@ -138,7 +138,7 @@ theorem pos_realDomain_fc5637 (N : ℝ) (r : ℕ) (h : 1 ≤ Real.log^[2 * r] N)
     0 < Real.log (Real.log N) := sorry
 
 /-- [model] #4979 erdos_15: `Summable` is unconditional (absolute) summability. -/
-theorem pos_summable_fc4979 : Summable (fun k : ℕ => (-1 : ℝ) ^ (k + 1) * (k + 1) / (k + 2)) := sorry
+theorem pos_tsum_fc4979 : Summable (fun k : ℕ => (-1 : ℝ) ^ (k + 1) * (k + 1) / (k + 2)) := sorry
 
 /-- [model] #5654 erdos_486: `ZMod 0 = ℤ` is included when every modulus n is quantified. -/
 theorem pos_zmodZero_fc5654 (X : (n : ℕ) → Set (ZMod n)) (m : ℕ) : ∀ n : ℕ, (m : ZMod n) ∉ X n := sorry

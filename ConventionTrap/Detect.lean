@@ -61,6 +61,8 @@ structure Ctx where
   inStmt : Bool := true
   /-- Innermost atomic proposition containing the current position. -/
   atom : Option Expr := none
+  /-- Remaining unfoldings of local (non-library) definitions applied in the statement. -/
+  unfoldLeft : Nat := 0
 
 abbrev DetectM := ReaderT DetectCfg <| StateRefT (Array TrapSite) MetaM
 
@@ -298,11 +300,58 @@ def checkPatterns (e : Expr) (ctx : Ctx) : DetectM (Option (Array Expr)) := do
     let cond ← mkAppM `Bornology.IsBounded #[args[2]!]
     recordSite ctx .diam e cond (mkNot cond)
     return none
+  | `MeasureTheory.integral, 7 =>
+    if ctx.pos && ctx.inHyp.isNone then
+      let cond ← mkAppM `MeasureTheory.Integrable #[args[6]!, args[5]!]
+      recordSite ctx .integral e cond (mkNot cond)
+    return none
+  | `intervalIntegral, 7 =>
+    if ctx.pos && ctx.inHyp.isNone then
+      let cond ← mkAppM `IntervalIntegrable #[args[3]!, args[6]!, args[4]!, args[5]!]
+      recordSite ctx .integral e cond (mkNot cond)
+    return none
+  | `tsum, 6 =>
+    if ctx.pos && ctx.inHyp.isNone then
+      let cond ← mkAppM `Summable #[args[4]!, args[5]!]
+      recordSite ctx .tsum e cond (mkNot cond)
+    return none
+  | `Summable, 6 =>
+    -- `Summable` is unconditional (absolute, in ℝ) summability: an alternating series that
+    -- only converges conditionally is *not* summable.
+    let f := args[4]!
+    let alternating := (f.find? fun t =>
+      t.isAppOfArity ``HPow.hPow 6 && (t.getAppArgs[4]!.consumeMData.isAppOfArity ``Neg.neg 3)).isSome
+    if alternating then
+      let cond ← withLocalDeclD `k (← inferType f).bindingDomain! fun k => do
+        mkAppM ``Summable #[← mkLambdaFVars #[k] (← mkAppM ``Norm.norm #[mkApp f k])]
+      recordSite ctx .tsum e cond (mkNot cond)
+    return none
   | `deriv, 8 =>
     let cond ← mkAppM `DifferentiableAt #[args[0]!, args[6]!, args[7]!]
     recordSite ctx .deriv e cond (mkNot cond)
     return none
   | _, _ => return none
+
+/-- Binder names conventionally used for real constants (`∃ c > 0, …`). -/
+def realConstNames : List String := ["c", "C", "ε", "δ", "K", "κ"]
+
+/-- `0 < x` or `x > 0`. -/
+def isPosConstraint (p x : Expr) : Bool :=
+  let p := p.consumeMData
+  (p.isAppOfArity ``LT.lt 4 && p.appArg! == x) || (p.isAppOfArity ``GT.gt 4 && p.appFn!.appArg! == x)
+
+/-- Premises `P₁ → … → Pₙ → B` (non-dependent Prop arrows) in front of `e`. -/
+partial def leadingPremises (e : Expr) : MetaM (Array Expr) := do
+  match e.consumeMData with
+  | .forallE _ d b _ =>
+    if !b.hasLooseBVars && (← isProp d) then return #[d] ++ (← leadingPremises b) else return #[]
+  | _ => return #[]
+
+/-- A guard-like premise: `a ≠ b`, `0 < a`, `a > 0`, `0 ≤ a`. -/
+def isGuardLike (p : Expr) : Bool :=
+  let p := p.consumeMData
+  p.isAppOfArity ``Ne 3 || p.isAppOfArity ``LT.lt 4 || p.isAppOfArity ``GT.gt 4 ||
+    p.isAppOfArity ``LE.le 4 || (p.isAppOfArity ``Not 1 && p.appArg!.consumeMData.isAppOfArity ``Eq 3)
 
 mutual
 
@@ -355,9 +404,25 @@ partial def visit (e : Expr) (ctx : Ctx) : DetectM Unit := do
       visit args[0]! { ctx with atom := none }
       visit args[1]! { ctx with atom := none }
     | some ``Iff, 2 =>
+      -- Guard inside one side only: `A ↔ (g → B)`. When `g` fails that side is vacuously true,
+      -- which forces the other side.
+      let ps0 ← leadingPremises args[0]!
+      let ps1 ← leadingPremises args[1]!
+      for (ps, other) in [(ps0, ps1), (ps1, ps0)] do
+        if other.isEmpty then
+          for g in ps.filter isGuardLike do
+            recordSite { ctx with atom := none } .guardScope g g (mkNot g)
       visit args[0]! { ctx with atom := some e }
       visit args[1]! { ctx with atom := some e }
-    | some ``Exists, 2 => visit args[1]! { ctx with atom := none }
+    | some ``Exists, 2 =>
+      if let .lam n d b bi := args[1]!.consumeMData then
+        if isNatTy d && realConstNames.contains n.eraseMacroScopes.toString then
+          withLocalDecl n bi d fun x => do
+            let body := (b.instantiate1 x).consumeMData
+            if body.isAppOfArity ``And 2 && isPosConstraint body.appFn!.appArg! x then
+              recordSite { ctx with scope := ctx.scope.push x, atom := none } .litNat x
+                (mkConst ``False) (mkConst ``True)
+      visit args[1]! { ctx with atom := none }
     | some ``ite, 5 =>
       let c := args[1]!
       visit c { ctx with pos := false, inStmt := false }
@@ -377,6 +442,13 @@ partial def visit (e : Expr) (ctx : Ctx) : DetectM Unit := do
         if ← isProp e then ctx := { ctx with atom := some e }
       let keep ← checkPatterns e ctx
       let tctx := { ctx with inStmt := false }
+      -- Local (project) definitions applied here: also check their body, instantiated.
+      if ctx.unfoldLeft > 0 then
+        if let some c := fn.constName? then
+          if (← getEnv).find? c |>.any (·.isDefinition) then
+            if ← isLocalDef c then
+              if let some e' ← (try unfoldDefinition? e catch _ => pure none) then
+                visit e'.headBeta { ctx with unfoldLeft := ctx.unfoldLeft - 1 }
       match keep with
       | some xs => for x in xs do visit x tctx
       | none =>
@@ -400,7 +472,7 @@ end
 
 /-- Collect trap sites of a statement. -/
 def detect (stmt : Expr) (cfg : DetectCfg) : MetaM (Array TrapSite) := do
-  let ((), sites) ← (visit stmt {}).run cfg |>.run #[]
+  let ((), sites) ← (visit stmt { unfoldLeft := cfg.unfoldDepth }).run cfg |>.run #[]
   return sites
 
 end ConventionTrap

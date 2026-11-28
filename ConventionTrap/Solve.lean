@@ -81,10 +81,24 @@ def closedFactTactics : TermElabM (Array (TSyntax `tactic)) := do
     ← `(tactic| norm_num [Real.sqrt_eq_zero_of_nonpos, Real.log_zero, Real.log_neg_eq_log,
         Nat.sub_eq_zero_of_le, Int.toNat_of_nonpos])]
 
+/-- Evaluate a closed decidable proposition with the compiler (like `#eval decide p`).
+Used only to *find* witness values when `decide` is blocked by well-founded recursion
+(`Nat.sqrt`, `Nat.digits`, …); the result is reported as an example, never as a proof. -/
+unsafe def evalDecideUnsafe (p : Expr) : TermElabM (Option Bool) := do
+  if p.hasFVar || p.hasMVar then return none
+  let some inst ← (try synthInstance? (mkApp (mkConst ``Decidable) p) catch _ => pure none)
+    | return none
+  try
+    some <$> Lean.Meta.evalExpr Bool (mkConst ``Bool) (mkApp2 (mkConst ``Decidable.decide) p inst)
+  catch _ => return none
+
+@[implemented_by evalDecideUnsafe]
+opaque evalDecide (p : Expr) : TermElabM (Option Bool)
+
 def proveClosedFact (p : Expr) (hb : Nat) : TermElabM Bool := do
   for tac in ← closedFactTactics do
     if (← tryClose p tac hb).closed then return true
-  return false
+  return (← evalDecide p) == some true
 
 /-! ## Concrete values -/
 

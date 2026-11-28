@@ -38,6 +38,11 @@ def junkDescription : TrapKind → String
   | .piOrder => "Pi 순서입니다 (모든 i에서 ≤ 이고 어떤 i에서 ≠, 즉 '모든 i에서 <'가 아님)"
   | .finWrap => "n으로 나눈 나머지로 순환합니다"
   | .zmodZero => "ZMod 0 = ℤ 입니다"
+  | .integral => "0입니다 (적분 불가능한 함수의 적분은 0)"
+  | .tsum => "0입니다 (Summable이 아니면 ∑' = 0; Summable은 무조건(절대) 수렴)"
+  | .guardScope => "가드가 ↔ 한쪽 안에만 있습니다: 가드가 거짓이면 그쪽이 자명하게 참이 되어 반대쪽도 참이어야 합니다"
+  | .litNat => "ℕ입니다 (타입을 적지 않은 상수가 ℕ로 추론되었을 수 있습니다; ℝ 상수를 의도했나요?)"
+  | .trivialProof => ""
 
 def assignStr (σ : Array (Name × Candidate)) : String :=
   ", ".intercalate (σ.toList.map fun (n, c) => s!"{n} = {c.display}")
@@ -60,7 +65,10 @@ def analyzeSite (decl : Name) (site : TrapSite) (cfg : TrapConfig) (budgetLeft :
     conditionPP := some site.condPP, message := "", head := site.head,
     suggestedHyps := if site.suggestable then #[site.condPP] else #[],
     suggestVars := site.condVars }
-  let head := s!"[{site.kind}] {site.exprPP} : {site.typePP} 는 {site.violPP}일 때 {junkDescription site.kind}"
+  let head := match site.kind with
+    | .guardScope => s!"[guardScope] {site.exprPP}: {junkDescription site.kind}"
+    | .litNat => s!"[litNat] {site.exprPP} : {site.typePP} 는 {junkDescription site.kind}"
+    | _ => s!"[{site.kind}] {site.exprPP} : {site.typePP} 는 {site.violPP}일 때 {junkDescription site.kind}"
   if !budgetLeft then
     return some { base with
       timeout := true, message := s!"{head}. 선언당 시간 예산을 넘어 {site.condPP}를 증명하지 않았습니다." }
@@ -97,10 +105,40 @@ def analyzeSite (decl : Name) (site : TrapSite) (cfg : TrapConfig) (budgetLeft :
   return some { base with
     verdict := .unknown, severity := sev, message := s!"{head}. 가정에서 {site.condPP}를 증명하지 못했습니다 (반례 값도 찾지 못함).\n  {triedStr}" }
 
+/-- Randomized refutation with Plausible (CI mode, after the small-value enumeration failed).
+Returns the counterexample lines (`x := v`). -/
+def plausibleRefute (stmt : Expr) (cfg : TrapConfig) : TermElabM (Option (Array String)) := do
+  let saved ← saveState
+  let msgs := (← getThe Core.State).messages
+  let tac ← `(tactic| plausible)
+  let res ← tryCatchRuntimeEx
+    (do
+      let mvar ← mkFreshExprMVar stmt
+      discard <| withTheReader Core.Context (fun c => { c with maxHeartbeats := cfg.heartbeats * 5000 }) <|
+        withCurrHeartbeats <| Tactic.run mvar.mvarId! (Tactic.evalTactic tac)
+      pure none)
+    (fun ex => do
+      let m ← ex.toMessageData.toString
+      if (m.splitOn "counter-example").length > 1 then
+        let lines := (m.splitOn "\n").filter (fun l => (l.splitOn " := ").length > 1)
+        pure (some (lines.toArray.map (·.trimAscii.toString)))
+      else pure none)
+  saved.restore (restoreInfo := true)
+  modifyThe Core.State fun s => { s with messages := msgs }
+  return res
+
 /-- Whole-statement refutation (natZero / falseStatement). -/
 def refute (decl : Name) (stmt : Expr) (cfg : TrapConfig) : TermElabM (Option Finding) := do
   unless cfg.enabled .natZero do return none
-  let some σ ← findAssignment stmt (searchCfg cfg false) | return none
+  let some σ ← findAssignment stmt (searchCfg cfg false) | do
+    unless cfg.mode == .ci do return none
+    let some lines ← plausibleRefute stmt cfg | return none
+    let ce := ", ".intercalate lines.toList
+    return some {
+      decl, kind := .falseStatement, severity := .error, verdict := .false_, exprPP := ← ppStr stmt,
+      counterexample := lines.map fun l => match l.splitOn " := " with
+        | [a, b] => (a, b) | _ => ("?", l),
+      message := s!"[falseStatement] 명제가 거짓입니다 (Plausible 무작위 검사): {ce} 에서 결론이 거짓입니다." }
   let zeros := σ.filter fun (_, c) => c.isZero
   let kind := if zeros.isEmpty then TrapKind.falseStatement else .natZero
   let zeroHyps := ", ".intercalate (zeros.toList.map fun (n, _) => s!"0 < {n}")
@@ -149,6 +187,35 @@ def trivialWitness (decl : Name) (stmt : Expr) (cfg : TrapConfig) : TermElabM (O
         message := s!"[trivialWitness] 존재 명제가 자명한 증인 {w}로 바로 증명됩니다. 0·∅·1 같은 퇴화된 경우를 의도에서 빼야 하지 않나요?" }
   return none
 
+/-- An unproved claim whose hypotheses are already contradictory is vacuous: it says nothing.
+(A junk value or a wrong bound in a hypothesis often causes this.) Checked by closing
+`∀ xs, hyps → False` with one automatic tactic. -/
+def trivialProof (decl : Name) (stmt : Expr) (cfg : TrapConfig) : TermElabM (Option Finding) := do
+  unless cfg.enabled .trivialProof do return none
+  let vac? ← forallTelescope stmt fun xs _ => do
+    let mut hs := #[]
+    for x in xs do
+      if ← isProp (← inferType x) then hs := hs.push x
+    if hs.isEmpty then return none
+    -- drop the conclusion, keep binders up to the last hypothesis
+    let last := xs.findIdx? (· == hs.back!) |>.getD 0
+    let pre := xs.extract 0 (last + 1)
+    return some (← mkForallFVars pre (mkConst ``False))
+  let some vac := vac? | return none
+  if vac.hasLooseBVars then return none
+  let tacs : Array (String × TSyntax `tactic) := #[
+    ("omega", ← `(tactic| (intros; omega))),
+    ("simp_all", ← `(tactic| (intros; simp_all; done))),
+    ("linarith", ← `(tactic| (intros; linarith))),
+    ("norm_num", ← `(tactic| (intros; norm_num at *; done)))]
+  for (name, tac) in tacs do
+    if (← tryClose vac tac cfg.heartbeats).closed then
+      return some {
+        decl, kind := .trivialProof, severity := .warning, verdict := .reachable,
+        exprPP := ← ppStr stmt, counterexample := #[("tactic", name)],
+        message := s!"[trivialProof] 가정끼리 모순입니다 (`{name}`로 False가 증명됨). 명제가 공허하게 참이 됩니다. 가정의 범위나 관례값을 확인하세요." }
+  return none
+
 def analyzeStatement (decl : Name) (stmt : Expr) (tryRefute : Bool) (cfg : TrapConfig)
     (isClaim : Bool := true) : TermElabM AnalysisResult := do
   let sites ← detect stmt {
@@ -183,6 +250,9 @@ def analyzeStatement (decl : Name) (stmt : Expr) (tryRefute : Bool) (cfg : TrapC
   if tryRefute then
     if let some f ← refute decl stmt cfg then
       res := { res with findings := #[f] ++ res.findings }
+    else if isClaim then
+      if let some f ← trivialProof decl stmt cfg then
+        res := { res with findings := #[f] ++ res.findings }
   if isClaim then
     if let some f ← trivialWitness decl stmt cfg then
       res := { res with findings := #[f] ++ res.findings }

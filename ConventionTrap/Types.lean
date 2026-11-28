@@ -14,6 +14,7 @@ inductive TrapKind where
   | natSub | natSubHyp | div | intDiv | modZero | intDivNeg | realDomain | rpow
   | castSub | natZero | intToNat | expTrunc | falseStatement | trivialWitness
   | sSupInf | card | diam | deriv | piOrder | finWrap | zmodZero
+  | integral | tsum | guardScope | litNat | trivialProof
   deriving Inhabited, BEq, DecidableEq, Repr, Hashable, Ord
 
 namespace TrapKind
@@ -21,7 +22,8 @@ namespace TrapKind
 def all : Array TrapKind :=
   #[natSub, natSubHyp, div, intDiv, modZero, intDivNeg, realDomain, rpow, castSub, natZero,
     intToNat, expTrunc, falseStatement, trivialWitness,
-    sSupInf, card, diam, deriv, piOrder, finWrap, zmodZero]
+    sSupInf, card, diam, deriv, piOrder, finWrap, zmodZero,
+    integral, tsum, guardScope, litNat, trivialProof]
 
 def toString : TrapKind → String
   | natSub => "natSub" | natSubHyp => "natSubHyp" | div => "div" | intDiv => "intDiv"
@@ -31,6 +33,8 @@ def toString : TrapKind → String
   | trivialWitness => "trivialWitness"
   | sSupInf => "sSupInf" | card => "card" | diam => "diam" | deriv => "deriv"
   | piOrder => "piOrder" | finWrap => "finWrap" | zmodZero => "zmodZero"
+  | integral => "integral" | tsum => "tsum" | guardScope => "guardScope" | litNat => "litNat"
+  | trivialProof => "trivialProof"
 
 instance : ToString TrapKind := ⟨TrapKind.toString⟩
 
@@ -41,15 +45,15 @@ def optionName : TrapKind → Name
   | natSubHyp | expTrunc => `linter.conventionTrap.natSub
   | modZero | intDivNeg => `linter.conventionTrap.intDiv
   | rpow | intToNat => `linter.conventionTrap.realDomain
-  | falseStatement | trivialWitness => `linter.conventionTrap.natZero
-  | sSupInf | card | diam | deriv => `linter.conventionTrap.junkFun
-  | piOrder | finWrap | zmodZero => `linter.conventionTrap.leanOps
+  | falseStatement | trivialWitness | trivialProof => `linter.conventionTrap.natZero
+  | sSupInf | card | diam | deriv | integral | tsum => `linter.conventionTrap.junkFun
+  | piOrder | finWrap | zmodZero | guardScope | litNat => `linter.conventionTrap.leanOps
   | k => `linter.conventionTrap ++ Name.mkSimple k.toString
 
 /-- Kinds whose variables are sets/functions: no concrete witness can be built, so an unproved
 condition that is not benign is reported as a warning directly. -/
 def isStructural : TrapKind → Bool
-  | sSupInf | card | diam | deriv | piOrder | finWrap => true
+  | sSupInf | card | diam | deriv | piOrder | finWrap | integral | tsum | litNat => true
   | _ => false
 
 /-- Is this kind decided only by refutation (no syntactic site)? -/
