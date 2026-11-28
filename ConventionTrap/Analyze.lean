@@ -108,6 +108,7 @@ def analyzeSite (decl : Name) (site : TrapSite) (cfg : TrapConfig) (budgetLeft :
 /-- Randomized refutation with Plausible (CI mode, after the small-value enumeration failed).
 Returns the counterexample lines (`x := v`). -/
 def plausibleRefute (stmt : Expr) (cfg : TrapConfig) : TermElabM (Option (Array String)) := do
+  if hasExplosiveOp stmt then return none
   let saved ← saveState
   let msgs := (← getThe Core.State).messages
   let tac ← `(tactic| plausible)
